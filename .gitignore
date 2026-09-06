@@ -11,6 +11,7 @@
 .nfs*
 *.root
 *.xpm
+bcmcurrent*.param
 
 # Directories
 RAID
