@@ -32,7 +32,7 @@ if [[ $(type -t module) != function && -r "$modules" ]]; then
   source "$modules"
 fi
 module use /group/halla/modulefiles
-module load analyzer/1.7.12
+module load root/PRO
 
 mkdir -p "$(dirname "$output_csv")"
-analyzer -b -q "$script_dir/check_scaler_event_batch.C(\"$phase\",\"$run_list\",\"$root_dir\",\"$output_csv\",$start_row,$batch_size,10)"
+root -l -b -q "$script_dir/check_scaler_event_batch.C(\"$phase\",\"$run_list\",\"$root_dir\",\"$output_csv\",$start_row,$batch_size,10)"

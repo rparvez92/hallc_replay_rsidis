@@ -25,7 +25,8 @@ python3 AUX_FILES/util/scaler_event_check/generate_runlists.py --check
 ## Foreground test
 
 The arguments after the phase are the zero-based starting row, number of runs,
-and output fragment. Choose ranges that cover the desired replay modes.
+and output fragment. Choose ranges that cover the desired replay modes. The
+worker loads `root/PRO`; no analyzer or hcana module is required.
 
 ```bash
 AUX_FILES/util/scaler_event_check/run_batch.sh phase1 0 3 /tmp/phase1_scaler_test.csv
