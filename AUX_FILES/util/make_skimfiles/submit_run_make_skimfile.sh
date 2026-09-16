@@ -20,7 +20,7 @@
 SCRIPT_DIR=/u/group/c-rsidis/pdbforce/analysis/hallc_replay_rsidis/AUX_FILES/util/make_skimfiles
 
 runlist=$1        # run list (single column txt file w/ run numbers to analyze)
-runtype=$2        # run type : SIDIS / HEEP / HMSDIS / SHMSDIS
+runtype=$2        # run type : SIDIS / HMSHEEP / SHMSHEEP / HMSDIS / SHMSDIS
 indir=$3          # input directory (directory with R-SIDIS hcana ROOT files)
 run_on_ifarm=$4   # want to run on ifarm instead of batch farm? 1 => yes
 
@@ -98,7 +98,8 @@ if [[ $run_on_ifarm -ne 1 ]]; then
 fi
 
 # Example execution
-#./submit_run_make_skimfile.sh heep_runlist_pass0.txt HEEP /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
+# Use HMSHEEP when the electron is in HMS, or SHMSHEEP when it is in SHMS.
+#./submit_run_make_skimfile.sh heep_runlist_pass0.txt SHMSHEEP /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
 #./submit_run_make_skimfile.sh hms_runlist_pass0.txt HMSDIS /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
 #./submit_run_make_skimfile.sh shms_runlist_pass0.txt SHMSDIS /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
 #./submit_run_make_skimfile.sh sidis_runlist_pass0.txt SIDIS /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0

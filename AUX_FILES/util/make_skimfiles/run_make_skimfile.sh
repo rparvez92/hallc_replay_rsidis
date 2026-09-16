@@ -20,7 +20,7 @@
 
 # list of arguments
 run=$1            # run number
-runtype=$2        # run type : SIDIS / HEEP / HMSDIS / SHMSDIS
+runtype=$2        # run type : SIDIS / HMSHEEP / SHMSHEEP / HMSDIS / SHMSDIS
 indir=$3          # input directory
 outdir=$4         # output directory
 run_on_ifarm=$5   # want to run on ifarm instead of batch farm? 1 => yes
