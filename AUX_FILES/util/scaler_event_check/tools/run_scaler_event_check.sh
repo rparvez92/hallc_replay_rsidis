@@ -12,7 +12,8 @@ root_dir=$3
 output_csv=$4
 flagged_csv=${5:-}
 threshold=${6:-10}
-script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+tools_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+scaler_dir=$(dirname "$tools_dir")
 
 if [[ ! -r "$run_list" ]]; then
   echo "Cannot read run list: $run_list" >&2
@@ -39,7 +40,7 @@ if ! command -v root >/dev/null 2>&1; then
 fi
 
 mkdir -p "$(dirname "$output_csv")"
-root -l -b -q "$script_dir/check_scaler_event_batch.C(\"$label\",\"$run_list\",\"$root_dir\",\"$output_csv\",0,$run_count,$threshold)"
+root -l -b -q "$scaler_dir/macros/check_scaler_event_batch.C(\"$label\",\"$run_list\",\"$root_dir\",\"$output_csv\",0,$run_count,$threshold)"
 
 actual_count=$(( $(wc -l < "$output_csv") - 1 ))
 if (( actual_count != run_count )); then
