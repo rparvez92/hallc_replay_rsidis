@@ -30,5 +30,6 @@ hcana
 
 .vscode/
 
-# Scaler event check Python cache
-AUX_FILES/util/scaler_event_check/tools/__pycache__/
+# Python bytecode caches
+__pycache__/
+*.py[cod]
