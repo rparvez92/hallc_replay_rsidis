@@ -23,6 +23,7 @@ runlist=$1        # run list (single column txt file w/ run numbers to analyze)
 runtype=$2        # run type : SIDIS / HMSHEEP / SHMSHEEP / HMSDIS / SHMSDIS
 indir=$3          # input directory (directory with R-SIDIS hcana ROOT files)
 run_on_ifarm=$4   # want to run on ifarm instead of batch farm? 1 => yes
+reportdir=${5:-$indir} # report directory; defaults to input ROOT directory
 
 workflowname="rsidis_skim_${runtype}"
 outdirpath=""     # output directory (destination for the generated skim files)
@@ -33,9 +34,9 @@ jtime='1h'       # per-job requested walltime
 jdisk='5GB'      # per-job requested disk space (very important to specify)
 
 # Sanity check 1: Validating the number of arguments provided
-if [[ "$#" -ne 4 ]]; then
+if [[ "$#" -lt 4 || "$#" -gt 5 ]]; then
     echo -e "\n--!--\n Illegal number of arguments!!"
-    echo -e " This script expects 4 arguments: <runlist> <runtype> <indir> <run_on_ifarm>\n"
+    echo -e " This script expects: <runlist> <runtype> <indir> <run_on_ifarm> [reportdir]\n"
     exit;
 else 
     echo -e '\n------'
@@ -73,7 +74,7 @@ while read run; do
     # Define the base script path
     script_path=$SCRIPT_DIR'/run_make_skimfile.sh'
     # Define the arguments
-    args="${run} ${runtype} ${indir} ${outdirpath} ${run_on_ifarm} ${SCRIPT_DIR}"
+    args="${run} ${runtype} ${indir} ${outdirpath} ${run_on_ifarm} ${SCRIPT_DIR} ${reportdir}"
     
     if [[ $run_on_ifarm -ne 1 ]]; then
         swif2 add-job \
