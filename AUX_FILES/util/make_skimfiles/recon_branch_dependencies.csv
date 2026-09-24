@@ -35,4 +35,4 @@ z_recon,SIDIS,"P_gtr_p_recon,H_kin_primary_nu_recon",make_skimmed_rootfile.C
 pt_recon,SIDIS,"P_gtr_p_recon,P_kin_secondary_th_xq_recon",make_skimmed_rootfile.C
 ptx_recon,SIDIS,"pt_recon,P_kin_secondary_ph_xq_recon",make_skimmed_rootfile.C
 pty_recon,SIDIS,"pt_recon,P_kin_secondary_ph_xq_recon",make_skimmed_rootfile.C
-mmass_recon,SIDIS,"reconstructed HMS and SHMS lab vectors,beam momentum",make_skimmed_rootfile.C
+mmass_recon,SIDIS,"reconstructed HMS and SHMS lab vectors,HCANA q anchor",make_skimmed_rootfile.C

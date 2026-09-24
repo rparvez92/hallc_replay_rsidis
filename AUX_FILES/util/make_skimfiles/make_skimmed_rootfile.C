@@ -27,6 +27,17 @@ const double H_GTR_TH_OFFSET = 0.0;
 const double P_GTR_P_OFFSET = 0.0;
 const double P_GTR_TH_OFFSET = 0.0;
 
+// Temporary replay-geometry constants. These reproduce the values presently
+// loaded by HCANA from PARAM/HMS/GEN/hmsflags.param and
+// PARAM/SHMS/GEN/shmsflags.param. Revisit them whenever the replay parameters
+// change. HCANA defaults the absent phi_lab parameters to zero.
+const double HMS_PHI_LAB_DEG = 0.0;
+const double SHMS_PHI_LAB_DEG = 0.0;
+const double HMS_PHI_OFFSET_RAD = 2.85e-3;
+const double SHMS_PHI_OFFSET_RAD = -8.681269905e-4;
+const double HMS_OOPCENTRAL_OFFSET_RAD = 0.0;
+const double SHMS_OOPCENTRAL_OFFSET_RAD = 0.0;
+
 struct ReplayParameters
 {
   double beamMomentum = 0.0;
@@ -60,6 +71,7 @@ struct SecondaryKinematics
   double emiss = 0.0;
 };
 
+// Remove leading and trailing whitespace from report tokens and lines.
 std::string trim(const std::string &text)
 {
   const auto first = text.find_first_not_of(" \t\r\n");
@@ -69,129 +81,96 @@ std::string trim(const std::string &text)
   return text.substr(first, last - first + 1);
 }
 
-bool run_matches(const std::string &selector, int run)
+// Normalize a report label so harmless capitalization and whitespace changes
+// do not affect lookup.
+std::string normalize_label(const std::string &text)
 {
-  std::stringstream ranges(selector);
-  std::string range;
-  while (std::getline(ranges, range, ','))
+  std::string result;
+  bool pendingSpace = false;
+  for (unsigned char character : trim(text))
   {
-    range = trim(range);
-    if (range.empty())
+    if (std::isspace(character))
+    {
+      pendingSpace = !result.empty();
       continue;
-    const auto dash = range.find('-');
-    try
-    {
-      if (dash == std::string::npos)
-      {
-        if (run == std::stoi(range))
-          return true;
-      }
-      else
-      {
-        const int low = std::stoi(trim(range.substr(0, dash)));
-        const int high = std::stoi(trim(range.substr(dash + 1)));
-        if (run >= low && run <= high)
-          return true;
-      }
     }
-    catch (const std::exception &)
-    {
-      return false;
-    }
+    if (pendingSpace)
+      result.push_back(' ');
+    pendingSpace = false;
+    result.push_back(static_cast<char>(std::tolower(character)));
   }
-  return false;
+  return result;
 }
 
-void load_parameter_file(const std::string &filename, int run,
-                         const std::string &repoRoot,
-                         std::map<std::string, std::string> &values,
-                         int depth = 0)
+// Read every numeric "label: value" field in a replay report. Duplicate
+// labels are accepted only when their numeric values agree.
+std::map<std::string, double> read_report_values(const std::string &filename)
 {
-  if (depth > 30)
-    throw std::runtime_error("Parameter include depth exceeded while reading " + filename);
-
   std::ifstream input(filename);
   if (!input)
-    throw std::runtime_error("Cannot open HCANA parameter file: " + filename);
+    throw std::runtime_error("Cannot open replay report: " + filename);
 
-  bool active = true;
-  bool collectingRanges = false;
-  bool pendingMatch = false;
+  std::map<std::string, double> values;
+  const std::vector<std::string> wantedLabels = {
+      "run #", "beam energy", "target mass (amu)",
+      "hms particle mass", "hms angle", "hms angle offset (rad)", "hms angle true",
+      "shms particle mass", "shms angle", "shms angle offset (rad)", "shms angle true"};
   std::string line;
   while (std::getline(input, line))
   {
-    line = trim(line);
-    if (line.empty() || line[0] == ';')
+    const auto colon = line.find(':');
+    if (colon == std::string::npos)
       continue;
-
-    if (line.rfind("#include", 0) == 0)
+    const std::string label = normalize_label(line.substr(0, colon));
+    if (std::find(wantedLabels.begin(), wantedLabels.end(), label) == wantedLabels.end())
+      continue;
+    const std::string valueText = trim(line.substr(colon + 1));
+    if (label.empty() || valueText.empty())
+      continue;
+    try
     {
-      if (!active)
-        continue;
-      const auto firstQuote = line.find('"');
-      const auto lastQuote = line.find_last_of('"');
-      if (firstQuote != std::string::npos && lastQuote > firstQuote)
+      std::size_t consumed = 0;
+      const double value = std::stod(valueText, &consumed);
+      const auto existing = values.find(label);
+      if (existing != values.end() && std::abs(existing->second - value) > 1.0e-12)
       {
-        const std::string relative = line.substr(firstQuote + 1, lastQuote - firstQuote - 1);
-        load_parameter_file(repoRoot + "/" + relative, run, repoRoot, values, depth + 1);
+        throw std::runtime_error("Conflicting values for report label '" + label + "'");
       }
-      continue;
+      values[label] = value;
     }
-
-    const auto comment = line.find('#');
-    if (comment != std::string::npos)
-      line = trim(line.substr(0, comment));
-    if (line.empty())
-      continue;
-
-    if (std::isdigit(static_cast<unsigned char>(line[0])) && line.find('=') == std::string::npos)
+    catch (const std::invalid_argument &)
     {
-      pendingMatch = (collectingRanges ? pendingMatch : false) || run_matches(line, run);
-      collectingRanges = line.back() == ',';
-      if (!collectingRanges)
-      {
-        active = pendingMatch;
-        pendingMatch = false;
-      }
-      continue;
+      // Most colon-delimited report lines contain text rather than a number.
     }
-
-    if (!active)
-      continue;
-    const auto equals = line.find('=');
-    if (equals == std::string::npos)
-      continue;
-    std::string key = trim(line.substr(0, equals));
-    std::string value = trim(line.substr(equals + 1));
-    const auto semicolon = value.find(';');
-    if (semicolon != std::string::npos)
-      value = trim(value.substr(0, semicolon));
-    if (value.size() >= 2 && value.front() == '"' && value.back() == '"')
-      value = value.substr(1, value.size() - 2);
-    values[key] = value;
   }
+  return values;
 }
 
-double get_number(const std::map<std::string, std::string> &values,
-                  const std::string &key, double fallback, bool required = false)
+// Return a required numeric report field.
+double required_report_value(const std::map<std::string, double> &values,
+                             const std::string &label)
 {
-  const auto found = values.find(key);
+  const auto found = values.find(normalize_label(label));
   if (found == values.end())
-  {
-    if (required)
-      throw std::runtime_error("Required HCANA parameter is missing: " + key);
-    return fallback;
-  }
-  try
-  {
-    return std::stod(found->second);
-  }
-  catch (const std::exception &)
-  {
-    throw std::runtime_error("HCANA parameter is not numeric: " + key + " = " + found->second);
-  }
+    throw std::runtime_error("Required replay-report label is missing: " + label);
+  return found->second;
 }
 
+// Prefer the report's true central angle. If it is absent, reconstruct it
+// from the labeled nominal angle and optional radian correction.
+double report_arm_angle(const std::map<std::string, double> &values,
+                        const std::string &arm)
+{
+  const auto trueAngle = values.find(normalize_label(arm + " Angle True"));
+  if (trueAngle != values.end())
+    return trueAngle->second;
+  const double nominal = required_report_value(values, arm + " Angle");
+  const auto offset = values.find(normalize_label(arm + " Angle Offset (rad)"));
+  return nominal + (offset == values.end() ? 0.0 : offset->second * TMath::RadToDeg());
+}
+
+// Build the HCANA spectrometer transport-to-lab rotation from the central
+// in-plane and out-of-plane geographic angles, supplied in degrees.
 TRotation make_to_lab_rotation(double thetaGeoDeg, double phiGeoDeg)
 {
   const double thGeo = thetaGeoDeg * TMath::DegToRad();
@@ -212,45 +191,42 @@ TRotation make_to_lab_rotation(double thetaGeoDeg, double phiGeoDeg)
   return rotation;
 }
 
-ReplayParameters load_replay_parameters(int run)
+// Load immutable replay-time parameters from the labeled report fields and
+// combine them with the temporary fixed phi/OOP geometry constants.
+ReplayParameters load_replay_parameters(const std::string &reportFile, int run,
+                                        const std::string &runtype)
 {
-  std::string macroPath = gSystem->UnixPathName(__FILE__);
-  std::string repoRoot = gSystem->DirName(macroPath.c_str());
-  for (int i = 0; i < 3; ++i)
-    repoRoot = gSystem->DirName(repoRoot.c_str());
-
-  std::map<std::string, std::string> values;
-  const std::string database = repoRoot + "/DBASE/COIN/standard.database";
-  load_parameter_file(database, run, repoRoot, values);
-
-  const auto general = values.find("g_ctp_parm_filename");
-  const auto kinematics = values.find("g_ctp_kinematics_filename");
-  if (general == values.end() || kinematics == values.end())
-    throw std::runtime_error("Run is not covered by DBASE/COIN/standard.database");
-  load_parameter_file(repoRoot + "/" + general->second, run, repoRoot, values);
-  load_parameter_file(repoRoot + "/" + kinematics->second, run, repoRoot, values);
+  const auto values = read_report_values(reportFile);
+  const int reportedRun = static_cast<int>(std::llround(required_report_value(values, "Run #")));
+  if (reportedRun != run)
+    throw std::runtime_error("Report run " + std::to_string(reportedRun) +
+                             " does not match requested run " + std::to_string(run));
 
   ReplayParameters result;
-  result.beamMomentum = get_number(values, "gpbeam", 0.0, true);
-  result.targetMass = get_number(values, "gtargmass_amu", 0.0, true) * 0.9315;
-  result.hPartMass = get_number(values, "hpartmass", Me);
-  result.pPartMass = get_number(values, "ppartmass", Me);
-  result.hOopOffset = get_number(values, "h_oopcentral_offset", 0.0);
-  result.pOopOffset = get_number(values, "p_oopcentral_offset", 0.0);
+  result.beamMomentum = required_report_value(values, "Beam energy");
+  result.targetMass = required_report_value(values, "Target mass (amu)") * 0.9315;
+  result.hOopOffset = HMS_OOPCENTRAL_OFFSET_RAD;
+  result.pOopOffset = SHMS_OOPCENTRAL_OFFSET_RAD;
 
-  double hTheta = get_number(values, "htheta_lab", 0.0, true);
-  double pTheta = get_number(values, "ptheta_lab", 0.0, true);
-  hTheta += get_number(values, "hthetacentral_offset", 0.0) * TMath::RadToDeg();
-  pTheta += get_number(values, "pthetacentral_offset", 0.0) * TMath::RadToDeg();
-  const double hPhi = get_number(values, "hphi_lab", 0.0) +
-                      get_number(values, "hphi_offset", 0.0) * TMath::RadToDeg();
-  const double pPhi = get_number(values, "pphi_lab", 0.0) +
-                      get_number(values, "pphi_offset", 0.0) * TMath::RadToDeg();
-  result.hToLab = make_to_lab_rotation(hTheta, hPhi);
-  result.pToLab = make_to_lab_rotation(pTheta, pPhi);
+  const bool hasHMS = runtype != "SHMSDIS";
+  const bool hasSHMS = runtype != "HMSDIS";
+  if (hasHMS)
+  {
+    result.hPartMass = required_report_value(values, "HMS Particle Mass");
+    const double hPhi = HMS_PHI_LAB_DEG + HMS_PHI_OFFSET_RAD * TMath::RadToDeg();
+    result.hToLab = make_to_lab_rotation(report_arm_angle(values, "HMS"), hPhi);
+  }
+  if (hasSHMS)
+  {
+    result.pPartMass = required_report_value(values, "SHMS Particle Mass");
+    const double pPhi = SHMS_PHI_LAB_DEG + SHMS_PHI_OFFSET_RAD * TMath::RadToDeg();
+    result.pToLab = make_to_lab_rotation(report_arm_angle(values, "SHMS"), pPhi);
+  }
   return result;
 }
 
+// Convert transport coordinates (p, theta, phi) into a lab-frame momentum
+// using the same slope convention and rotation as HCANA.
 TVector3 transport_to_lab(double p, double th, double ph,
                           double oopOffset, const TRotation &rotation)
 {
@@ -259,6 +235,8 @@ TVector3 transport_to_lab(double p, double th, double ph,
   return rotation * vector;
 }
 
+// Anchor a corrected track to HCANA's saved lab momentum and add only the lab
+// change produced by the reconstructed p and theta values.
 TVector3 adjusted_lab_momentum(double pRecon, double thRecon,
                                double pOriginal, double thOriginal, double phOriginal,
                                double pxOriginal, double pyOriginal, double pzOriginal,
@@ -275,6 +253,8 @@ TVector3 adjusted_lab_momentum(double pRecon, double thRecon,
   return originalLab + reconFromTransport - originalFromTransport;
 }
 
+// Update HCANA's saved virtual-photon four-vector by the change in the primary
+// track, then derive the reconstructed DIS quantities from the updated q.
 PrimaryKinematics calculate_primary(const TVector3 &scatteredMomentum,
                                     const TVector3 &originalScatteredMomentum,
                                     double originalQx, double originalQy,
@@ -300,6 +280,8 @@ PrimaryKinematics calculate_primary(const TVector3 &scatteredMomentum,
   return result;
 }
 
+// Reproduce the required THcSecondaryKine quantities from reconstructed
+// primary kinematics and the detected secondary-particle lab momentum.
 SecondaryKinematics calculate_secondary(const PrimaryKinematics &primary,
                                         const TVector3 &secondaryMomentum,
                                         double secondaryMass)
@@ -386,9 +368,9 @@ std::vector<std::string> shmsHeepVars = {
 //   "ibcm1", "ibcm2"
 // };
 
+// Assemble the snapshot branch list appropriate to the requested run type.
 std::vector<std::string> get_varnames(const std::string &runtype)
 {
-  // Returns a vector of variable names based on the run type
   auto concat = [](std::vector<std::string> base,
                    const std::vector<std::string> &add)
   {
@@ -440,9 +422,10 @@ std::vector<std::string> get_varnames(const std::string &runtype)
   }
 }
 
+// Return the existing loose analysis cut expression for each supported run
+// type; reconstructed branches deliberately do not alter event selection.
 std::string get_anacuts(std::string runtype)
 {
-  // Returns loose Analysis cuts based on the run type
   std::string hmscuts_gen = "H.gtr.index>-1 && abs(H.gtr.dp)<12. ";
   std::string hmscuts_pid = "H.cer.npeSum>1"; // HMS PID cut for electrons
   std::string hmscuts = hmscuts_gen + " && " + hmscuts_pid;
@@ -473,7 +456,7 @@ std::string get_anacuts(std::string runtype)
   }
 }
 
-// Function to add an item to a vector if it's not already present
+// Add a generated branch to an output list without creating duplicates.
 auto add_if_missing = [](std::vector<std::string> &vec, const std::string &item)
 {
   if (std::find(vec.begin(), vec.end(), item) == vec.end())
@@ -482,6 +465,7 @@ auto add_if_missing = [](std::vector<std::string> &vec, const std::string &item)
   }
 };
 
+// Report peak resident memory on Linux for farm-job resource monitoring.
 void log_peak_memory()
 {
   std::ifstream status_file("/proc/self/status");
@@ -502,36 +486,13 @@ void log_peak_memory()
   // grep "\[MEMORY\]" *.out | sort -nk4
 }
 
-double get_beam_energy_for_this_run(int run)
-{
-  std::map<std::pair<int, int>, double> runrange_to_energy = {
-      {{23834, 24874}, 8.5831},
-      {{24875, 25603}, 10.6716},
-      // Phase II: use the beam energies recorded by the replay/bigtable.
-      // The first period was replayed at 6.449 GeV even though the run list
-      // records the later nominal setting of 6.4724 GeV.
-      {{27106, 27754}, 6.4490},
-      {{27756, 28106}, 8.5814},
-      {{28108, 28471}, 10.6759}};
-
-  // Iterate to find if 'run' is between the first and second of any pair
-  for (auto const &[range, energy] : runrange_to_energy)
-  {
-    if (run >= range.first && run <= range.second)
-    {
-      return energy;
-    }
-  }
-  // for invalid run numbers
-  std::cerr << "WARNING: Run number " << run << " not found in energy map!\n";
-  std::cerr << "Missing mass calculation will be inaccurate!\n";
-  return -999.0; // Return an unphysical energy to flag the issue
-}
-
+// Build one skim: validate its run type, apply the original loose cuts, define
+// reconstructed branches, and snapshot the selected original and new columns.
 void make_skimmed_rootfile(int run,             // run number to process
                            std::string runtype, // SIDIS, HMSHEEP, SHMSHEEP, SHMSDIS, HMSDIS
                            std::string indir,   // input directory containing replayed root files
-                           std::string outdir   // output directory to save skimmed root files
+                           std::string outdir,  // output directory to save skimmed root files
+                           std::string reportdir = "" // replay-report directory; defaults to indir
 )
 {
   const std::vector<std::string> validRuntypes = {
@@ -557,10 +518,24 @@ void make_skimmed_rootfile(int run,             // run number to process
   }
   std::string inrootfile = Form("%s/%s", indir.c_str(), rfilename.c_str());
 
+  if (reportdir.empty())
+    reportdir = indir;
+  std::string reportFilename = Form("replay_coin_production_%d_-1.report", run);
+  if (runtype == "SHMSDIS")
+    reportFilename = Form("replay_shms_coin_production_%d_-1.report", run);
+  else if (runtype == "HMSDIS")
+    reportFilename = Form("replay_hms_coin_production_%d_-1.report", run);
+  const std::string reportFile = Form("%s/%s", reportdir.c_str(), reportFilename.c_str());
+
   // Check if input root file exists
   if (gSystem->AccessPathName(inrootfile.c_str()))
   {
     std::cerr << "Input root file does not exist: " << inrootfile << std::endl;
+    return;
+  }
+  if (gSystem->AccessPathName(reportFile.c_str()))
+  {
+    std::cerr << "Replay report does not exist: " << reportFile << std::endl;
     return;
   }
 
@@ -573,7 +548,7 @@ void make_skimmed_rootfile(int run,             // run number to process
   ReplayParameters parameters;
   try
   {
-    parameters = load_replay_parameters(run);
+    parameters = load_replay_parameters(reportFile, run, runtype);
   }
   catch (const std::exception &error)
   {
@@ -741,7 +716,7 @@ void make_skimmed_rootfile(int run,             // run number to process
     std::string ptx = pt + "*cos(P.kin.secondary.ph_xq)";
     std::string pty = pt + "*sin(P.kin.secondary.ph_xq)";
     // calculat missing mass using 4-vector arithmetic in a lambda function
-    double Ein = get_beam_energy_for_this_run(run);
+    const double Ein = parameters.beamMomentum;
     auto calc_mm = [Ein](double epx, double epy, double epz, double ep,
                          double ppx, double ppy, double ppz, double pp)
     {
