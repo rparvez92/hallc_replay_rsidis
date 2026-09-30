@@ -3,7 +3,6 @@
 #include <cctype>
 #include <cmath>
 #include <fstream>
-#include <limits>
 #include <map>
 #include <sstream>
 #include <stdexcept>
@@ -19,6 +18,7 @@
 
 const double Mp = 0.938272;
 const double Me = 0.000511;
+const double HCANA_KBIG = 1.0e38;
 
 // Placeholder corrections. Keep these at zero until the HEEP study provides
 // the final arm-dependent values. Momentum is in GeV and angles are in radians.
@@ -40,7 +40,7 @@ const double SHMS_OOPCENTRAL_OFFSET_RAD = 0.0;
 
 struct ReplayParameters
 {
-  double beamMomentum = 0.0;
+  double beamEnergy = 0.0;
   double targetMass = 0.0;
   double hPartMass = 0.0;
   double pPartMass = 0.0;
@@ -69,6 +69,7 @@ struct SecondaryKinematics
   double pmiss_y = 0.0;
   double pmiss_z = 0.0;
   double emiss = 0.0;
+  double mmiss = 0.0;
 };
 
 // Remove leading and trailing whitespace from report tokens and lines.
@@ -113,8 +114,8 @@ std::map<std::string, double> read_report_values(const std::string &filename)
   std::map<std::string, double> values;
   const std::vector<std::string> wantedLabels = {
       "run #", "beam energy", "target mass (amu)",
-      "hms particle mass", "hms angle", "hms angle offset (rad)", "hms angle true",
-      "shms particle mass", "shms angle", "shms angle offset (rad)", "shms angle true"};
+      "hms particle mass", "hms angle",
+      "shms particle mass", "shms angle"};
   std::string line;
   while (std::getline(input, line))
   {
@@ -156,19 +157,6 @@ double required_report_value(const std::map<std::string, double> &values,
   return found->second;
 }
 
-// Prefer the report's true central angle. If it is absent, reconstruct it
-// from the labeled nominal angle and optional radian correction.
-double report_arm_angle(const std::map<std::string, double> &values,
-                        const std::string &arm)
-{
-  const auto trueAngle = values.find(normalize_label(arm + " Angle True"));
-  if (trueAngle != values.end())
-    return trueAngle->second;
-  const double nominal = required_report_value(values, arm + " Angle");
-  const auto offset = values.find(normalize_label(arm + " Angle Offset (rad)"));
-  return nominal + (offset == values.end() ? 0.0 : offset->second * TMath::RadToDeg());
-}
-
 // Build the HCANA spectrometer transport-to-lab rotation from the central
 // in-plane and out-of-plane geographic angles, supplied in degrees.
 TRotation make_to_lab_rotation(double thetaGeoDeg, double phiGeoDeg)
@@ -203,7 +191,7 @@ ReplayParameters load_replay_parameters(const std::string &reportFile, int run,
                              " does not match requested run " + std::to_string(run));
 
   ReplayParameters result;
-  result.beamMomentum = required_report_value(values, "Beam energy");
+  result.beamEnergy = required_report_value(values, "Beam energy");
   result.targetMass = required_report_value(values, "Target mass (amu)") * 0.9315;
   result.hOopOffset = HMS_OOPCENTRAL_OFFSET_RAD;
   result.pOopOffset = SHMS_OOPCENTRAL_OFFSET_RAD;
@@ -214,13 +202,13 @@ ReplayParameters load_replay_parameters(const std::string &reportFile, int run,
   {
     result.hPartMass = required_report_value(values, "HMS Particle Mass");
     const double hPhi = HMS_PHI_LAB_DEG + HMS_PHI_OFFSET_RAD * TMath::RadToDeg();
-    result.hToLab = make_to_lab_rotation(report_arm_angle(values, "HMS"), hPhi);
+    result.hToLab = make_to_lab_rotation(required_report_value(values, "HMS Angle"), hPhi);
   }
   if (hasSHMS)
   {
     result.pPartMass = required_report_value(values, "SHMS Particle Mass");
     const double pPhi = SHMS_PHI_LAB_DEG + SHMS_PHI_OFFSET_RAD * TMath::RadToDeg();
-    result.pToLab = make_to_lab_rotation(report_arm_angle(values, "SHMS"), pPhi);
+    result.pToLab = make_to_lab_rotation(required_report_value(values, "SHMS Angle"), pPhi);
   }
   return result;
 }
@@ -235,48 +223,28 @@ TVector3 transport_to_lab(double p, double th, double ph,
   return rotation * vector;
 }
 
-// Anchor a corrected track to HCANA's saved lab momentum and add only the lab
-// change produced by the reconstructed p and theta values.
-TVector3 adjusted_lab_momentum(double pRecon, double thRecon,
-                               double pOriginal, double thOriginal, double phOriginal,
-                               double pxOriginal, double pyOriginal, double pzOriginal,
-                               double oopOffset, const TRotation &rotation)
-{
-  // Anchor the transformation to the lab vector stored by HCANA. This retains
-  // the exact replay-time geometry at zero correction, while transforming only
-  // the momentum change with HCANA's transport-to-lab convention.
-  const TVector3 originalLab(pxOriginal, pyOriginal, pzOriginal);
-  const TVector3 originalFromTransport =
-      transport_to_lab(pOriginal, thOriginal, phOriginal, oopOffset, rotation);
-  const TVector3 reconFromTransport =
-      transport_to_lab(pRecon, thRecon, phOriginal, oopOffset, rotation);
-  return originalLab + reconFromTransport - originalFromTransport;
-}
-
-// Update HCANA's saved virtual-photon four-vector by the change in the primary
-// track, then derive the reconstructed DIS quantities from the updated q.
+// Build primary electron kinematics from the report beam energy and the
+// reconstructed scattered-electron lab momentum.
 PrimaryKinematics calculate_primary(const TVector3 &scatteredMomentum,
-                                    const TVector3 &originalScatteredMomentum,
-                                    double originalQx, double originalQy,
-                                    double originalQz, double originalOmega,
-                                    double particleMass,
+                                    double beamEnergy,
                                     double targetMass)
 {
+  if (beamEnergy < Me)
+    throw std::runtime_error("Beam energy is smaller than the electron mass");
+
   PrimaryKinematics result;
-  result.scattered.SetVectM(scatteredMomentum, particleMass);
-  TLorentzVector originalScattered;
-  originalScattered.SetVectM(originalScatteredMomentum, particleMass);
-  TLorentzVector originalQ(originalQx, originalQy, originalQz, originalOmega);
-  result.q = originalQ - (result.scattered - originalScattered);
-  result.beam = result.q + result.scattered;
+  const double beamMomentum = std::sqrt(beamEnergy * beamEnergy - Me * Me);
+  result.beam.SetPxPyPzE(0.0, 0.0, beamMomentum, beamEnergy);
+  result.scattered.SetVectM(scatteredMomentum, Me);
   result.target.SetXYZM(0.0, 0.0, 0.0, targetMass);
+  result.q = result.beam - result.scattered;
   result.Q2 = -result.q.M2();
   result.nu = result.q.E();
   TLorentzVector proton;
-  proton.SetXYZM(0.0, 0.0, 0.0, 0.93827);
+  proton.SetXYZM(0.0, 0.0, 0.0, Mp);
   const double W2 = (proton + result.q).M2();
-  result.W = W2 > 0.0 ? std::sqrt(W2) : 1.0e38; // HCANA kBig for unphysical W2
-  result.xbj = result.Q2 / (2.0 * 0.93827 * result.nu);
+  result.W = W2 > 0.0 ? std::sqrt(W2) : HCANA_KBIG;
+  result.xbj = result.Q2 / (2.0 * Mp * result.nu);
   return result;
 }
 
@@ -302,6 +270,7 @@ SecondaryKinematics calculate_secondary(const PrimaryKinematics &primary,
   result.pmiss_y = pmiss.Y();
   result.pmiss_z = pmiss.Z();
   result.emiss = primary.nu + primary.target.M() - detected.E();
+  result.mmiss = std::sqrt(std::abs(result.emiss * result.emiss - pmiss.Mag2()));
   return result;
 }
 
@@ -561,31 +530,17 @@ void make_skimmed_rootfile(int run,             // run number to process
   const bool hasSHMS = runtype != "HMSDIS";
   const bool primaryIsHMS = runtype == "SIDIS" || runtype == "HMSHEEP" || runtype == "HMSDIS";
 
-  auto calc_dp_recon = [](double pRecon, double p, double dp)
-  {
-    const double scale = 1.0 + dp / 100.0;
-    if (p == 0.0 || scale == 0.0)
-      return std::numeric_limits<double>::quiet_NaN();
-    const double pcentral = p / scale;
-    return 100.0 * (pRecon / pcentral - 1.0);
-  };
-
   if (hasHMS)
   {
     df_filtered = df_filtered
                       .Define("H_gtr_p_recon", [](double value) { return value + H_GTR_P_OFFSET; }, {"H.gtr.p"})
                       .Define("H_gtr_th_recon", [](double value) { return value + H_GTR_TH_OFFSET; }, {"H.gtr.th"})
-                      .Define("H_gtr_dp_recon", calc_dp_recon, {"H_gtr_p_recon", "H.gtr.p", "H.gtr.dp"})
-                      .Define("_H_lab_recon", [parameters](double pRecon, double thRecon,
-                                                           double p, double th, double ph,
-                                                           double px, double py, double pz)
-                              { return adjusted_lab_momentum(pRecon, thRecon, p, th, ph, px, py, pz,
-                                                             parameters.hOopOffset, parameters.hToLab); },
-                              {"H_gtr_p_recon", "H_gtr_th_recon", "H.gtr.p", "H.gtr.th", "H.gtr.ph",
-                               "H.gtr.px", "H.gtr.py", "H.gtr.pz"});
+                      .Define("_H_lab_recon", [parameters](double pRecon, double thRecon, double ph)
+                              { return transport_to_lab(pRecon, thRecon, ph,
+                                                        parameters.hOopOffset, parameters.hToLab); },
+                              {"H_gtr_p_recon", "H_gtr_th_recon", "H.gtr.ph"});
     add_if_missing(hmsVars, "H_gtr_p_recon");
     add_if_missing(hmsVars, "H_gtr_th_recon");
-    add_if_missing(hmsVars, "H_gtr_dp_recon");
   }
 
   if (hasSHMS)
@@ -593,48 +548,30 @@ void make_skimmed_rootfile(int run,             // run number to process
     df_filtered = df_filtered
                       .Define("P_gtr_p_recon", [](double value) { return value + P_GTR_P_OFFSET; }, {"P.gtr.p"})
                       .Define("P_gtr_th_recon", [](double value) { return value + P_GTR_TH_OFFSET; }, {"P.gtr.th"})
-                      .Define("P_gtr_dp_recon", calc_dp_recon, {"P_gtr_p_recon", "P.gtr.p", "P.gtr.dp"})
-                      .Define("_P_lab_recon", [parameters](double pRecon, double thRecon,
-                                                           double p, double th, double ph,
-                                                           double px, double py, double pz)
-                              { return adjusted_lab_momentum(pRecon, thRecon, p, th, ph, px, py, pz,
-                                                             parameters.pOopOffset, parameters.pToLab); },
-                              {"P_gtr_p_recon", "P_gtr_th_recon", "P.gtr.p", "P.gtr.th", "P.gtr.ph",
-                               "P.gtr.px", "P.gtr.py", "P.gtr.pz"});
+                      .Define("_P_lab_recon", [parameters](double pRecon, double thRecon, double ph)
+                              { return transport_to_lab(pRecon, thRecon, ph,
+                                                        parameters.pOopOffset, parameters.pToLab); },
+                              {"P_gtr_p_recon", "P_gtr_th_recon", "P.gtr.ph"});
     add_if_missing(shmsVars, "P_gtr_p_recon");
     add_if_missing(shmsVars, "P_gtr_th_recon");
-    add_if_missing(shmsVars, "P_gtr_dp_recon");
   }
 
   const std::string primaryColumn = "_primary_recon";
-  const std::string primaryInputPrefix = primaryIsHMS ?
-      ((runtype == "HMSDIS") ? "H.kin." : "H.kin.primary.") :
-      ((runtype == "SHMSDIS") ? "P.kin." : "P.kin.primary.");
   if (primaryIsHMS)
   {
     df_filtered = df_filtered.Define(primaryColumn,
-                                     [parameters](const TVector3 &momentum,
-                                                  double px, double py, double pz,
-                                                  double qx, double qy, double qz, double omega)
-                                     { return calculate_primary(momentum, TVector3(px, py, pz),
-                                                                qx, qy, qz, omega,
-                                                                parameters.hPartMass, parameters.targetMass); },
-                                     {"_H_lab_recon", "H.gtr.px", "H.gtr.py", "H.gtr.pz",
-                                      primaryInputPrefix + "q_x", primaryInputPrefix + "q_y",
-                                      primaryInputPrefix + "q_z", primaryInputPrefix + "omega"});
+                                     [parameters](const TVector3 &momentum)
+                                     { return calculate_primary(momentum, parameters.beamEnergy,
+                                                                parameters.targetMass); },
+                                     {"_H_lab_recon"});
   }
   else
   {
     df_filtered = df_filtered.Define(primaryColumn,
-                                     [parameters](const TVector3 &momentum,
-                                                  double px, double py, double pz,
-                                                  double qx, double qy, double qz, double omega)
-                                     { return calculate_primary(momentum, TVector3(px, py, pz),
-                                                                qx, qy, qz, omega,
-                                                                parameters.pPartMass, parameters.targetMass); },
-                                     {"_P_lab_recon", "P.gtr.px", "P.gtr.py", "P.gtr.pz",
-                                      primaryInputPrefix + "q_x", primaryInputPrefix + "q_y",
-                                      primaryInputPrefix + "q_z", primaryInputPrefix + "omega"});
+                                     [parameters](const TVector3 &momentum)
+                                     { return calculate_primary(momentum, parameters.beamEnergy,
+                                                                parameters.targetMass); },
+                                     {"_P_lab_recon"});
   }
 
   const std::string primaryPrefix = primaryIsHMS ?
@@ -716,7 +653,7 @@ void make_skimmed_rootfile(int run,             // run number to process
     std::string ptx = pt + "*cos(P.kin.secondary.ph_xq)";
     std::string pty = pt + "*sin(P.kin.secondary.ph_xq)";
     // calculat missing mass using 4-vector arithmetic in a lambda function
-    const double Ein = parameters.beamMomentum;
+    const double Ein = parameters.beamEnergy;
     auto calc_mm = [Ein](double epx, double epy, double epz, double ep,
                          double ppx, double ppy, double ppz, double pp)
     {
@@ -739,17 +676,6 @@ void make_skimmed_rootfile(int run,             // run number to process
                       .Define("mmass", calc_mm,
                               {"H.gtr.px", "H.gtr.py", "H.gtr.pz", "H.gtr.p", "P.gtr.px", "P.gtr.py", "P.gtr.pz", "P.gtr.p"});
 
-    auto calc_mmass_recon = [](const PrimaryKinematics &primary,
-                               const TVector3 &hadronMomentum)
-    {
-      ROOT::Math::PxPyPzEVector beam(0.0, 0.0, primary.beam.P(), primary.beam.P());
-      ROOT::Math::PxPyPzEVector electron(primary.scattered.Px(), primary.scattered.Py(),
-                                         primary.scattered.Pz(), primary.scattered.P());
-      ROOT::Math::PxPyPzEVector target(0.0, 0.0, 0.0, Mp);
-      ROOT::Math::PxPyPzEVector hadron(hadronMomentum.X(), hadronMomentum.Y(),
-                                      hadronMomentum.Z(), hadronMomentum.Mag());
-      return (beam - electron + target - hadron).M();
-    };
     df_filtered = df_filtered
                       .Define("z_recon", [](double p, double nu) { return p / nu; },
                               {"P_gtr_p_recon", nuRecon})
@@ -759,7 +685,8 @@ void make_skimmed_rootfile(int run,             // run number to process
                               {"pt_recon", "P_kin_secondary_ph_xq_recon"})
                       .Define("pty_recon", [](double ptValue, double phi) { return ptValue * std::sin(phi); },
                               {"pt_recon", "P_kin_secondary_ph_xq_recon"})
-                      .Define("mmass_recon", calc_mmass_recon, {primaryColumn, "_P_lab_recon"});
+                      .Define("mmass_recon", [](const SecondaryKinematics &value) { return value.mmiss; },
+                              {"_secondary_recon"});
 
     // add these new variables to ctimeVars for output
     add_if_missing(ctimeVars, "z");
