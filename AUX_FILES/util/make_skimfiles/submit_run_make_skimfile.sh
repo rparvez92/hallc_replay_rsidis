@@ -17,19 +17,19 @@
 # 2. run_make_skimfile.sh
 # 3. make_skimmed_rootfile.C
 # ---
-SCRIPT_DIR=/u/group/c-rsidis/pdbforce/analysis/hallc_replay_rsidis/AUX_FILES/util/make_skimfiles
+SCRIPT_DIR=/u/group/c-rsidis/pdbforce/pass1_prep/statscounter/hallc_replay_rsidis/AUX_FILES/util/make_skimfiles
 
 runlist=$1        # run list (single column txt file w/ run numbers to analyze)
 runtype=$2        # run type : SIDIS / HEEP / HMSDIS / SHMSDIS
 indir=$3          # input directory (directory with R-SIDIS hcana ROOT files)
 run_on_ifarm=$4   # want to run on ifarm instead of batch farm? 1 => yes
 
-workflowname="rsidis_skim_${runtype}"
-outdirpath=""     # output directory (destination for the generated skim files)
+workflowname="rsidis-pass1-${runtype}-skimmed"
+outdirpath="/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_skimmed"     # output directory (destination for the generated skim files)
 
 # Job specifications
-jram='2000MB'    # per-job requested RAM
-jtime='1h'       # per-job requested walltime
+jram='2200MB'    # per-job requested RAM
+jtime='2h'       # per-job requested walltime
 jdisk='5GB'      # per-job requested disk space (very important to specify)
 
 # Sanity check 1: Validating the number of arguments provided
@@ -98,7 +98,4 @@ if [[ $run_on_ifarm -ne 1 ]]; then
 fi
 
 # Example execution
-#./submit_run_make_skimfile.sh heep_runlist_pass0.txt HEEP /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
-#./submit_run_make_skimfile.sh hms_runlist_pass0.txt HMSDIS /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
-#./submit_run_make_skimfile.sh shms_runlist_pass0.txt SHMSDIS /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
-#./submit_run_make_skimfile.sh sidis_runlist_pass0.txt SIDIS /cache/hallc/c-rsidis/analysis/replays/pass0 /work/hallc/c-rsidis/skimfiles/pass0/ 0
+#./submit_run_make_skimfile.sh heep_pass1_final.txt HEEP /cache/hallc/c-rsidis/analysis/replays/pass1 0

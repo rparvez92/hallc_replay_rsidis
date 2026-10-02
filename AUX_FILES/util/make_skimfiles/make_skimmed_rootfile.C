@@ -13,7 +13,7 @@ std::vector<std::string> shmsVars = {
     "P.dc.x_fp", "P.dc.y_fp", "P.dc.xp_fp", "P.dc.yp_fp", "P.dc.InsideDipoleExit",
     "P.ngcer.npeSum", "P.hgcer.npeSum", "P.aero.npeSum", "P.cal.etottracknorm",
     "P.react.x", "P.react.y", "P.react.z",
-    "P.hod.goodstarttime"};
+    "P.hod.goodstarttime","P.hod.fpHitsTime"};
 
 // SHMS DIS kin & raster variables
 std::vector<std::string> shmskinVars = {
@@ -26,7 +26,7 @@ std::vector<std::string> hmsVars = {
     "H.dc.x_fp", "H.dc.y_fp", "H.dc.xp_fp", "H.dc.yp_fp", "H.dc.InsideDipoleExit",
     "H.cer.npeSum", "H.cal.etottracknorm",
     "H.react.x", "H.react.y", "H.react.z",
-    "H.hod.goodstarttime"};
+    "H.hod.goodstarttime","H.hod.fpHitsTime"};
 
 // HMS DIS kin & raster variables
 std::vector<std::string> hmskinVars = {
@@ -173,7 +173,10 @@ double get_beam_energy_for_this_run(int run)
 {
   std::map<std::pair<int, int>, double> runrange_to_energy = {
       {{23834, 24874}, 8.5831},
-      {{24875, 25603}, 10.6716}};
+      {{24875, 25603}, 10.6716},
+      {{27101, 27755}, 6.4724},
+      {{27756, 28106}, 8.5814},
+      {{28107, 28471}, 10.6759}};
 
   // Iterate to find if 'run' is between the first and second of any pair
   for (auto const &[range, energy] : runrange_to_energy)
