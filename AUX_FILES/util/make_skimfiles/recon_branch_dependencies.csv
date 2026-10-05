@@ -3,22 +3,22 @@ H_gtr_p_recon,"SIDIS,HMSHEEP,SHMSHEEP,HMSDIS",H.gtr.p,"original plus zero-defaul
 H_gtr_th_recon,"SIDIS,HMSHEEP,SHMSHEEP,HMSDIS",H.gtr.th,"original plus zero-default HMS theta offset"
 P_gtr_p_recon,"SIDIS,HMSHEEP,SHMSHEEP,SHMSDIS",P.gtr.p,"original plus zero-default SHMS momentum offset"
 P_gtr_th_recon,"SIDIS,HMSHEEP,SHMSHEEP,SHMSDIS",P.gtr.th,"original plus zero-default SHMS theta offset"
-H_kin_primary_x_bj_recon,"SIDIS,HMSHEEP","report beam energy,H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
-H_kin_primary_Q2_recon,"SIDIS,HMSHEEP","report beam energy,H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-H_kin_primary_nu_recon,"SIDIS,HMSHEEP","report beam energy,H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-H_kin_primary_W_recon,"SIDIS,HMSHEEP","report beam energy,H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
-P_kin_primary_x_bj_recon,SHMSHEEP,"report beam energy,P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
-P_kin_primary_Q2_recon,SHMSHEEP,"report beam energy,P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-P_kin_primary_nu_recon,SHMSHEEP,"report beam energy,P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-P_kin_primary_W_recon,SHMSHEEP,"report beam energy,P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
-H_kin_x_bj_recon,HMSDIS,"report beam energy,H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
-H_kin_Q2_recon,HMSDIS,"report beam energy,H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-H_kin_nu_recon,HMSDIS,"report beam energy,H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-H_kin_W_recon,HMSDIS,"report beam energy,H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
-P_kin_x_bj_recon,SHMSDIS,"report beam energy,P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
-P_kin_Q2_recon,SHMSDIS,"report beam energy,P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-P_kin_nu_recon,SHMSDIS,"report beam energy,P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
-P_kin_W_recon,SHMSDIS,"report beam energy,P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+H_kin_primary_x_bj_recon,"SIDIS,HMSHEEP","H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+H_kin_primary_Q2_recon,"SIDIS,HMSHEEP","H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+H_kin_primary_nu_recon,"SIDIS,HMSHEEP","H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+H_kin_primary_W_recon,"SIDIS,HMSHEEP","H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+P_kin_primary_x_bj_recon,SHMSHEEP,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+P_kin_primary_Q2_recon,SHMSHEEP,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+P_kin_primary_nu_recon,SHMSHEEP,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+P_kin_primary_W_recon,SHMSHEEP,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+H_kin_x_bj_recon,HMSDIS,"H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+H_kin_Q2_recon,HMSDIS,"H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+H_kin_nu_recon,HMSDIS,"H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+H_kin_W_recon,HMSDIS,"H.rb momentum (or original q + H.gtr momentum fallback),H reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+P_kin_x_bj_recon,SHMSDIS,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
+P_kin_Q2_recon,SHMSDIS,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+P_kin_nu_recon,SHMSDIS,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron mass",recon_hcana-style primary kinematics
+P_kin_W_recon,SHMSDIS,"P.rb momentum (or original q + P.gtr momentum fallback),P reconstructed lab vector,electron/proton masses",recon_hcana-style primary kinematics
 P_kin_secondary_th_xq_recon,"SIDIS,HMSHEEP","primary q,P reconstructed lab vector",THcSecondaryKine
 P_kin_secondary_ph_xq_recon,"SIDIS,HMSHEEP","primary q,P reconstructed lab vector",THcSecondaryKine
 P_kin_secondary_emiss_recon,HMSHEEP,"primary nu,target mass,P reconstructed energy",THcSecondaryKine

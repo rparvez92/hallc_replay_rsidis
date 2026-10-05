@@ -16,7 +16,7 @@
 #include "TMath.h"
 #include "TVector3.h"
 
-const double Mp = 0.938272;
+const double Mp = 0.93827;
 const double Me = 0.000511;
 const double HCANA_KBIG = 1.0e38;
 
@@ -223,18 +223,15 @@ TVector3 transport_to_lab(double p, double th, double ph,
   return rotation * vector;
 }
 
-// Build primary electron kinematics from the report beam energy and the
-// reconstructed scattered-electron lab momentum.
+// Build primary electron kinematics from the event beam momentum and the
+// reconstructed scattered-electron lab momentum. SetVectM applies the same
+// massive-electron energy relation used by HCANA.
 PrimaryKinematics calculate_primary(const TVector3 &scatteredMomentum,
-                                    double beamEnergy,
+                                    const TVector3 &beamMomentum,
                                     double targetMass)
 {
-  if (beamEnergy < Me)
-    throw std::runtime_error("Beam energy is smaller than the electron mass");
-
   PrimaryKinematics result;
-  const double beamMomentum = std::sqrt(beamEnergy * beamEnergy - Me * Me);
-  result.beam.SetPxPyPzE(0.0, 0.0, beamMomentum, beamEnergy);
+  result.beam.SetVectM(beamMomentum, Me);
   result.scattered.SetVectM(scatteredMomentum, Me);
   result.target.SetXYZM(0.0, 0.0, 0.0, targetMass);
   result.q = result.beam - result.scattered;
@@ -529,6 +526,10 @@ void make_skimmed_rootfile(int run,             // run number to process
   const bool hasHMS = runtype != "SHMSDIS";
   const bool hasSHMS = runtype != "HMSDIS";
   const bool primaryIsHMS = runtype == "SIDIS" || runtype == "HMSHEEP" || runtype == "HMSDIS";
+  const std::string primaryArm = primaryIsHMS ? "H" : "P";
+  const std::string primaryKinePrefix = primaryIsHMS ?
+      ((runtype == "HMSDIS") ? "H.kin." : "H.kin.primary.") :
+      ((runtype == "SHMSDIS") ? "P.kin." : "P.kin.primary.");
 
   if (hasHMS)
   {
@@ -556,22 +557,62 @@ void make_skimmed_rootfile(int run,             // run number to process
     add_if_missing(shmsVars, "P_gtr_th_recon");
   }
 
+  // Prefer HCANA's event-level raster-beam momentum. Older/light replays may
+  // omit it; in that case recover k = q + k' from HCANA's original q-vector
+  // and scattered-electron lab momentum. The rounded report gpbeam is never
+  // used in reconstructed physics.
+  const std::string beamColumn = "_beam_recon";
+  const std::vector<std::string> rasterBeamInputs = {
+      primaryArm + ".rb.px", primaryArm + ".rb.py", primaryArm + ".rb.pz"};
+  const bool hasRasterBeam = df.HasColumn(rasterBeamInputs[0]) &&
+                             df.HasColumn(rasterBeamInputs[1]) &&
+                             df.HasColumn(rasterBeamInputs[2]);
+  if (hasRasterBeam)
+  {
+    std::cout << "Reconstructed beam source: " << primaryArm
+              << ".rb.{px,py,pz}\n";
+    df_filtered = df_filtered.Define(beamColumn,
+                                     [](double px, double py, double pz)
+                                     { return TVector3(px, py, pz); },
+                                     rasterBeamInputs);
+  }
+  else
+  {
+    const std::vector<std::string> recoveredBeamInputs = {
+        primaryKinePrefix + "q_x", primaryKinePrefix + "q_y", primaryKinePrefix + "q_z",
+        primaryArm + ".gtr.px", primaryArm + ".gtr.py", primaryArm + ".gtr.pz"};
+    for (const auto &column : recoveredBeamInputs)
+    {
+      if (!df.HasColumn(column))
+      {
+        std::cerr << "Cannot reconstruct the event beam: raster-beam components are absent "
+                  << "and q-vector fallback column is missing: " << column << std::endl;
+        return;
+      }
+    }
+    std::cout << "Reconstructed beam source: " << primaryKinePrefix
+              << "q + " << primaryArm << ".gtr momentum\n";
+    df_filtered = df_filtered.Define(beamColumn,
+                                     [](double qx, double qy, double qz,
+                                        double px, double py, double pz)
+                                     { return TVector3(qx + px, qy + py, qz + pz); },
+                                     recoveredBeamInputs);
+  }
+
   const std::string primaryColumn = "_primary_recon";
   if (primaryIsHMS)
   {
     df_filtered = df_filtered.Define(primaryColumn,
-                                     [parameters](const TVector3 &momentum)
-                                     { return calculate_primary(momentum, parameters.beamEnergy,
-                                                                parameters.targetMass); },
-                                     {"_H_lab_recon"});
+                                     [parameters](const TVector3 &momentum, const TVector3 &beam)
+                                     { return calculate_primary(momentum, beam, parameters.targetMass); },
+                                     {"_H_lab_recon", beamColumn});
   }
   else
   {
     df_filtered = df_filtered.Define(primaryColumn,
-                                     [parameters](const TVector3 &momentum)
-                                     { return calculate_primary(momentum, parameters.beamEnergy,
-                                                                parameters.targetMass); },
-                                     {"_P_lab_recon"});
+                                     [parameters](const TVector3 &momentum, const TVector3 &beam)
+                                     { return calculate_primary(momentum, beam, parameters.targetMass); },
+                                     {"_P_lab_recon", beamColumn});
   }
 
   const std::string primaryPrefix = primaryIsHMS ?

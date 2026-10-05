@@ -18,9 +18,11 @@ original branches.
 Following the `recon_hcana` convention, reconstructed lab vectors are built
 directly from `gtr.p_recon`, `gtr.th_recon`, the original `gtr.ph`, the nominal
 spectrometer `Angle` in the replay report, and the fixed phi/OOP geometry
-constants in the macro. The incident electron is built from the report beam
-energy along lab +z, and reconstructed primary and recoil four-vectors are then
-calculated from scratch. `gtr.dp` is retained only as an original branch; no
+constants in the macro. The incident electron uses the primary arm's event-level
+`rb.px/py/pz` momentum when those branches exist. If they do not, the macro
+recovers the beam momentum as HCANA's original `q + k'`. The rounded report
+`gpbeam` value is not used in reconstructed physics. Reconstructed primary and
+recoil four-vectors are then calculated from scratch. `gtr.dp` is retained only as an original branch; no
 `dp_recon` branch is produced because dp is an optics reconstruction quantity.
 For SIDIS, `z_recon` follows the analysis convention `p_recon / nu_recon`,
 using the detected-hadron momentum magnitude rather than its energy. An
