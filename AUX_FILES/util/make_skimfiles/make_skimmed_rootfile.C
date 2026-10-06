@@ -540,9 +540,6 @@ void make_skimmed_rootfile(int run,             // run number to process
   const bool hasSHMS = runtype != "HMSDIS";
   const bool primaryIsHMS = runtype == "SIDIS" || runtype == "HMSHEEP" || runtype == "HMSDIS";
   const std::string primaryArm = primaryIsHMS ? "H" : "P";
-  const std::string primaryKinePrefix = primaryIsHMS ?
-      ((runtype == "HMSDIS") ? "H.kin." : "H.kin.primary.") :
-      ((runtype == "SHMSDIS") ? "P.kin." : "P.kin.primary.");
 
   if (hasHMS)
   {
@@ -570,47 +567,26 @@ void make_skimmed_rootfile(int run,             // run number to process
     add_if_missing(shmsVars, "P_gtr_th_recon");
   }
 
-  // Prefer HCANA's event-level raster-beam momentum. Older/light replays may
-  // omit it; in that case recover k = q + k' from HCANA's original q-vector
-  // and scattered-electron lab momentum. The rounded report gpbeam is never
-  // used in reconstructed physics.
+  // Build the incident-electron four-vector from HCANA's event-level
+  // raster-beam momentum. These branches are required skim inputs.
   const std::string beamColumn = "_beam_recon";
   const std::vector<std::string> rasterBeamInputs = {
       primaryArm + ".rb.px", primaryArm + ".rb.py", primaryArm + ".rb.pz"};
   const bool hasRasterBeam = df.HasColumn(rasterBeamInputs[0]) &&
                              df.HasColumn(rasterBeamInputs[1]) &&
                              df.HasColumn(rasterBeamInputs[2]);
-  if (hasRasterBeam)
+  if (!hasRasterBeam)
   {
-    std::cout << "Reconstructed beam source: " << primaryArm
-              << ".rb.{px,py,pz}\n";
-    df_filtered = df_filtered.Define(beamColumn,
-                                     [](double px, double py, double pz)
-                                     { return TVector3(px, py, pz); },
-                                     rasterBeamInputs);
+    std::cerr << "Required raster-beam momentum branches are missing: "
+              << primaryArm << ".rb.{px,py,pz}" << std::endl;
+    return;
   }
-  else
-  {
-    const std::vector<std::string> recoveredBeamInputs = {
-        primaryKinePrefix + "q_x", primaryKinePrefix + "q_y", primaryKinePrefix + "q_z",
-        primaryArm + ".gtr.px", primaryArm + ".gtr.py", primaryArm + ".gtr.pz"};
-    for (const auto &column : recoveredBeamInputs)
-    {
-      if (!df.HasColumn(column))
-      {
-        std::cerr << "Cannot reconstruct the event beam: raster-beam components are absent "
-                  << "and q-vector fallback column is missing: " << column << std::endl;
-        return;
-      }
-    }
-    std::cout << "Reconstructed beam source: " << primaryKinePrefix
-              << "q + " << primaryArm << ".gtr momentum\n";
-    df_filtered = df_filtered.Define(beamColumn,
-                                     [](double qx, double qy, double qz,
-                                        double px, double py, double pz)
-                                     { return TVector3(qx + px, qy + py, qz + pz); },
-                                     recoveredBeamInputs);
-  }
+  std::cout << "Reconstructed beam source: " << primaryArm
+            << ".rb.{px,py,pz}\n";
+  df_filtered = df_filtered.Define(beamColumn,
+                                   [](double px, double py, double pz)
+                                   { return TVector3(px, py, pz); },
+                                   rasterBeamInputs);
 
   const std::string primaryColumn = "_primary_recon";
   if (primaryIsHMS)
@@ -702,7 +678,6 @@ void make_skimmed_rootfile(int run,             // run number to process
   {
     std::cout << "Adding extra columns for SIDIS run type...\n";
 
-    std::string z = "P.gtr.p/H.kin.primary.nu";
     std::string pt = "sqrt(pow(P.gtr.p,2)*(1.-pow(cos(P.kin.secondary.th_xq),2)))";
     std::string ptx = pt + "*cos(P.kin.secondary.ph_xq)";
     std::string pty = pt + "*sin(P.kin.secondary.ph_xq)";
@@ -716,7 +691,11 @@ void make_skimmed_rootfile(int run,             // run number to process
 
     // defining new columns
     df_filtered = df_filtered
-                      .Define("z", z.c_str())
+                      .Define("z_wHadMom", [](double p, double nu) { return p / nu; },
+                              {"P.gtr.p", "H.kin.primary.nu"})
+                      .Define("z_wHadEn", [parameters](double p, double nu)
+                              { return std::sqrt(p * p + parameters.pPartMass * parameters.pPartMass) / nu; },
+                              {"P.gtr.p", "H.kin.primary.nu"})
                       .Define("pt", pt.c_str())
                       .Define("ptx", ptx.c_str())
                       .Define("pty", pty.c_str())
@@ -726,7 +705,10 @@ void make_skimmed_rootfile(int run,             // run number to process
                                "P.gtr.px", "P.gtr.py", "P.gtr.pz"});
 
     df_filtered = df_filtered
-                      .Define("z_recon", [](double p, double nu) { return p / nu; },
+                      .Define("z_wHadMom_recon", [](double p, double nu) { return p / nu; },
+                              {"P_gtr_p_recon", nuRecon})
+                      .Define("z_wHadEn_recon", [parameters](double p, double nu)
+                              { return std::sqrt(p * p + parameters.pPartMass * parameters.pPartMass) / nu; },
                               {"P_gtr_p_recon", nuRecon})
                       .Define("pt_recon", [](double p, double theta) { return p * std::sin(theta); },
                               {"P_gtr_p_recon", "P_kin_secondary_th_xq_recon"})
@@ -738,12 +720,14 @@ void make_skimmed_rootfile(int run,             // run number to process
                               {"_secondary_recon"});
 
     // add these new variables to ctimeVars for output
-    add_if_missing(ctimeVars, "z");
+    add_if_missing(ctimeVars, "z_wHadMom");
+    add_if_missing(ctimeVars, "z_wHadEn");
     add_if_missing(ctimeVars, "pt");
     add_if_missing(ctimeVars, "ptx");
     add_if_missing(ctimeVars, "pty");
     add_if_missing(ctimeVars, "mmass");
-    add_if_missing(ctimeVars, "z_recon");
+    add_if_missing(ctimeVars, "z_wHadMom_recon");
+    add_if_missing(ctimeVars, "z_wHadEn_recon");
     add_if_missing(ctimeVars, "pt_recon");
     add_if_missing(ctimeVars, "ptx_recon");
     add_if_missing(ctimeVars, "pty_recon");

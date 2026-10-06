@@ -18,16 +18,17 @@ original branches.
 Following the `recon_hcana` convention, reconstructed lab vectors are built
 directly from `gtr.p_recon`, `gtr.th_recon`, the original `gtr.ph`, the nominal
 spectrometer `Angle` in the replay report, and the fixed phi/OOP geometry
-constants in the macro. The incident electron uses the primary arm's event-level
-`rb.px/py/pz` momentum when those branches exist. If they do not, the macro
-recovers the beam momentum as HCANA's original `q + k'`. The rounded report
-`gpbeam` value is not used in reconstructed physics. Reconstructed primary and
+constants in the macro. The incident electron requires the primary arm's
+event-level `rb.px/py/pz` momentum; missing raster-momentum inputs are a fatal
+error. The rounded report `gpbeam` value is not used. Reconstructed primary and
 recoil four-vectors are then calculated from scratch. `gtr.dp` is retained only as an original branch; no
 `dp_recon` branch is produced because dp is an optics reconstruction quantity.
-For SIDIS, `z_recon` follows the analysis convention `p_recon / nu_recon`,
-using the detected-hadron momentum magnitude rather than its energy. An
-unphysical reconstructed `W^2 <= 0` is represented by HCANA's `1e38` sentinel
-rather than by zero.
+For SIDIS, the explicit `z_wHadMom` pair uses the detected-hadron momentum
+magnitude, while the standard `z_wHadEn` pair uses
+`sqrt(p_h^2 + m_h^2) / nu`. The hadron mass is the run's labeled
+`SHMS Particle Mass` from the replay report. The ambiguous old `z` and
+`z_recon` names are not produced. An unphysical reconstructed `W^2 <= 0` is
+represented by HCANA's `1e38` sentinel rather than by zero.
 Both `mmass` and `mmass_recon` use massive detected particles and the same
 recoil invariant-mass kernel. Original `mmass` consumes HCANA's original
 virtual-photon four-vector and original SHMS momentum; `mmass_recon` consumes
