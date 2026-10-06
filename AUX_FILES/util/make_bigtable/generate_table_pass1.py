@@ -14,7 +14,7 @@ def coin_dir(run_number):
 def find_variable(line_number, pattern):
     return line_number, pattern
 
-# Mapping: variable -> (line_index, char_start, char_end)
+# Mapping: variable -> (line_index, label text that must be on that line)
 HMS_MAP = {
     "BCM1_Q": find_variable(46,"BCM1  Beam Cut Charge: "),
     "BCM1_I": find_variable(39,"BCM1 Beam Cut Current: "),
@@ -34,14 +34,16 @@ HMS_MAP = {
     "ps4" : find_variable(66,"Ps4_factor ="),
     "ps5" : find_variable(67,"Ps5_factor ="),
     "ps6" : find_variable(68,"Ps6_factor ="),
-    "pTRIG3" : find_variable(126,"pTRIG3 :"),
-    "pTRIG4" : find_variable(127,"pTRIG4 :"),
+    "pTRIG3" : find_variable(126,"["),
+    "pTRIG4" : find_variable(127,"["),
     "phys_triggers": find_variable(91,"Physics Triggers (current cut) :"),
     "hEL_REAL": find_variable(101,"hEL_REAL  :"),
-    "pEL_REAL:": find_variable(120, "pEL_REAL  :"),
+    "pEL_REAL": find_variable(120, "pEL_REAL  :"),
     "electr_livetime": find_variable(175,"OG 6 GeV Electronic Live Time (100, 150) :"),
     "h_EL_CLEAN": find_variable(102,"hEL_CLEAN :"),
     "p_EL_CLEAN": find_variable(121,"pEL_CLEAN :"),
+    "ps3_comp_livetime": find_variable(159, "Pre-Scaled Ps3 HMS Computer Live Time :"),
+    "ps4_comp_livetime": find_variable(162, "Pre-Scaled Ps4 HMS Computer Live Time :")
 }
 
 SHMS_MAP = {
@@ -53,23 +55,10 @@ SHMS_MAP = {
     "BCM4A_I": find_variable(41,"BCM4A Beam Cut Current: "),
     "BCM4B_Q": find_variable(49,"BCM4B Beam Cut Charge: "),
     "BCM4B_I": find_variable(42,"BCM4B Beam Cut Current: "),
-    "BCM4C_Q": find_variable(50,"BCM4B Beam Cut Charge: "),
-    "BCM4C_I": find_variable(43,"BCM4C Beam Cut Charge: "),
+    "BCM4C_Q": find_variable(50,"BCM4C Beam Cut Charge: "),
+    "BCM4C_I": find_variable(43,"BCM4C Beam Cut Current: "),
     "p_esing_Eff": find_variable(377,"E SING FID TRACK EFFIC         :"),
     "p_hadron_Eff": find_variable(378,"HADRON SING FID TRACK EFFIC    :"),
-<<<<<<< HEAD
-    "ps1" : find_variable(57,"Ps1_factor ="),
-    "ps2" : find_variable(58,"Ps2_factor ="),
-    "ps3" : find_variable(59,"Ps3_factor ="),
-    "ps4" : find_variable(60,"Ps4_factor ="),
-    "ps5" : find_variable(61,"Ps5_factor ="),
-    "ps6" : find_variable(62,"Ps6_factor ="),
-    "pTRIG1" : find_variable(116,"pTRIG1 :"),
-    "pTRIG2" : find_variable(117,"pTRIG4 :"),
-    "phys_triggers": find_variable(85,"Physics Triggers (current cut) :"),
-    "hEL_REAL": find_variable(112,"hEL_REAL  :"),
-    "electr_deadtime": find_variable(167,"OG 6 GeV Electronic Live Time (100, 150) :"),
-=======
     "ps1" : find_variable(63,"Ps1_factor ="),
     "ps2" : find_variable(64,"Ps2_factor ="),
     "ps3" : find_variable(65,"Ps3_factor ="),
@@ -80,11 +69,12 @@ SHMS_MAP = {
     "pTRIG2" : find_variable(125,"["),
     "phys_triggers": find_variable(89,"Physics 3/4 Triggers (current cut):"),
     "hEL_REAL": find_variable(101,"hEL_REAL  :"),
-    "pEL_REAL:": find_variable(120, "pEL_REAL  :"),
+    "pEL_REAL": find_variable(120, "pEL_REAL  :"),
     "electr_livetime": find_variable(167,"OG 6 GeV Electronic Live Time (100, 150) :"),
->>>>>>> fd7e1196 (Fixed Computer livetime for SIDIS, changed electr_deadtime to electr_livetime)
     "h_EL_CLEAN": find_variable(102,"hEL_CLEAN :"),
     "p_EL_CLEAN": find_variable(121,"pEL_CLEAN :"),
+    "ps1_comp_livetime": find_variable(152, "Pre-Scaled Ps1 SHMS Computer Live Time :"),
+    "ps2_comp_livetime": find_variable(155, "Pre-Scaled Ps2 SHMS Computer Live Time :")
 }
 
 COIN_MAP = {
@@ -238,36 +228,43 @@ def load_extra_info(run_number, run_type, issues=None):
         return {col: -999 for col in keep_cols}
 
     with open(extra_path, newline="") as f:
-        reader = csv.DictReader(f)
+        row = next(csv.DictReader(f), None)
+
+    if row is None:
+        return {col: -999 for col in keep_cols}
+
+    # Each column is read on its own: a column that is absent or not a number
+    # gives -999 for that column only, not for the whole run.
+    values = {}
+    for col in keep_cols:
         try:
-            row = next(reader)
-            return {col: float(row[col]) for col in keep_cols}
-        except (StopIteration, KeyError, ValueError):
-            return {col: -999 for col in keep_cols}
+            values[col] = float(row.get(col))
+        except (TypeError, ValueError):
+            values[col] = -999
+    return values
 
 
-def load_fan_data(run_number, fan_csv_path):
-    
-#    Reads fan_freq.csv and returns mean and stdev for the given run_number.
-
-    import csv
+def load_fan_table(fan_csv_path):
+    # Reads the fan frequency file once: run -> {"fan_mean", "fan_stdev"}.
+    fan_map = {}
     if not os.path.exists(fan_csv_path):
-        return {"fan_mean": -999, "fan_stdev": -999}
+        print(f"⚠️ Fan frequency file not found: {fan_csv_path}")
+        return fan_map
 
     with open(fan_csv_path, newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if str(row["run"]) == str(run_number):
-                try:
-                    return {
-                        "fan_mean": float(row.get("mean", -999)),
-                        "fan_stdev": float(row.get("stdev", -999))
-                    }
-                except ValueError:
-                    return {"fan_mean": -999, "fan_stdev": -999}
-
-    # If run not found
-    return {"fan_mean": -999, "fan_stdev": -999}
+            run = str(row.get("run", "")).strip()
+            if not run or run in fan_map:      # the first row for a run wins
+                continue
+            try:
+                fan_map[run] = {
+                    "fan_mean": float(row.get("mean", -999)),
+                    "fan_stdev": float(row.get("stdev", -999))
+                }
+            except (TypeError, ValueError):
+                fan_map[run] = {"fan_mean": -999, "fan_stdev": -999}
+    return fan_map
 
 def load_ihwp_table(ihwp_csv_path):
     ihwp_map = {}
@@ -278,9 +275,9 @@ def load_ihwp_table(ihwp_csv_path):
     with open(ihwp_csv_path, newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            run = row.get("run_number")
+            run = str(row.get("run_number") or "").strip()
             if run:
-                ihwp_map[str(run)] = {
+                ihwp_map[run] = {
                     "IHWP": row.get("IHWP", ""),
                     "start_time": row.get("start_time", ""),
                     "stop_time": row.get("stop_time", "")
@@ -310,8 +307,6 @@ def load_coin_block_ratios(coin_block_ratios_csv_path):
 def load_boil_corr(boil_corr_map_path):
     boil_corr_map = {}
     if not os.path.exists(boil_corr_map_path):
-        # Fixed: the old message referenced an undefined variable (h) and the
-        # function returned the path string instead of the (empty) dict.
         print(f"⚠️ Boiling correction file not found: {boil_corr_map_path}")
         return boil_corr_map
 
@@ -328,7 +323,7 @@ def load_boil_corr(boil_corr_map_path):
 
 # === Experiment periods ===
 # RsidisI : boiling correction is computed from fan speed and beam current.
-# RsidisII: boiling correction is read from boiling_correction_factors.csv.
+# RsidisII: boiling correction is read from boiling_correction_factors_pass1.csv.
 RSIDIS_I_RUNS = (23834, 25603)
 RSIDIS_II_RUNS = (27106, 28471)
 
@@ -344,6 +339,36 @@ def get_period(run_number):
     if RSIDIS_II_RUNS[0] <= run <= RSIDIS_II_RUNS[1]:
         return "RsidisII"
     return None
+
+
+# === IHWP convention ===
+# The run log writes the half-wave plate state as "IN"/"OUT" up to RsidisI and
+# as 1/0 from run 27106 on. The bigtable always uses "IN"/"OUT".
+IHWP_NUMERIC_FROM_RUN = RSIDIS_II_RUNS[0]      # 27106
+IHWP_NUMERIC_TO_TEXT = {0: "OUT", 1: "IN"}
+
+
+def normalize_ihwp(value, run_number):
+    # Returns "IN", "OUT", or -999 when the run has no IHWP entry.
+    # Any other text is passed through unchanged (upper-cased).
+    text = "" if value is None else str(value).strip()
+    if text == "":
+        return -999
+
+    try:
+        numeric_convention = int(run_number) >= IHWP_NUMERIC_FROM_RUN
+    except (TypeError, ValueError):
+        numeric_convention = False
+
+    if numeric_convention:
+        try:
+            number = float(text)               # accepts "0", "1", "0.0", "1.0"
+        except ValueError:
+            number = None
+        if number in IHWP_NUMERIC_TO_TEXT:
+            return IHWP_NUMERIC_TO_TEXT[number]
+
+    return text.upper()
 
 
 def get_boil_corr(run_number, target, f, I, boil_corr_map):
@@ -366,7 +391,7 @@ def get_boil_corr(run_number, target, f, I, boil_corr_map):
     if period == "RsidisII":
         corr = boil_corr_map.get(str(run_number), {}).get("boil_corr", "")
         if corr in ("", None):
-            return -999, "RsidisII: run not in boiling_correction_factors.csv"
+            return -999, "RsidisII: run not in boiling_correction_factors_pass1.csv"
         return corr, None
 
     return -999, "run outside RsidisI and RsidisII ranges"
@@ -391,12 +416,10 @@ KINEMATIC_TABLE = [
     {"ebeam": 10.6716, "x": 0.25, "Q2": 3.3, "z": 0.5,  "thpq": 5.2,  "hms_p": 3.642, "hms_th": 16.75, "shms_p": 3.632, "shms_th": 13.505},
     {"ebeam": 10.6716, "x": 0.25, "Q2": 3.3, "z": 0.5,  "thpq": 8.5,  "hms_p": 3.642, "hms_th": 16.75, "shms_p": 3.632, "shms_th": 16.81},
     {"ebeam": 10.6716, "x": 0.25, "Q2": 3.3, "z": 0.36, "thpq": 2.0,    "hms_p": 3.642, "hms_th": 16.75, "shms_p": 2.615, "shms_th": 10.305},
-    {"ebeam": 10.6716, "x": 0.25, "Q2": 3.3, "z": 0.36, "thpq": -0.2,    "hms_p": 3.642, "hms_th": 16.75, "shms_p": 3.632, "shms_th": 8.11},
+    {"ebeam": 10.6716, "x": 0.25, "Q2": 3.3, "z": 0.5, "thpq": -0.2,    "hms_p": 3.642, "hms_th": 16.75, "shms_p": 3.632, "shms_th": 8.11},
     {"ebeam": 6.449, "x": 0.22, "Q2": 2.2, "z": 0.5, "thpq": 2.0,    "hms_p": 1.165, "hms_th": 31.278, "shms_p": 2.766, "shms_th": 8.275},
     {"ebeam": 6.449, "x": 0.22, "Q2": 2.2, "z": 0.9, "thpq": 2.0,    "hms_p": 1.165, "hms_th": 31.278, "shms_p": 4.978, "shms_th": 8.275},
     {"ebeam": 6.449, "x": 0.44, "Q2": 4.4, "z": 0.9, "thpq": 2.0,    "hms_p": 1.165, "hms_th": 44.830, "shms_p": 5.154, "shms_th": 10.240},
-    {"ebeam": 6.449, "x": 0.44, "Q2": 4.4, "z": 0.67, "thpq": 2.0,   "hms_p": 1.165, "hms_th": 44.830, "shms_p": 3.837, "shms_th": 10.240},
-    {"ebeam": 6.449, "x": 0.44, "Q2": 4.4, "z": 0.52, "thpq": 2.0,   "hms_p": 1.165, "hms_th": 44.830, "shms_p": 2.978, "shms_th": 10.240},
     {"ebeam": 6.449, "x": 0.44, "Q2": 4.4, "z": 0.67, "thpq": 2.0,   "hms_p": 1.165, "hms_th": 44.830, "shms_p": 3.837, "shms_th": 10.240},
     {"ebeam": 6.449, "x": 0.44, "Q2": 4.4, "z": 0.52, "thpq": 2.0,   "hms_p": 1.165, "hms_th": 44.830, "shms_p": 2.978, "shms_th": 10.240},
     {"ebeam": 10.6716, "x": 0.44, "Q2": 4.4, "z": 0.52, "thpq": -2.0,   "hms_p": 5.343, "hms_th": 15.97, "shms_p": 2.978, "shms_th": 12.87},
@@ -503,14 +526,40 @@ def helicity_charge_hm(C,A):
 
 
 
+# Which prescale triggers each report type uses for the computer livetime,
+# in order of priority (the first enabled trigger wins).
+LIVETIME_TRIGGERS = {
+    "HMS":  ("ps3", "ps4"),
+    "SHMS": ("ps1", "ps2"),
+    "COIN": ("ps5", "ps6"),
+}
+
+
+def select_comp_livetime(props, spectrometer):
+    # Returns (comp_livetime, trigger_used).
+    # A trigger is enabled when its prescale factor is > 0 (-1 means disabled).
+    # The livetime is read from the matching "<psN>_comp_livetime" report entry,
+    # given in %, and converted to a fraction capped at 1.
+    for ps in LIVETIME_TRIGGERS[spectrometer]:
+        factor = props.get(ps)
+        if factor is None or factor <= 0:
+            continue
+        livetime = props.get(f"{ps}_comp_livetime")
+        if livetime is None:
+            return -999, ps          # trigger enabled but its livetime line was not found
+        return min(round(livetime / 100, 5), 1.0), ps
+    return -999, None                # no enabled trigger
+
+
 def collect_run_info(input_csv, output_csv, run_type_map):
     keep_columns = ["run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th", "run_type"] 
     results = []
     issues = []
 
     ihwp_map = load_ihwp_table("updated_merged_run_start_stop_log_100625.csv")
+    fan_map = load_fan_table("fan_freq_pass0.csv")
     coin_block_ratios_map = load_coin_block_ratios("coin_block_ratios_pass1.csv")
-    boil_corr_map = load_boil_corr("boiling_correction_factors.csv")
+    boil_corr_map = load_boil_corr("boiling_correction_factors_pass1.csv")
 
     with open(input_csv, newline="") as f:
         reader = csv.DictReader(f)
@@ -535,17 +584,12 @@ def collect_run_info(input_csv, output_csv, run_type_map):
             # Extract variables
             props = {}
             if report_path and os.path.exists(report_path):
-#                spectrometer = next(k for k, v in run_type_map.items() if v is mapping)
-#                props = parse_report_file(report_path, mapping_for_run(spectrometer, run_number))
-
+                spectrometer = next(k for k, v in run_type_map.items() if v is mapping)
+                # To use LINE_OVERRIDES again, parse with
+                # mapping_for_run(spectrometer, run_number) instead of mapping.
                 props = parse_report_file(report_path, mapping)
 
-<<<<<<< HEAD
-=======
-                # Computer livetime from the trigger that is actually enabled
-                spectrometer = next(k for k, v in run_type_map.items() if v is mapping)
-                
-                # Converts livetime from percentage to fraction
+                # Electronic livetime: reports give it in %, store it as a fraction
                 if props.get("electr_livetime") is not None:
                     props["electr_livetime"] = round(props["electr_livetime"] / 100, 8)
 
@@ -560,68 +604,10 @@ def collect_run_info(input_csv, output_csv, run_type_map):
                                   f"comp_livetime: no enabled trigger among {LIVETIME_TRIGGERS[spectrometer]}")
                     })
 
->>>>>>> fd7e1196 (Fixed Computer livetime for SIDIS, changed electr_deadtime to electr_livetime)
+                # Helicity based charge (coincidence reports only)
                 if mapping is run_type_map["COIN"]:
-                    ps1, ps2, ps3, ps4, ps5, ps6 = props.get("ps1"), props.get("ps2"), props.get("ps3"), props.get("ps4"), props.get("ps5"), props.get("ps6")
-                    ps5_comp_livetime = props.get("ps5_comp_livetime")
-                    ps6_comp_livetime = props.get("ps6_comp_livetime")
-
-                    props["comp_livetime"] = -999
-
-                    if ps5 not in (None, -999) and ps5 > 0:
-                        if ps5_comp_livetime not in (None, -999):
-                            props["comp_livetime"] = round(ps5_comp_livetime / 100, 5)
-
-                    elif ps6 not in (None, -999) and ps6 > 0:
-                        if ps6_comp_livetime not in (None, -999):
-                            props["comp_livetime"] = round(ps6_comp_livetime / 100, 5)
-                    
-#                    props["comp_livetime"] = 1.0
-# Uncomment when find out line number for helicity_A and helicity_C:
-                    props["BCM2_Q_hp"] = helicity_charge_hp(props["helicity_C"], props["helicity_A"])
-                    props["BCM2_Q_hm"] = helicity_charge_hm(props["helicity_C"], props["helicity_A"])
-                    
-                else:
-                    phys_triggers = props.get("phys_triggers")
-                    ps1, ps2, ps3, ps4, ps5, ps6 = props.get("ps1"), props.get("ps2"), props.get("ps3"), props.get("ps4"), props.get("ps5"), props.get("ps6")
-                    ps_values = [props.get(f"ps{i}", 1) for i in range(1, 7)]
-                    pTRIG1 = props.get("pTRIG1")
-                    pTRIG2 = props.get("pTRIG2")
-                    pTRIG3 = props.get("pTRIG3")
-                    pTRIG4 = props.get("pTRIG4")
-
-                    props["comp_livetime"] = -999
-
-                    if phys_triggers not in (None, -999):
-
-                        ps_product = 1
-                        for ps in ps_values:
-                            if ps in (None,-999):
-                                ps = 1
-                            ps_product *= ps
-
-                        # Determine livetime based on spectrometer type                          
-                        if mapping is run_type_map["HMS"]:
-                            if pTRIG3 and ps3 > 0:
-                                props["comp_livetime"] = round((-1 * ps_product * phys_triggers) / pTRIG3, 5)
-                            elif pTRIG4 and ps4 > 0:
-                                props["comp_livetime"] = round((-1 * ps_product * phys_triggers) / pTRIG4, 5)
-
-                        elif mapping is run_type_map["SHMS"]:
-                            if pTRIG1 and ps1 > 0:
-                                props["comp_livetime"] = round((-1 * ps_product * phys_triggers) / pTRIG1, 5)
-                            elif pTRIG2 and ps2 > 0:
-                                props["comp_livetime"] = round((-1 * ps_product * phys_triggers) / pTRIG2, 5)
-
-                        if props["comp_livetime"] > 1:
-                            props["comp_livetime"] = 1.0
-
-
-                if mapping is run_type_map["HMS"]:
-                    props["pEff"] = -999
-
-                if mapping is run_type_map["SHMS"]:
-                    props["hEff"] = -999
+                    props["BCM2_Q_hp"] = helicity_charge_hp(props.get("helicity_C"), props.get("helicity_A"))
+                    props["BCM2_Q_hm"] = helicity_charge_hm(props.get("helicity_C"), props.get("helicity_A"))
 
             else:
                 if report_path:  # file path expected but missing
@@ -633,49 +619,43 @@ def collect_run_info(input_csv, output_csv, run_type_map):
                     })
                 props = {var: -999 for var in mapping.keys()}
 
-            # Include helicity based charge information:
-#            props["BCM2_Q_hp"], props["BCM2_Q_hm"] = helicity_charge(props["helicity_C"],props["helicity_A"])
-
             # Load extra info from output_get_good_coin_ev
             extra_props = load_extra_info(run_number, run_type, issues)
             props.update(extra_props)
 
-            # Load fan speed table
-            fan_props = load_fan_data(run_number, "fan_freq_pass0.csv") 
-            props.update(fan_props)
+            # Fan speed
+            props.update(fan_map.get(str(run_number).strip(), {"fan_mean": -999, "fan_stdev": -999}))
 
             # Merge input row with extracted props
             merged = {col: row[col] for col in keep_columns if col in row}
             merged.update(props)
 
-            # Include IHWP value
-            merged["IHWP"] = ihwp_map.get(str(run_number), "")
-
-            ihwp_info = ihwp_map.get(str(run_number),{})
-            merged["IHWP"]=ihwp_info.get("IHWP",-999)
+            # IHWP state, always written as "IN"/"OUT" (see normalize_ihwp)
+            ihwp_info = ihwp_map.get(str(run_number).strip(), {})
+            merged["IHWP"] = normalize_ihwp(ihwp_info.get("IHWP"), run_number)
             # merged["start_time"] = ihwp_info.get("start_time", -999)
             # merged["stop_time"] = ihwp_info.get("stop_time", -999)
-
-            # merged["IHWP"]= -999
-            # merged["start_time"] = -999
-            # merged["stop_time"] = -999
 
             coin_block_ratio_info = coin_block_ratios_map.get(str(run_number), {})
             merged["coinblock_ratio"] = coin_block_ratio_info.get("coinblock_ratio", -999)
 
-            kin = find_kinematics(
-                float(row["ebeam"]),
-                float(row["hms_p"]),
-                float(row["hms_th"]),
-                float(row["shms_p"]),
-                float(row["shms_th"]),
-            )
+            try:
+                kin = find_kinematics(row["ebeam"], row["hms_p"], row["hms_th"],
+                                      row["shms_p"], row["shms_th"])
+            except (TypeError, ValueError):
+                # blank or non-numeric setting in the run list
+                kin = {"x": -999, "Q2": -999, "z": -999, "thpq": -999}
+                issues.append({
+                    "run": run_number,
+                    "run_type": run_type,
+                    "issue": "kinematics: blank or non-numeric beam/spectrometer setting in run list"
+                })
             merged.update(kin)
 
             # Boiling correction, depending on experiment period:
             #   RsidisI  (23834-25603): computed (LH2: fan speed + current fit,
             #                           LD2: linear in current, other targets: 1.0)
-            #   RsidisII (27106-28471): read from boiling_correction_factors.csv
+            #   RsidisII (27106-28471): read from boiling_correction_factors_pass1.csv
             f = merged.get("fan_mean", -999)
             I = merged.get("BCM2_I", -999)
             target = merged.get("target", "")
@@ -702,11 +682,11 @@ def collect_run_info(input_csv, output_csv, run_type_map):
 "boil_corr",
 #start and stop times
 #"start_time", "stop_time",
-#"IHWP",
+"IHWP",
+#helicity based charge                                 
+"BCM2_Q_hp", "BCM2_Q_hm",
 #coin block ratio
 "coinblock_ratio",
-#helicity based charge                                 
-# "BCM2_Q_hp", "BCM2_Q_hm",
 "h_EL_CLEAN", "p_EL_CLEAN"]
 
     for row in results:
