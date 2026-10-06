@@ -1,4 +1,5 @@
 output_branch,runtypes,direct_inputs,source
+mmass,SIDIS,"original H.kin.primary q four-vector,original P.gtr lab momentum,report target/SHMS masses","sqrt(abs((target+q-detected)^2)); massive recoil convention"
 H_gtr_p_recon,"SIDIS,HMSHEEP,SHMSHEEP,HMSDIS",H.gtr.p,"original plus zero-default HMS momentum offset"
 H_gtr_th_recon,"SIDIS,HMSHEEP,SHMSHEEP,HMSDIS",H.gtr.th,"original plus zero-default HMS theta offset"
 P_gtr_p_recon,"SIDIS,HMSHEEP,SHMSHEEP,SHMSDIS",P.gtr.p,"original plus zero-default SHMS momentum offset"
@@ -33,4 +34,4 @@ z_recon,SIDIS,"P_gtr_p_recon,H_kin_primary_nu_recon","p_h,recon/nu_recon; projec
 pt_recon,SIDIS,"P_gtr_p_recon,P_kin_secondary_th_xq_recon",make_skimmed_rootfile.C
 ptx_recon,SIDIS,"pt_recon,P_kin_secondary_ph_xq_recon",make_skimmed_rootfile.C
 pty_recon,SIDIS,"pt_recon,P_kin_secondary_ph_xq_recon",make_skimmed_rootfile.C
-mmass_recon,SIDIS,"reconstructed recoil energy and missing-momentum magnitude","sqrt(abs(Em_recon^2-Pm_recon^2)); recon_hcana convention"
+mmass_recon,SIDIS,"reconstructed recoil energy and missing-momentum magnitude","sqrt(abs((target+q_recon-detected_recon)^2)); massive recon_hcana convention"

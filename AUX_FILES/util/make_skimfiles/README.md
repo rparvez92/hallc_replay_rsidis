@@ -28,8 +28,12 @@ For SIDIS, `z_recon` follows the analysis convention `p_recon / nu_recon`,
 using the detected-hadron momentum magnitude rather than its energy. An
 unphysical reconstructed `W^2 <= 0` is represented by HCANA's `1e38` sentinel
 rather than by zero.
+Both `mmass` and `mmass_recon` use massive detected particles and the same
+recoil invariant-mass kernel. Original `mmass` consumes HCANA's original
+virtual-photon four-vector and original SHMS momentum; `mmass_recon` consumes
+their reconstructed counterparts. Report beam energy is not used anywhere.
 
 Description of the scripts:
-1. make_skimmed_rootfile.C : Main script written in C++. It creates a skim file for a given run. The loose analysis cuts, reconstructed kinematics, and list of ROOT variables to be copied to the skimmed files are defined within. Run-dependent beam energy, target/particle masses, and nominal central `Angle` values are read by label from the matching replay report. `Angle True` and `Angle Offset` are not used. The report directory is independent of the ROOT input directory.
+1. make_skimmed_rootfile.C : Main script written in C++. It creates a skim file for a given run. The loose analysis cuts, reconstructed kinematics, and list of ROOT variables to be copied to the skimmed files are defined within. Run-dependent target/particle masses and nominal central `Angle` values are read by label from the matching replay report. `Angle True`, `Angle Offset`, and report beam energy are not used. The report directory is independent of the ROOT input directory.
 2. run_make_skimfile.sh : It is a shell script to execute make_skimmed_rootfile.C script with appropriate arguments and environment setup.
 3. submit_run_make_skimfile.sh : It is a wrapper script to run the run_make_skimfile.sh script. It reads from a run list (a single-column txt file w/ run numbers) and calls run_make_skimfile.sh for each run. User can choose whether they want to run the jobs on ifarm or submit them to the batch farm.

@@ -40,7 +40,6 @@ const double SHMS_OOPCENTRAL_OFFSET_RAD = 0.0;
 
 struct ReplayParameters
 {
-  double beamEnergy = 0.0;
   double targetMass = 0.0;
   double hPartMass = 0.0;
   double pPartMass = 0.0;
@@ -113,7 +112,7 @@ std::map<std::string, double> read_report_values(const std::string &filename)
 
   std::map<std::string, double> values;
   const std::vector<std::string> wantedLabels = {
-      "run #", "beam energy", "target mass (amu)",
+      "run #", "target mass (amu)",
       "hms particle mass", "hms angle",
       "shms particle mass", "shms angle"};
   std::string line;
@@ -191,7 +190,6 @@ ReplayParameters load_replay_parameters(const std::string &reportFile, int run,
                              " does not match requested run " + std::to_string(run));
 
   ReplayParameters result;
-  result.beamEnergy = required_report_value(values, "Beam energy");
   result.targetMass = required_report_value(values, "Target mass (amu)") * 0.9315;
   result.hOopOffset = HMS_OOPCENTRAL_OFFSET_RAD;
   result.pOopOffset = SHMS_OOPCENTRAL_OFFSET_RAD;
@@ -269,6 +267,21 @@ SecondaryKinematics calculate_secondary(const PrimaryKinematics &primary,
   result.emiss = primary.nu + primary.target.M() - detected.E();
   result.mmiss = std::sqrt(std::abs(result.emiss * result.emiss - pmiss.Mag2()));
   return result;
+}
+
+// Calculate the invariant mass of the undetected recoil system from HCANA's
+// original virtual photon and a massive detected-particle four-vector.
+double calculate_original_missing_mass(double qx, double qy, double qz, double nu,
+                                       double px, double py, double pz,
+                                       double targetMass, double detectedMass)
+{
+  TLorentzVector target;
+  target.SetXYZM(0.0, 0.0, 0.0, targetMass);
+  TLorentzVector q(qx, qy, qz, nu);
+  TLorentzVector detected;
+  detected.SetVectM(TVector3(px, py, pz), detectedMass);
+  const TLorentzVector recoil = target + q - detected;
+  return std::sqrt(std::abs(recoil.M2()));
 }
 
 // Common SHMS vairables
@@ -693,19 +706,12 @@ void make_skimmed_rootfile(int run,             // run number to process
     std::string pt = "sqrt(pow(P.gtr.p,2)*(1.-pow(cos(P.kin.secondary.th_xq),2)))";
     std::string ptx = pt + "*cos(P.kin.secondary.ph_xq)";
     std::string pty = pt + "*sin(P.kin.secondary.ph_xq)";
-    // calculat missing mass using 4-vector arithmetic in a lambda function
-    const double Ein = parameters.beamEnergy;
-    auto calc_mm = [Ein](double epx, double epy, double epz, double ep,
-                         double ppx, double ppy, double ppz, double pp)
+    auto calc_mm = [parameters](double qx, double qy, double qz, double nu,
+                                double px, double py, double pz)
     {
-      // Define 4-vectors
-      ROOT::Math::PxPyPzEVector Pe(0, 0, Ein, Ein);
-      ROOT::Math::PxPyPzEVector Peprime(epx, epy, epz, ep);
-      ROOT::Math::PxPyPzEVector Pp(0, 0, 0, Mp);
-      ROOT::Math::PxPyPzEVector Phadron(ppx, ppy, ppz, pp);
-      // Perform 4-vector arithmetic
-      auto Pmiss = (Pe - Peprime + Pp) - Phadron;
-      return Pmiss.M();
+      return calculate_original_missing_mass(qx, qy, qz, nu, px, py, pz,
+                                             parameters.targetMass,
+                                             parameters.pPartMass);
     };
 
     // defining new columns
@@ -715,7 +721,9 @@ void make_skimmed_rootfile(int run,             // run number to process
                       .Define("ptx", ptx.c_str())
                       .Define("pty", pty.c_str())
                       .Define("mmass", calc_mm,
-                              {"H.gtr.px", "H.gtr.py", "H.gtr.pz", "H.gtr.p", "P.gtr.px", "P.gtr.py", "P.gtr.pz", "P.gtr.p"});
+                              {"H.kin.primary.q_x", "H.kin.primary.q_y",
+                               "H.kin.primary.q_z", "H.kin.primary.nu",
+                               "P.gtr.px", "P.gtr.py", "P.gtr.pz"});
 
     df_filtered = df_filtered
                       .Define("z_recon", [](double p, double nu) { return p / nu; },
