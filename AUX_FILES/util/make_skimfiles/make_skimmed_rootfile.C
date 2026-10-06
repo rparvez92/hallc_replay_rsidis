@@ -290,7 +290,7 @@ std::vector<std::string> shmsVars = {
     "P.dc.x_fp", "P.dc.y_fp", "P.dc.xp_fp", "P.dc.yp_fp", "P.dc.InsideDipoleExit",
     "P.ngcer.npeSum", "P.hgcer.npeSum", "P.aero.npeSum", "P.cal.etottracknorm",
     "P.react.x", "P.react.y", "P.react.z",
-    "P.hod.goodstarttime"};
+    "P.hod.goodstarttime","P.hod.fpHitsTime"};
 
 // SHMS DIS kin & raster variables
 std::vector<std::string> shmskinVars = {
@@ -303,7 +303,7 @@ std::vector<std::string> hmsVars = {
     "H.dc.x_fp", "H.dc.y_fp", "H.dc.xp_fp", "H.dc.yp_fp", "H.dc.InsideDipoleExit",
     "H.cer.npeSum", "H.cal.etottracknorm",
     "H.react.x", "H.react.y", "H.react.z",
-    "H.hod.goodstarttime"};
+    "H.hod.goodstarttime","H.hod.fpHitsTime"};
 
 // HMS DIS kin & raster variables
 std::vector<std::string> hmskinVars = {

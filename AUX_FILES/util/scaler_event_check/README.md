@@ -4,52 +4,90 @@ This study compares the terminal `evNumber` in the applicable scaler tree(s)
 with the number of physics-tree entries. A run is flagged when
 `abs(evNumber - T->GetEntries()) >= 10`.
 
-The dedicated CSV run lists are generated from the official Phase I and Phase
-II DAT files. The supported mappings are:
+The checker runs directly with ROOT on an ifarm or cdaq machine. It does not
+require a batch-submission system, hcana, or the analyzer executable.
 
-| Run type | Replay mode | Scaler trees |
+## Layout
+
+- `bigtable/` contains normalized input run-list CSVs.
+- `macros/` contains the ROOT worker macro.
+- `tools/` contains the run-list generator and direct-run shell wrapper.
+- `results/` contains complete and flagged-only output CSVs.
+
+## Run-type mapping
+
+| Run type | Replay filename | Scaler trees |
 |---|---|---|
-| `PI-SIDIS`, `PI+SIDIS`, `HMSHEEP`, `SHMSHEEP` | coin | TSH and TSP |
-| `HMSDIS`, `HMSHEE` | hms | TSH |
-| `SHMSDIS`, `SHMSHEE` | shms | TSP |
+| `PI-SIDIS`, `PI+SIDIS`, `HMSHEEP`, `SHMSHEEP` | `coin_replay_production_<run>_-1.root` | TSH and TSP |
+| `HMSDIS`, `HMSHEE` | `hms_coin_replay_production_<run>_-1.root` | TSH |
+| `SHMSDIS`, `SHMSHEE` | `shms_coin_replay_production_<run>_-1.root` | TSP |
 
-## Generate and validate run lists
+## Final-QA study
 
-From the repository root:
-
-```bash
-python3 AUX_FILES/util/scaler_event_check/generate_runlists.py
-python3 AUX_FILES/util/scaler_event_check/generate_runlists.py --check
-```
-
-## Foreground test
-
-The arguments after the phase are the zero-based starting row, number of runs,
-and output fragment. Choose ranges that cover the desired replay modes. The
-worker loads `root/PRO`; no analyzer or hcana module is required.
+`bigtable/QA_scaler_event_check_runlist.csv` contains 419 normalized rows
+generated from the two-column `final_qa_runlist.csv`. To regenerate or validate
+it when the source list changes:
 
 ```bash
-AUX_FILES/util/scaler_event_check/run_batch.sh phase1 0 3 /tmp/phase1_scaler_test.csv
+python3 AUX_FILES/util/scaler_event_check/tools/generate_runlists.py \
+  qa --qa-source /path/to/final_qa_runlist.csv
+
+python3 AUX_FILES/util/scaler_event_check/tools/generate_runlists.py \
+  qa --qa-source /path/to/final_qa_runlist.csv --check
 ```
 
-## Submit SWIF2 workflows
-
-Each job processes 50 runs by default:
+Run the QA check from the `hallc_replay_rsidis` repository root:
 
 ```bash
-AUX_FILES/util/scaler_event_check/submit_swif2.sh phase1
-AUX_FILES/util/scaler_event_check/submit_swif2.sh phase2
-swif2 status -workflow scaler_event_check_phase1
-swif2 status -workflow scaler_event_check_phase2
+scaler_dir="$PWD/AUX_FILES/util/scaler_event_check"
+
+"$scaler_dir/tools/run_scaler_event_check.sh" \
+  QA \
+  "$scaler_dir/bigtable/QA_scaler_event_check_runlist.csv" \
+  /lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/ROOTfiles \
+  "$scaler_dir/results/scaler_event_check_QA.csv" \
+  "$scaler_dir/results/scaler_event_check_QA_flagged.csv"
 ```
 
-After every job completes successfully, merge and validate the fragments:
+The runner checks every listed run in one ROOT process, verifies the output row
+count, and creates both the complete and flagged-only CSV files. Missing files
+or malformed trees remain in the complete CSV with a diagnostic `status`.
+
+## Sample pass1 QA study
 
 ```bash
-python3 AUX_FILES/util/scaler_event_check/merge_results.py phase1
-python3 AUX_FILES/util/scaler_event_check/merge_results.py phase2
+scaler_dir="$PWD/AUX_FILES/util/scaler_event_check"
+
+"$scaler_dir/tools/run_scaler_event_check.sh" \
+  sample \
+  "$scaler_dir/bigtable/sample_scaler_event_check_runlist.csv" \
+  /lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc \
+  "$scaler_dir/results/scaler_event_check_sample.csv" \
+  "$scaler_dir/results/scaler_event_check_sample_flagged.csv"
 ```
 
-Final CSVs are written under `AUX_FILES/util/scaler_event_check/results/`.
-Missing files and malformed trees remain represented as rows with diagnostic
-status values.
+## Run any custom list
+
+The run-list schema is:
+
+```text
+run,run_type,replay_mode
+```
+
+Invoke:
+
+```text
+run_scaler_event_check.sh <label> <run-list.csv> <root-directory> <output.csv> [flagged.csv] [threshold]
+```
+
+The threshold defaults to 10. The output uses a signed difference,
+`final_evNumber - T->GetEntries()`, and `overall_flag` uses its absolute value.
+
+## Original phase run lists
+
+The Phase 1 and Phase 2 lists come from their official DAT files:
+
+```bash
+python3 AUX_FILES/util/scaler_event_check/tools/generate_runlists.py
+python3 AUX_FILES/util/scaler_event_check/tools/generate_runlists.py --check
+```

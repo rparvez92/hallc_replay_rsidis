@@ -1,0 +1,11 @@
+phase,run,run_type,replay_mode,root_file,t_entries,tsh_last_evnumber,tsh_difference,tsh_flag,tsp_last_evnumber,tsp_difference,tsp_flag,overall_flag,status
+sample,25485,PI-SIDIS,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25485_-1.root,1561532,1561533,1,0,1561533,1,0,0,OK
+sample,24952,PI+SIDIS,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_24952_-1.root,816862,816863,1,0,816863,1,0,0,OK
+sample,25110,PI-SIDIS,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25110_-1.root,596979,596980,1,0,596980,1,0,0,OK
+sample,25539,PI+SIDIS,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25539_-1.root,570290,570291,1,0,570291,1,0,0,OK
+sample,25006,PI+SIDIS,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25006_-1.root,548149,548150,1,0,548150,1,0,0,OK
+sample,24927,PI+SIDIS,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_24927_-1.root,491185,491186,1,0,491186,1,0,0,OK
+sample,25477,SHMSHEEP,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25477_-1.root,31272,31273,1,0,31273,1,0,0,OK
+sample,25480,SHMSHEEP,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25480_-1.root,28805,28806,1,0,28806,1,0,0,OK
+sample,25483,SHMSHEEP,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25483_-1.root,25909,25910,1,0,25910,1,0,0,OK
+sample,25475,SHMSHEEP,coin,/lustre24/expphy/volatile/hallc/c-rsidis/pdbforce/replay/pass1_QA_scdisc/coin_replay_production_25475_-1.root,21155,21156,1,0,21156,1,0,0,OK
