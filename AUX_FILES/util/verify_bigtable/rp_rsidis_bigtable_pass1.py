@@ -33,7 +33,7 @@ OUTPUT_COLUMNS = [
     "BCM2_I", "BCM4A_Q", "BCM4A_I", "BCM4B_Q", "BCM4B_I", "BCM4C_Q",
     "BCM4C_I", "h_esing_Eff", "h_hadron_Eff", "p_esing_Eff",
     "p_hadron_Eff", "ps1", "ps2", "ps3", "ps4", "ps5", "ps6",
-    "comp_livetime", "electr_deadtime", "coin", "ransubcoin",
+    "comp_livetime", "electr_livetime", "coin", "ransubcoin",
     "ransubcoin_err", "normyield", "normyield_err", "ctmean", "ctsigma",
     "boil_corr", "IHWP", "BCM2_Q_hp", "BCM2_Q_hm", "coinblock_ratio",
     "h_EL_CLEAN", "p_EL_CLEAN",
@@ -575,7 +575,7 @@ def build(args: argparse.Namespace) -> int:
     issue(
         issues, "info", "ALL", "", "unsupported_columns", "project scope",
         "columns outside the first verification stage use -999",
-        note="comp_livetime,electr_deadtime,boil_corr,IHWP,BCM2_Q_hp,BCM2_Q_hm,coinblock_ratio",
+        note="comp_livetime,electr_livetime,boil_corr,IHWP,BCM2_Q_hp,BCM2_Q_hm,coinblock_ratio",
     )
     issue(
         issues, "info", "ALL", "", "run_selection", args.group_csv,
@@ -594,7 +594,6 @@ def build(args: argparse.Namespace) -> int:
 def parse_args() -> argparse.Namespace:
     script_dir = Path(__file__).resolve().parent
     repo_root = script_dir.parents[2]
-    workspace_root = repo_root.parents[1]
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--runlists", type=Path, nargs="+",
@@ -606,7 +605,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--group-csv", type=Path,
-        default=workspace_root / "Misc/rsidis_bigtable_pass1.csv",
+        default=repo_root / "AUX_FILES/rsidis_bigtable_pass1.csv",
     )
     parser.add_argument(
         "--output-csv", type=Path,
