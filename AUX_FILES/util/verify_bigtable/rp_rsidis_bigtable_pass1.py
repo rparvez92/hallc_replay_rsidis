@@ -3,7 +3,7 @@
 
 The group bigtable is used only to select/order runs and to compare results.
 Values in the RP table come from the runlists, replay reports, monitoring CSVs,
-or documented central-kinematics calculations.
+or the independently extracted run-plan nominal-kinematics map.
 """
 
 from __future__ import annotations
@@ -50,12 +50,26 @@ VERIFIED_COLUMNS = [
 ]
 
 TEXT_COLUMNS = {"target", "run_type"}
-# Half of one unit in the published last decimal place.
-KINEMATIC_TOLERANCES = {"x": 0.005, "Q2": 0.05, "z": 0.005, "thpq": 0.05}
+NOMINAL_COLUMNS = ("x", "Q2", "z", "thpq")
+HARDWARE_TOLERANCES = {
+    "ebeam": 0.05, "hms_p": 0.015, "hms_th": 0.02,
+    "shms_p": 0.015, "shms_th": 0.02,
+}
+COHERENCE_TOLERANCES = {"x": 0.01, "Q2": 0.1, "z": 0.08, "thpq": 0.1}
+RUN_SETTING_OVERRIDES = {25465: "RP008", 25466: "RP008"}
 
 SUMMARY_COLUMNS = [
     "severity", "run", "run_type", "column", "source_file", "issue",
     "group_value", "rp_value", "difference", "note",
+]
+
+COHERENCE_COLUMNS = [
+    "run", "run_type", "match_status", "coherence_status", "setting_id", "source_pages",
+    "ebeam", "hms_p", "hms_th", "shms_p", "shms_th",
+    "x_nominal", "x_calculated", "x_residual",
+    "Q2_nominal", "Q2_calculated", "Q2_residual",
+    "z_nominal", "z_calculated", "z_residual",
+    "thpq_nominal", "thpq_calculated", "thpq_residual",
 ]
 
 
@@ -86,22 +100,6 @@ def issue(
     })
 
 
-def parse_prescales(text: str) -> list[int]:
-    values = [int(value.strip()) for value in text.split(",")]
-    if len(values) != 6:
-        raise ValueError(f"expected six prescales, found {len(values)}")
-    return values
-
-
-def runlist_prescale_to_report_factor(setting: int) -> int:
-    """Convert CODA runlist notation to the factor printed by hcana reports."""
-    if setting < 0:
-        return -1
-    if setting == 0:
-        return 1
-    return 2 ** (setting - 1) + 1
-
-
 def read_runlist(path: Path, issues: list[dict[str, object]]) -> dict[int, dict[str, object]]:
     rows: dict[int, dict[str, object]] = {}
     with path.open() as stream:
@@ -114,7 +112,6 @@ def read_runlist(path: Path, issues: list[dict[str, object]]) -> dict[int, dict[
                 if len(fields) < 12:
                     raise ValueError(f"expected at least 12 fields, found {len(fields)}")
                 run = int(fields[0])
-                prescales = parse_prescales(fields[10])
                 row: dict[str, object] = {
                     "run": run,
                     "ebeam": float(fields[3]),
@@ -125,7 +122,6 @@ def read_runlist(path: Path, issues: list[dict[str, object]]) -> dict[int, dict[
                     "shms_th": float(fields[9]),
                     "run_type": fields[11],
                 }
-                row.update({f"runlist_ps{i + 1}": value for i, value in enumerate(prescales)})
                 if run in rows:
                     raise ValueError("duplicate run number")
                 rows[run] = row
@@ -403,36 +399,91 @@ def electron_kinematics(ebeam: float, momentum: float, theta_deg: float) -> tupl
     return x, q2, nu, theta_q
 
 
-def calculate_kinematics(
-    row: dict[str, object],
-    issues: list[dict[str, object]],
-) -> dict[str, float]:
-    run = int(row["run"])
-    run_type = str(row["run_type"])
+def calculate_continuous_kinematics(row: dict[str, object]) -> dict[str, float]:
     result = {"x": SENTINEL, "Q2": SENTINEL, "z": SENTINEL, "thpq": SENTINEL}
     try:
-        if run_type in SIDIS_TYPES | HMS_ELECTRON_TYPES:
-            x, q2, nu, theta_q = electron_kinematics(
-                float(row["ebeam"]), float(row["hms_p"]), float(row["hms_th"]),
-            )
-        elif run_type in SHMS_ELECTRON_TYPES:
-            x, q2, nu, theta_q = electron_kinematics(
-                float(row["ebeam"]), float(row["shms_p"]), float(row["shms_th"]),
-            )
-        else:
-            return result
-        result.update({"x": round(x, 2), "Q2": round(q2, 1)})
-        if run_type in SIDIS_TYPES:
-            pion_momentum = abs(float(row["shms_p"]))
-            pion_energy = math.sqrt(pion_momentum**2 + CHARGED_PION_MASS_GEV**2)
-            result["z"] = round(pion_energy / nu, 2)
-            result["thpq"] = round(abs(float(row["shms_th"])) - theta_q, 1)
-    except (ValueError, ZeroDivisionError) as exc:
-        issue(
-            issues, "error", run, run_type, "kinematics", "runlist",
-            "central-kinematics calculation failed", rp_value=SENTINEL, note=str(exc),
+        # Every accepted nominal-map entry uses the SIDIS setting convention:
+        # HMS is the scattered-electron arm and SHMS is the detected-pion arm.
+        # This central-geometry check is valid even when the acquired trigger
+        # sample is SHMSDIS, BCM, or EDTMBCM.
+        x, q2, nu, theta_q = electron_kinematics(
+            float(row["ebeam"]), float(row["hms_p"]), float(row["hms_th"]),
         )
+        result.update({"x": x, "Q2": q2})
+        pion_momentum = abs(float(row["shms_p"]))
+        pion_energy = math.sqrt(pion_momentum**2 + CHARGED_PION_MASS_GEV**2)
+        result["z"] = pion_energy / nu
+        result["thpq"] = abs(float(row["shms_th"])) - theta_q
+    except (ValueError, ZeroDivisionError):
+        pass
     return result
+
+
+def lookup_nominal_kinematics(
+    row: dict[str, object],
+    nominal_rows: list[dict[str, str]],
+    nominal_map: Path,
+    issues: list[dict[str, object]],
+) -> tuple[dict[str, float], str, dict[str, str] | None]:
+    override_id = RUN_SETTING_OVERRIDES.get(int(row["run"]))
+    if override_id:
+        matches = [setting for setting in nominal_rows if setting["setting_id"] == override_id]
+        if len(matches) != 1:
+            raise ValueError(f"setting override {override_id} is absent or duplicated")
+        issue(
+            issues, "info", row["run"], str(row["run_type"]), "kinematics",
+            nominal_map, "manual nominal-setting override",
+            note=f"assigned={override_id}; approved pending group decision",
+        )
+    else:
+        matches = [
+            setting for setting in nominal_rows
+            if all(
+                abs(abs(float(row[column])) - abs(float(setting[column]))) < tolerance
+                for column, tolerance in HARDWARE_TOLERANCES.items()
+            )
+        ]
+    result = {column: SENTINEL for column in NOMINAL_COLUMNS}
+    if not matches:
+        def normalized_distance(setting: dict[str, str]) -> float:
+            return max(
+                abs(abs(float(row[column])) - abs(float(setting[column]))) / tolerance
+                for column, tolerance in HARDWARE_TOLERANCES.items()
+            )
+
+        nearest = min(nominal_rows, key=normalized_distance)
+        failures = []
+        for column, tolerance in HARDWARE_TOLERANCES.items():
+            difference = abs(float(row[column])) - abs(float(nearest[column]))
+            if abs(difference) >= tolerance:
+                failures.append(f"{column}={difference:+.6g} (tol={tolerance})")
+        issue(
+            issues, "warning", row["run"], str(row["run_type"]), "kinematics",
+            nominal_map, "no nominal-setting map match",
+            note=(
+                f"nearest={nearest['setting_id']}; outside=" + ";".join(failures)
+            ),
+        )
+        return result, "unmatched", None
+    nominal_labels = {
+        (setting["x"], setting["Q2"], setting["z"], setting["theta_pq"])
+        for setting in matches
+    }
+    if len(nominal_labels) > 1:
+        issue(
+            issues, "error", row["run"], str(row["run_type"]), "kinematics",
+            nominal_map, "multiple authoritative nominal-setting matches",
+            note="|".join(setting["setting_id"] for setting in matches),
+        )
+        return result, "ambiguous", None
+    setting = matches[0]
+    result.update({
+        "x": float(setting["x"]),
+        "Q2": float(setting["Q2"]),
+        "z": float(setting["z"]),
+        "thpq": float(setting["theta_pq"]),
+    })
+    return result, "matched", setting
 
 
 def numeric(value: object) -> float | None:
@@ -452,8 +503,7 @@ def values_equal(column: str, group_value: object, rp_value: object) -> tuple[bo
     difference = rp_number - group_number
     if group_number == SENTINEL or rp_number == SENTINEL:
         return group_number == rp_number, difference
-    tolerance = KINEMATIC_TOLERANCES.get(column, 1e-9)
-    return math.isclose(group_number, rp_number, rel_tol=0.0, abs_tol=tolerance), difference
+    return math.isclose(group_number, rp_number, rel_tol=0.0, abs_tol=1e-9), difference
 
 
 def write_csv(path: Path, fieldnames: list[str], rows: Iterable[dict[str, object]]) -> None:
@@ -473,11 +523,14 @@ def build(args: argparse.Namespace) -> int:
         )
     if not args.group_csv.is_file():
         raise FileNotFoundError(f"group reference CSV is unavailable: {args.group_csv}")
+    if not args.nominal_map.is_file():
+        raise FileNotFoundError(f"nominal run-plan map is unavailable: {args.nominal_map}")
     for runlist in args.runlists:
         if not runlist.is_file():
             raise FileNotFoundError(f"runlist is unavailable: {runlist}")
 
     issues: list[dict[str, object]] = []
+    _, nominal_rows = read_csv_rows(args.nominal_map)
     group_header, group_rows = read_csv_rows(args.group_csv)
     if group_header != OUTPUT_COLUMNS:
         issue(
@@ -504,6 +557,7 @@ def build(args: argparse.Namespace) -> int:
             runlist_rows[run] = row
 
     rp_rows: list[dict[str, object]] = []
+    coherence_rows: list[dict[str, object]] = []
     group_by_run = {int(row["run"]): row for row in group_rows}
     for run in group_runs:
         group_row = group_by_run[run]
@@ -524,25 +578,50 @@ def build(args: argparse.Namespace) -> int:
         result.update({column: runlist_row[column] for column in (
             "run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th", "run_type",
         )})
-        result.update(calculate_kinematics(runlist_row, issues))
+        nominal, match_status, setting = lookup_nominal_kinematics(
+            runlist_row, nominal_rows, args.nominal_map, issues,
+        )
+        result.update(nominal)
+        calculated = calculate_continuous_kinematics(runlist_row)
+        coherence: dict[str, object] = {
+            "run": run,
+            "run_type": run_type,
+            "match_status": match_status,
+            "setting_id": setting["setting_id"] if setting else "",
+            "source_pages": (
+                setting.get("source_pages", setting.get("source_reference", ""))
+                if setting else ""
+            ),
+            **{column: runlist_row[column] for column in HARDWARE_TOLERANCES},
+        }
+        for column in NOMINAL_COLUMNS:
+            nominal_value = nominal[column]
+            calculated_value = calculated[column]
+            coherence[f"{column}_nominal"] = nominal_value
+            coherence[f"{column}_calculated"] = (
+                round(calculated_value, 6) if calculated_value != SENTINEL else SENTINEL
+            )
+            coherence[f"{column}_residual"] = (
+                round(calculated_value - nominal_value, 6)
+                if calculated_value != SENTINEL and nominal_value != SENTINEL else SENTINEL
+            )
+        residuals = {
+            column: coherence[f"{column}_residual"] for column in NOMINAL_COLUMNS
+            if coherence[f"{column}_residual"] != SENTINEL
+        }
+        coherence["coherence_status"] = (
+            "unmatched" if match_status != "matched"
+            else "setting_match_only" if not residuals
+            else "outlier" if any(
+                abs(float(residual)) > COHERENCE_TOLERANCES[column]
+                for column, residual in residuals.items()
+            )
+            else "coherent"
+        )
+        coherence_rows.append(coherence)
         report_type, report_path = choose_report(args.report_root, run, run_type)
         report_values = parse_report(report_path, report_type, run, run_type, issues)
         result.update(report_values)
-
-        for number in range(1, 7):
-            report_value = report_values[f"ps{number}"]
-            runlist_value = runlist_row[f"runlist_ps{number}"]
-            # Runlists store the CODA prescale setting, while reports print the
-            # resulting factor: -1 stays disabled, 0 becomes 1, and n>0 becomes
-            # 2**(n-1)+1.
-            comparable_runlist_value = runlist_prescale_to_report_factor(int(runlist_value))
-            if report_value != SENTINEL and report_value != comparable_runlist_value:
-                issue(
-                    issues, "warning", run, run_type, f"ps{number}", report_path,
-                    "report prescale differs from runlist setting",
-                    group_value=runlist_value, rp_value=report_value,
-                    difference=report_value - comparable_runlist_value,
-                )
 
         csv_path = monitor_csv_path(args.report_root, report_type, run)
         result.update(parse_monitor_csv(csv_path, report_type, run, run_type, issues))
@@ -551,10 +630,10 @@ def build(args: argparse.Namespace) -> int:
         for column in VERIFIED_COLUMNS:
             equal, difference = values_equal(column, group_row.get(column, ""), result[column])
             if not equal:
-                severity = "warning" if column in KINEMATIC_TOLERANCES else "error"
+                severity = "warning" if column in NOMINAL_COLUMNS else "error"
                 issue(
                     issues, severity, run, run_type, column,
-                    "calculation" if column in KINEMATIC_TOLERANCES else (
+                    args.nominal_map if column in NOMINAL_COLUMNS else (
                         report_path if column not in {
                             "run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th", "run_type",
                             "coin", "ransubcoin", "ransubcoin_err", "normyield", "normyield_err", "ctmean", "ctsigma",
@@ -564,7 +643,7 @@ def build(args: argparse.Namespace) -> int:
                     ),
                     "RP value differs from group pass1 value",
                     group_value=group_row.get(column, ""), rp_value=result[column], difference=difference,
-                    note=(f"comparison tolerance={KINEMATIC_TOLERANCES[column]}" if column in KINEMATIC_TOLERANCES else ""),
+                    note="nominal labels compared numerically and exactly" if column in NOMINAL_COLUMNS else "",
                 )
 
     issue(
@@ -582,11 +661,20 @@ def build(args: argparse.Namespace) -> int:
         "run membership and ordering follow the clean group reference",
         note=f"rows={len(group_runs)}",
     )
+    issue(
+        issues, "info", "ALL", "", "kinematic_coherence", args.kinematics_csv,
+        "continuous calculations are diagnostic and do not define nominal labels",
+        note="tolerances=" + ",".join(
+            f"{column}:{tolerance}" for column, tolerance in COHERENCE_TOLERANCES.items()
+        ),
+    )
 
     write_csv(args.output_csv, OUTPUT_COLUMNS, rp_rows)
     write_csv(args.summary_csv, SUMMARY_COLUMNS, issues)
+    write_csv(args.kinematics_csv, COHERENCE_COLUMNS, coherence_rows)
     print(f"Wrote {len(rp_rows)} rows to {args.output_csv}")
     print(f"Wrote {len(issues)} verification records to {args.summary_csv}")
+    print(f"Wrote {len(coherence_rows)} kinematic records to {args.kinematics_csv}")
     print("Summary severities:", dict(Counter(str(row["severity"]) for row in issues)))
     return 1 if any(row["severity"] == "error" and row["run"] == "ALL" for row in issues) else 0
 
@@ -608,12 +696,20 @@ def parse_args() -> argparse.Namespace:
         default=repo_root / "AUX_FILES/rsidis_bigtable_pass1.csv",
     )
     parser.add_argument(
+        "--nominal-map", type=Path,
+        default=script_dir / "nominal_kinematics_map.csv",
+    )
+    parser.add_argument(
         "--output-csv", type=Path,
         default=script_dir / "rp_rsidis_bigtable_pass1.csv",
     )
     parser.add_argument(
         "--summary-csv", type=Path,
         default=script_dir / "varify_bigtable_summary.csv",
+    )
+    parser.add_argument(
+        "--kinematics-csv", type=Path,
+        default=script_dir / "kinematic_coherence.csv",
     )
     return parser.parse_args()
 

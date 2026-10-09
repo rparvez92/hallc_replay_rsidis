@@ -1,0 +1,97 @@
+direction,phase,pdf_page,kinematic_table_index,status,x,Q2,z,theta_pq,ebeam,hms_p,hms_th,shms_p,shms_th,note
+runplan_to_table,1,3,9,match,0.25,3.3,0.90,-0.8,10.670,-3.642,16.750,6.538,7.510,
+runplan_to_table,1,7,12,match,0.25,3.3,0.67,-0.8,10.670,-3.642,16.750,4.868,7.510,
+runplan_to_table,1,12,13,match,0.25,3.3,0.50,-0.8,10.670,-3.642,16.750,3.632,7.510,
+runplan_to_table,1,17,9,match,0.25,3.3,0.90,-0.8,10.670,-3.642,16.750,-6.538,7.510,
+runplan_to_table,1,21,12,match,0.25,3.3,0.67,-0.8,10.670,-3.642,16.750,-4.868,7.510,
+runplan_to_table,1,25,13,match,0.25,3.3,0.50,-0.8,10.670,-3.642,16.750,-3.632,7.510,
+runplan_to_table,1,29,10,match,0.25,3.3,0.90,2.0,10.670,-3.642,16.750,-6.538,10.310,
+runplan_to_table,1,32,11,match,0.25,3.3,0.67,2.0,10.670,-3.642,16.750,-4.868,10.310,
+runplan_to_table,1,36,14,match,0.25,3.3,0.50,2.0,10.670,-3.642,16.750,-3.632,10.310,
+runplan_to_table,1,40,17,match,0.25,3.3,0.36,2.0,10.670,-3.642,16.750,-2.615,10.310,
+runplan_to_table,1,43,10,match,0.25,3.3,0.90,2.0,10.670,-3.642,16.750,6.538,10.310,
+runplan_to_table,1,46,11,match,0.25,3.3,0.67,2.0,10.670,-3.642,16.750,4.868,10.310,
+runplan_to_table,1,50,14,match,0.25,3.3,0.50,2.0,10.670,-3.642,16.750,3.632,10.310,
+runplan_to_table,1,54,17,match,0.25,3.3,0.36,2.0,10.670,-3.642,16.750,2.615,10.310,
+runplan_to_table,1,58,15,match,0.25,3.3,0.50,5.2,10.670,-3.642,16.750,3.632,13.510,
+runplan_to_table,1,62,16,match,0.25,3.3,0.50,8.5,10.670,-3.642,16.750,3.632,16.810,
+runplan_to_table,1,64,16,match,0.25,3.3,0.50,8.5,10.670,-3.642,16.750,-3.632,16.810,
+runplan_to_table,1,66,15,match,0.25,3.3,0.50,5.2,10.670,-3.642,16.750,-3.632,13.510,
+runplan_to_table,1,68,14,match,0.25,3.3,0.50,2.0,10.670,-3.642,16.750,-3.632,10.310,
+runplan_to_table,1,76,14,match,0.25,3.3,0.50,2.0,10.670,-3.642,16.750,-3.632,10.310,
+runplan_to_table,2,4,19,match,0.22,2.2,0.50,2.0,6.490,-1.165,31.280,-2.766,8.280,
+runplan_to_table,2,7,20,match,0.22,2.2,0.90,2.0,6.490,-1.165,31.280,4.978,8.280,
+runplan_to_table,2,9,19,match,0.22,2.2,0.50,2.0,6.490,-1.165,31.280,2.766,8.280,
+runplan_to_table,2,11,21,match,0.44,4.4,0.90,2.0,6.490,-1.165,44.830,5.154,10.250,
+runplan_to_table,2,13,22,match,0.44,4.4,0.67,2.0,6.494,-1.165,44.830,3.837,10.250,
+runplan_to_table,2,15,23,match,0.44,4.4,0.52,2.0,6.494,-1.165,44.830,2.978,10.250,
+runplan_to_table,2,24,22,match,0.44,4.4,0.67,2.0,6.494,-1.165,44.830,-3.837,10.250,
+runplan_to_table,2,26,23,match,0.44,4.4,0.52,2.0,6.494,-1.165,44.830,-2.978,10.250,
+runplan_to_table,2,29,27,match,0.16,1.6,0.50,2.0,6.490,-1.165,26.590,-2.738,7.500,
+runplan_to_table,2,32,28,match,0.16,1.6,0.90,2.0,6.490,-1.165,26.590,4.929,7.500,
+runplan_to_table,2,35,27,match,0.16,1.6,0.50,2.0,6.490,-1.165,26.590,2.738,7.500,
+runplan_to_table,2,50,30,match,0.31,3.1,0.90,2.0,6.490,-1.165,37.330,5.051,9.230,
+runplan_to_table,2,52,29,match,0.31,3.1,0.50,2.0,6.490,-1.165,37.330,2.806,9.230,
+runplan_to_table,2,55,29,match,0.31,3.1,0.50,2.0,6.490,-1.165,37.330,-2.806,9.230,
+runplan_to_table,2,65,32,match,0.16,1.6,0.50,2.0,8.580,-3.254,13.750,-2.738,10.120,
+runplan_to_table,2,67,35,match,0.16,1.6,0.50,0.0,8.580,-3.254,13.750,-2.738,8.120,
+runplan_to_table,2,69,33,match,0.16,1.6,0.90,2.0,8.580,-3.254,13.750,4.929,10.120,
+runplan_to_table,2,71,32,match,0.16,1.6,0.50,2.0,8.580,-3.254,13.750,2.738,10.120,
+runplan_to_table,2,74,35,match,0.16,1.6,0.50,0.0,8.580,-3.254,13.750,2.738,8.120,
+runplan_to_table,2,76,38,match,0.22,2.2,0.90,2.0,8.580,-3.254,16.130,4.978,11.410,
+runplan_to_table,2,78,37,match,0.22,2.2,0.50,2.0,8.580,-3.254,16.130,2.766,11.410,
+runplan_to_table,2,81,39,match,0.22,2.2,0.50,-1.0,8.580,-3.254,16.130,2.766,8.410,
+runplan_to_table,2,83,39,match,0.22,2.2,0.50,-1.0,8.580,-3.254,16.130,-2.766,8.410,
+runplan_to_table,2,86,37,match,0.22,2.2,0.50,2.0,8.580,-3.254,16.130,-2.766,11.410,
+runplan_to_table,2,88,40,match,0.31,3.1,0.50,2.0,8.580,-3.254,19.180,-2.806,12.980,
+runplan_to_table,2,90,41,match,0.31,3.1,0.90,2.0,8.580,-3.254,19.180,5.051,12.980,
+runplan_to_table,2,92,40,match,0.31,3.1,0.50,2.0,8.580,-3.254,19.180,2.806,12.980,
+runplan_to_table,2,95,45,match,0.44,4.4,0.90,2.0,8.580,-3.254,22.890,5.154,14.770,
+runplan_to_table,2,97,44,match,0.44,4.4,0.67,2.0,8.580,-3.254,22.890,3.837,14.770,
+runplan_to_table,2,99,43,match,0.44,4.4,0.52,2.0,8.580,-3.254,22.890,2.978,14.770,
+runplan_to_table,2,104,44,match,0.44,4.4,0.67,2.0,8.580,-3.254,22.890,-3.837,14.770,
+runplan_to_table,2,106,43,match,0.44,4.4,0.52,2.0,8.580,-3.254,22.890,-2.978,14.770,
+runplan_to_table,2,124,,missing_from_kinematic_table,0.25,3.3,0.50,11.7,8.560,-1.531,29.050,3.632,17.570,authoritative run-plan setting has no hardware match
+runplan_to_table,2,129,,missing_from_kinematic_table,0.31,3.1,0.90,2.0,10.670,-5.343,13.390,5.051,14.740,authoritative run-plan setting has no hardware match
+runplan_to_table,2,131,,missing_from_kinematic_table,0.31,3.1,0.50,2.0,10.670,-5.343,13.390,2.806,14.740,authoritative run-plan setting has no hardware match
+runplan_to_table,2,134,,missing_from_kinematic_table,0.31,3.1,0.50,-1.0,10.670,-5.343,13.390,2.806,11.740,authoritative run-plan setting has no hardware match
+runplan_to_table,2,137,,missing_from_kinematic_table,0.31,3.1,0.50,-1.0,10.670,-5.343,13.390,-2.806,11.740,authoritative run-plan setting has no hardware match
+runplan_to_table,2,139,,missing_from_kinematic_table,0.31,3.1,0.50,2.0,10.670,-5.343,13.390,-2.806,14.740,authoritative run-plan setting has no hardware match
+runplan_to_table,2,141,53,match,0.44,4.4,0.90,2.0,10.670,-5.343,15.970,5.154,16.870,
+runplan_to_table,2,143,52,match,0.44,4.4,0.67,2.0,10.670,-5.343,15.970,3.837,16.870,
+runplan_to_table,2,146,51,match,0.44,4.4,0.67,0.0,10.670,-5.343,15.970,3.837,14.870,
+runplan_to_table,2,148,50,match,0.44,4.4,0.67,-2.0,10.670,-5.343,15.970,3.837,12.870,
+runplan_to_table,2,150,24,match,0.44,4.4,0.52,-2.0,10.670,-5.343,15.970,2.978,12.870,
+runplan_to_table,2,155,25,match,0.44,4.4,0.52,0.0,10.670,-5.343,15.970,2.978,14.870,
+runplan_to_table,2,159,26,match,0.44,4.4,0.52,2.0,10.670,-5.343,15.970,2.978,16.870,
+runplan_to_table,2,163,53,match,0.44,4.4,0.90,2.0,10.670,-5.343,15.970,-5.154,16.870,
+runplan_to_table,2,165,52,match,0.44,4.4,0.67,2.0,10.670,-5.343,15.970,-3.837,16.870,
+runplan_to_table,2,167,51,match,0.44,4.4,0.67,0.0,10.670,-5.343,15.970,-3.837,14.870,
+runplan_to_table,2,169,50,match,0.44,4.4,0.67,-2.0,10.670,-5.343,15.970,-3.837,12.870,
+runplan_to_table,2,171,24,match,0.44,4.4,0.52,-2.0,10.670,-5.343,15.970,-2.978,12.870,
+runplan_to_table,2,174,25,match,0.44,4.4,0.52,0.0,10.670,-5.343,15.970,-2.978,14.870,
+runplan_to_table,2,177,26,match,0.44,4.4,0.52,2.0,10.670,-5.343,15.970,-2.978,16.870,
+runplan_to_table,2,180,53,match,0.44,4.4,0.90,2.0,10.670,-5.343,15.970,5.154,16.870,
+runplan_to_table,2,187,48,match,0.31,3.1,0.90,2.0,10.670,-5.343,13.490,5.051,14.740,
+runplan_to_table,2,188,48,match,0.31,3.1,0.90,2.0,10.670,-5.343,13.490,-5.051,14.740,
+runplan_to_table,2,191,15,match,0.25,3.3,0.50,5.2,10.680,-3.642,16.750,3.632,13.510,
+runplan_to_table,2,194,46,match,0.25,3.3,0.50,11.7,10.670,-3.642,16.750,3.632,20.010,
+runplan_to_table,2,196,24,match,0.44,4.4,0.52,-2.0,10.670,-5.343,15.970,2.978,12.870,
+runplan_to_table,2,197,25,match,0.44,4.4,0.52,0.0,10.670,-5.343,15.970,2.978,14.870,
+runplan_to_table,2,198,26,match,0.44,4.4,0.52,2.0,10.670,-5.343,15.970,2.978,16.870,
+table_to_runplan,,,1,not_documented_in_uploaded_runplans,0.25,3.3,0.9,2.0,8.5831,1.531,29.045,6.538,7.865,retain pending another authoritative setting source
+table_to_runplan,,,2,not_documented_in_uploaded_runplans,0.25,3.3,0.67,2.0,8.5831,1.531,29.045,4.868,7.865,retain pending another authoritative setting source
+table_to_runplan,,,3,not_documented_in_uploaded_runplans,0.25,3.3,0.67,5.2,8.5831,1.531,29.045,4.868,11.075,retain pending another authoritative setting source
+table_to_runplan,,,4,not_documented_in_uploaded_runplans,0.25,3.3,0.67,8.5,8.5831,1.531,29.045,4.868,14.375,retain pending another authoritative setting source
+table_to_runplan,,,5,not_documented_in_uploaded_runplans,0.25,3.3,0.5,2.0,8.5831,1.531,29.045,3.632,7.865,retain pending another authoritative setting source
+table_to_runplan,,,6,not_documented_in_uploaded_runplans,0.25,3.3,0.5,5.2,8.5831,1.531,29.045,3.632,11.075,retain pending another authoritative setting source
+table_to_runplan,,,7,not_documented_in_uploaded_runplans,0.25,3.3,0.5,8.5,8.5831,1.531,29.045,3.632,14.375,retain pending another authoritative setting source
+table_to_runplan,,,8,not_documented_in_uploaded_runplans,0.25,3.3,0.36,2.0,8.5831,1.531,29.045,2.615,7.865,retain pending another authoritative setting source
+table_to_runplan,,,18,not_documented_in_uploaded_runplans,0.25,3.3,0.5,-0.2,10.6716,3.642,16.75,3.632,8.11,retain pending another authoritative setting source
+table_to_runplan,,,31,not_documented_in_uploaded_runplans,0.31,3.1,0.5,2.2,6.4724,1.165,37.325,2.806,9.43,retain pending another authoritative setting source
+table_to_runplan,,,34,not_documented_in_uploaded_runplans,0.16,1.6,0.5,2.0,8.5814,3.254,13.76,2.661,10.12,retain pending another authoritative setting source
+table_to_runplan,,,36,not_documented_in_uploaded_runplans,0.16,1.6,0.5,0.1,8.5814,3.254,13.76,2.738,8.26,retain pending another authoritative setting source
+table_to_runplan,,,42,not_documented_in_uploaded_runplans,0.31,3.1,0.52,3.8,8.5814,3.254,19.185,2.978,14.79,retain pending another authoritative setting source
+table_to_runplan,,,47,not_documented_in_uploaded_runplans,0.31,3.1,0.5,2.0,10.6759,5.343,13.5,2.806,14.74,retain pending another authoritative setting source
+table_to_runplan,,,49,not_documented_in_uploaded_runplans,0.31,3.1,0.5,-1.0,10.6759,5.343,13.5,2.806,11.745,retain pending another authoritative setting source
+table_to_runplan,,,54,not_documented_in_uploaded_runplans,0.44,4.4,-999,-999,10.6759,5.343,15.965,6.163,20.79,retain pending another authoritative setting source
