@@ -39,6 +39,15 @@ OUTPUT_COLUMNS = [
     "h_EL_CLEAN", "p_EL_CLEAN",
 ]
 
+SIDIS_OUTPUT_COLUMNS = [
+    "run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th",
+    "run_type", "x", "Q2", "z", "thpq", "setting_id", "BCM2_Q", "BCM2_I",
+    "h_esing_Eff", "h_hadron_Eff", "p_esing_Eff", "p_hadron_Eff", "ps5",
+    "ps6", "comp_livetime", "electr_livetime", "coin", "ransubcoin",
+    "ransubcoin_err", "normyield", "normyield_err", "ctmean", "ctsigma",
+    "boil_corr",
+]
+
 VERIFIED_COLUMNS = [
     "run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th",
     "run_type", "x", "Q2", "z", "thpq", "BCM1_Q", "BCM1_I", "BCM2_Q",
@@ -100,7 +109,9 @@ def issue(
     })
 
 
-def read_runlist(path: Path, issues: list[dict[str, object]]) -> dict[int, dict[str, object]]:
+def read_runlist(
+    path: Path, phase: str, issues: list[dict[str, object]],
+) -> dict[int, dict[str, object]]:
     rows: dict[int, dict[str, object]] = {}
     with path.open() as stream:
         for line_number, raw_line in enumerate(stream, 1):
@@ -114,6 +125,7 @@ def read_runlist(path: Path, issues: list[dict[str, object]]) -> dict[int, dict[
                 run = int(fields[0])
                 row: dict[str, object] = {
                     "run": run,
+                    "phase": phase,
                     "ebeam": float(fields[3]),
                     "target": fields[5],
                     "hms_p": float(fields[6]),
@@ -438,7 +450,7 @@ def lookup_nominal_kinematics(
     else:
         matches = [
             setting for setting in nominal_rows
-            if all(
+            if setting["phase"] == row["phase"] and all(
                 abs(abs(float(row[column])) - abs(float(setting[column]))) < tolerance
                 for column, tolerance in HARDWARE_TOLERANCES.items()
             )
@@ -486,6 +498,60 @@ def lookup_nominal_kinematics(
     return result, "matched", setting
 
 
+def build_sidis_rows(
+    rp_rows: list[dict[str, object]],
+    sidis_settings: list[dict[str, str]],
+) -> list[dict[str, object]]:
+    """Assign every SIDIS run to exactly one setting from the SIDIS catalog."""
+    setting_columns = {
+        "ebeam": "ebeam",
+        "hms_p": "hms_p_magnitude",
+        "hms_th": "hms_th",
+        "shms_p": "shms_p_magnitude",
+        "shms_th": "shms_th",
+    }
+    output: list[dict[str, object]] = []
+    for row in rp_rows:
+        if row["run_type"] not in SIDIS_TYPES:
+            continue
+        override_id = RUN_SETTING_OVERRIDES.get(int(row["run"]))
+        if override_id:
+            matches = [
+                setting for setting in sidis_settings
+                if setting["setting_id"] == override_id and setting["phase"] == row["phase"]
+            ]
+        else:
+            matches = [
+                setting for setting in sidis_settings
+                if setting["phase"] == row["phase"] and all(
+                    abs(abs(float(row[run_column])) - abs(float(setting[setting_column])))
+                    < HARDWARE_TOLERANCES[run_column]
+                    for run_column, setting_column in setting_columns.items()
+                )
+            ]
+        if len(matches) != 1:
+            match_ids = "|".join(setting["setting_id"] for setting in matches) or "none"
+            raise ValueError(
+                f"SIDIS run {row['run']} has {len(matches)} catalog setting matches: {match_ids}"
+            )
+        setting = matches[0]
+        for output_column, setting_column in (
+            ("x", "x"), ("Q2", "Q2"), ("z", "z"), ("thpq", "theta_pq")
+        ):
+            if not math.isclose(
+                float(row[output_column]), float(setting[setting_column]),
+                rel_tol=0.0, abs_tol=1e-12,
+            ):
+                raise ValueError(
+                    f"SIDIS run {row['run']} {output_column} disagrees with "
+                    f"catalog setting {setting['setting_id']}"
+                )
+        sidis_row = {column: row[column] for column in SIDIS_OUTPUT_COLUMNS if column != "setting_id"}
+        sidis_row["setting_id"] = setting["setting_id"]
+        output.append(sidis_row)
+    return output
+
+
 def numeric(value: object) -> float | None:
     try:
         return float(value)
@@ -525,12 +591,15 @@ def build(args: argparse.Namespace) -> int:
         raise FileNotFoundError(f"group reference CSV is unavailable: {args.group_csv}")
     if not args.nominal_map.is_file():
         raise FileNotFoundError(f"nominal run-plan map is unavailable: {args.nominal_map}")
+    if not args.sidis_settings.is_file():
+        raise FileNotFoundError(f"SIDIS settings catalog is unavailable: {args.sidis_settings}")
     for runlist in args.runlists:
         if not runlist.is_file():
             raise FileNotFoundError(f"runlist is unavailable: {runlist}")
 
     issues: list[dict[str, object]] = []
     _, nominal_rows = read_csv_rows(args.nominal_map)
+    _, sidis_settings = read_csv_rows(args.sidis_settings)
     group_header, group_rows = read_csv_rows(args.group_csv)
     if group_header != OUTPUT_COLUMNS:
         issue(
@@ -548,7 +617,8 @@ def build(args: argparse.Namespace) -> int:
 
     runlist_rows: dict[int, dict[str, object]] = {}
     for runlist in args.runlists:
-        for run, row in read_runlist(runlist, issues).items():
+        phase = "phase2" if "phaseII" in runlist.name else "phase1"
+        for run, row in read_runlist(runlist, phase, issues).items():
             if run in runlist_rows:
                 issue(
                     issues, "error", run, str(row["run_type"]), "run", runlist,
@@ -576,7 +646,7 @@ def build(args: argparse.Namespace) -> int:
         run_type = str(runlist_row["run_type"])
         result: dict[str, object] = {column: SENTINEL for column in OUTPUT_COLUMNS}
         result.update({column: runlist_row[column] for column in (
-            "run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th", "run_type",
+            "run", "phase", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th", "run_type",
         )})
         nominal, match_status, setting = lookup_nominal_kinematics(
             runlist_row, nominal_rows, args.nominal_map, issues,
@@ -670,9 +740,12 @@ def build(args: argparse.Namespace) -> int:
     )
 
     write_csv(args.output_csv, OUTPUT_COLUMNS, rp_rows)
+    sidis_rows = build_sidis_rows(rp_rows, sidis_settings)
+    write_csv(args.sidis_output_csv, SIDIS_OUTPUT_COLUMNS, sidis_rows)
     write_csv(args.summary_csv, SUMMARY_COLUMNS, issues)
     write_csv(args.kinematics_csv, COHERENCE_COLUMNS, coherence_rows)
     print(f"Wrote {len(rp_rows)} rows to {args.output_csv}")
+    print(f"Wrote {len(sidis_rows)} SIDIS rows to {args.sidis_output_csv}")
     print(f"Wrote {len(issues)} verification records to {args.summary_csv}")
     print(f"Wrote {len(coherence_rows)} kinematic records to {args.kinematics_csv}")
     print("Summary severities:", dict(Counter(str(row["severity"]) for row in issues)))
@@ -702,6 +775,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-csv", type=Path,
         default=script_dir / "rp_rsidis_bigtable_pass1.csv",
+    )
+    parser.add_argument(
+        "--sidis-settings", type=Path,
+        default=script_dir / "nominal_kinematics_sidis_settings.csv",
+    )
+    parser.add_argument(
+        "--sidis-output-csv", type=Path,
+        default=script_dir / "rp_rsidis_bigtable_pass1_sidis.csv",
     )
     parser.add_argument(
         "--summary-csv", type=Path,
