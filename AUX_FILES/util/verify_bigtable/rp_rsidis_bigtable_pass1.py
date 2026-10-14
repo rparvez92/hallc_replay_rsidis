@@ -38,6 +38,8 @@ OUTPUT_COLUMNS = [
     "boil_corr", "IHWP", "BCM2_Q_hp", "BCM2_Q_hm", "coinblock_ratio",
     "h_EL_CLEAN", "p_EL_CLEAN",
 ]
+GROUP_OUTPUT_COLUMNS = OUTPUT_COLUMNS.copy()
+OUTPUT_COLUMNS.append("RF_signal")
 
 SIDIS_OUTPUT_COLUMNS = [
     "run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th",
@@ -45,7 +47,7 @@ SIDIS_OUTPUT_COLUMNS = [
     "h_esing_Eff", "h_hadron_Eff", "p_esing_Eff", "p_hadron_Eff", "ps5",
     "ps6", "comp_livetime", "electr_livetime", "coin", "ransubcoin",
     "ransubcoin_err", "normyield", "normyield_err", "ctmean", "ctsigma",
-    "boil_corr",
+    "boil_corr", "RF_signal",
 ]
 
 VERIFIED_COLUMNS = [
@@ -66,6 +68,11 @@ HARDWARE_TOLERANCES = {
 }
 COHERENCE_TOLERANCES = {"x": 0.01, "Q2": 0.1, "z": 0.08, "thpq": 0.1}
 RUN_SETTING_OVERRIDES = {25465: "RP008", 25466: "RP008"}
+
+
+def rf_signal_spacing(run: int) -> int:
+    """Return the verified accelerator bunch spacing in ns for an RSIDIS run."""
+    return 2 if 27101 <= run <= 28106 else 4
 
 SUMMARY_COLUMNS = [
     "severity", "run", "run_type", "column", "source_file", "issue",
@@ -601,11 +608,11 @@ def build(args: argparse.Namespace) -> int:
     _, nominal_rows = read_csv_rows(args.nominal_map)
     _, sidis_settings = read_csv_rows(args.sidis_settings)
     group_header, group_rows = read_csv_rows(args.group_csv)
-    if group_header != OUTPUT_COLUMNS:
+    if group_header != GROUP_OUTPUT_COLUMNS:
         issue(
             issues, "error", "ALL", "", "header", args.group_csv,
             "group CSV header differs from expected pass1 schema",
-            group_value="|".join(group_header), rp_value="|".join(OUTPUT_COLUMNS),
+            group_value="|".join(group_header), rp_value="|".join(GROUP_OUTPUT_COLUMNS),
         )
     group_runs = [int(row["run"]) for row in group_rows]
     duplicate_runs = sorted(run for run, count in Counter(group_runs).items() if count > 1)
@@ -638,7 +645,11 @@ def build(args: argparse.Namespace) -> int:
                 "group run is absent from current runlists",
             )
             base = {column: SENTINEL for column in OUTPUT_COLUMNS}
-            base.update({"run": run, "run_type": group_row.get("run_type", SENTINEL)})
+            base.update({
+                "run": run,
+                "run_type": group_row.get("run_type", SENTINEL),
+                "RF_signal": rf_signal_spacing(run),
+            })
             rp_rows.append(base)
             continue
 
@@ -652,6 +663,7 @@ def build(args: argparse.Namespace) -> int:
             runlist_row, nominal_rows, args.nominal_map, issues,
         )
         result.update(nominal)
+        result["RF_signal"] = rf_signal_spacing(run)
         calculated = calculate_continuous_kinematics(runlist_row)
         coherence: dict[str, object] = {
             "run": run,
@@ -762,7 +774,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--report-root", type=Path,
-        default=Path("/Volumes/T7/RSIDIS/Pass1/REPORT_OUTPUT"),
+        default=Path("/Volumes/T7/RSIDIS/Pass1/Data/REPORT_OUTPUT"),
     )
     parser.add_argument(
         "--group-csv", type=Path,

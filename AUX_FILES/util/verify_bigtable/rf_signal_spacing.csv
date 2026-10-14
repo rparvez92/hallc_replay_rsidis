@@ -1,0 +1,2178 @@
+run,RF_signal,branch,entries_used,status
+23839,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23840,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23841,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23842,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23844,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23845,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23846,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23847,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+23848,-999.0,CTime_epCoinTime_ROC2,49999,no reliable periodic peak
+23849,-999.0,CTime_epCoinTime_ROC2,20091,no reliable periodic peak
+23850,-999.0,CTime_epCoinTime_ROC2,23114,no reliable periodic peak
+23851,-999.0,CTime_epCoinTime_ROC2,25600,no reliable periodic peak
+23861,4.007506,CTime_ePiCoinTime_ROC2,37405,measured
+23862,4.008245,CTime_ePiCoinTime_ROC2,43382,measured
+23864,4.006236,CTime_ePiCoinTime_ROC2,39612,measured
+23865,4.004378,CTime_ePiCoinTime_ROC2,28144,measured
+23866,4.002582,CTime_ePiCoinTime_ROC2,11987,measured
+23867,4.008958,CTime_ePiCoinTime_ROC2,27848,measured
+23868,4.007253,CTime_ePiCoinTime_ROC2,32712,measured
+23876,4.000072,CTime_ePiCoinTime_ROC2,27179,measured
+23878,4.005551,CTime_ePiCoinTime_ROC2,18705,measured
+23879,4.009881,CTime_ePiCoinTime_ROC2,13385,measured
+23880,4.00692,CTime_ePiCoinTime_ROC2,14836,measured
+23881,4.008414,CTime_ePiCoinTime_ROC2,14453,measured
+23882,4.003027,CTime_ePiCoinTime_ROC2,16426,measured
+23883,4.000227,CTime_ePiCoinTime_ROC2,16143,measured
+23884,4.009398,CTime_ePiCoinTime_ROC2,17141,measured
+23885,4.005169,CTime_ePiCoinTime_ROC2,4987,measured
+23886,4.002848,CTime_ePiCoinTime_ROC2,16755,measured
+23887,4.003948,CTime_ePiCoinTime_ROC2,16430,measured
+23888,4.000674,CTime_ePiCoinTime_ROC2,14139,measured
+23889,3.999016,CTime_ePiCoinTime_ROC2,15279,measured
+23890,3.999632,CTime_ePiCoinTime_ROC2,9024,measured
+23891,4.006252,CTime_ePiCoinTime_ROC2,4472,measured
+23892,4.007133,CTime_ePiCoinTime_ROC2,33584,measured
+23893,4.003059,CTime_ePiCoinTime_ROC2,30375,measured
+23894,4.005162,CTime_ePiCoinTime_ROC2,30372,measured
+23895,4.007986,CTime_ePiCoinTime_ROC2,30793,measured
+23896,4.005332,CTime_ePiCoinTime_ROC2,11416,measured
+23897,4.004307,CTime_ePiCoinTime_ROC2,27954,measured
+23898,4.005503,CTime_ePiCoinTime_ROC2,34570,measured
+23899,4.005647,CTime_ePiCoinTime_ROC2,32918,measured
+23900,4.004216,CTime_ePiCoinTime_ROC2,41391,measured
+23901,4.020681,CTime_ePiCoinTime_ROC2,3806,measured
+23902,3.998838,CTime_ePiCoinTime_ROC2,21458,measured
+23903,4.004654,CTime_ePiCoinTime_ROC2,2879,measured
+23904,4.006764,CTime_ePiCoinTime_ROC2,34942,measured
+23905,4.002173,CTime_ePiCoinTime_ROC2,33610,measured
+23906,4.00339,CTime_ePiCoinTime_ROC2,33754,measured
+23907,4.002583,CTime_ePiCoinTime_ROC2,36276,measured
+23908,4.006438,CTime_ePiCoinTime_ROC2,10826,measured
+23942,4.011758,CTime_ePiCoinTime_ROC2,9386,measured
+23943,4.005808,CTime_ePiCoinTime_ROC2,2890,measured
+23944,4.002096,CTime_ePiCoinTime_ROC2,34978,measured
+23945,4.003141,CTime_ePiCoinTime_ROC2,22233,measured
+23946,4.0039,CTime_ePiCoinTime_ROC2,36273,measured
+23947,4.004251,CTime_ePiCoinTime_ROC2,35671,measured
+23948,3.997878,CTime_ePiCoinTime_ROC2,32587,measured
+23949,4.009313,CTime_ePiCoinTime_ROC2,3105,measured
+23950,4.003126,CTime_ePiCoinTime_ROC2,41543,measured
+23951,4.00335,CTime_ePiCoinTime_ROC2,44399,measured
+23952,4.004185,CTime_ePiCoinTime_ROC2,36073,measured
+23953,4.004319,CTime_ePiCoinTime_ROC2,35888,measured
+23954,4.004569,CTime_ePiCoinTime_ROC2,10146,measured
+23955,4.001794,CTime_ePiCoinTime_ROC2,22740,measured
+23956,3.996491,CTime_ePiCoinTime_ROC2,4362,measured
+23957,4.003839,CTime_ePiCoinTime_ROC2,12619,measured
+23960,4.006063,CTime_ePiCoinTime_ROC2,37220,measured
+23961,4.01186,CTime_ePiCoinTime_ROC2,8526,measured
+23962,4.012999,CTime_ePiCoinTime_ROC2,2035,measured
+23964,4.004126,CTime_ePiCoinTime_ROC2,49860,measured
+23965,4.004705,CTime_ePiCoinTime_ROC2,49855,measured
+23966,4.005194,CTime_ePiCoinTime_ROC2,49849,measured
+23967,4.002484,CTime_ePiCoinTime_ROC2,30636,measured
+23969,4.004956,CTime_ePiCoinTime_ROC2,49858,measured
+23970,4.004764,CTime_ePiCoinTime_ROC2,49882,measured
+23972,4.002513,CTime_ePiCoinTime_ROC2,39801,measured
+23973,4.006566,CTime_ePiCoinTime_ROC2,13028,measured
+23974,4.003677,CTime_ePiCoinTime_ROC2,37067,measured
+23975,4.005372,CTime_ePiCoinTime_ROC2,6226,measured
+23977,4.004082,CTime_ePiCoinTime_ROC2,34891,measured
+23979,4.008531,CTime_ePiCoinTime_ROC2,40628,measured
+23980,4.007708,CTime_ePiCoinTime_ROC2,20680,measured
+23981,4.003947,CTime_ePiCoinTime_ROC2,36843,measured
+23982,4.002859,CTime_ePiCoinTime_ROC2,12007,measured
+23983,4.002677,CTime_ePiCoinTime_ROC2,49847,measured
+23984,4.004742,CTime_ePiCoinTime_ROC2,32771,measured
+23985,4.006857,CTime_ePiCoinTime_ROC2,40806,measured
+23986,4.007942,CTime_ePiCoinTime_ROC2,39390,measured
+23987,4.004948,CTime_ePiCoinTime_ROC2,35205,measured
+23988,4.006039,CTime_ePiCoinTime_ROC2,37672,measured
+23989,4.003862,CTime_ePiCoinTime_ROC2,49858,measured
+23990,4.00974,CTime_ePiCoinTime_ROC2,17511,measured
+23991,4.020819,CTime_ePiCoinTime_ROC2,4799,measured
+23992,4.003333,CTime_ePiCoinTime_ROC2,49835,measured
+23993,4.004825,CTime_ePiCoinTime_ROC2,49854,measured
+23994,4.004095,CTime_ePiCoinTime_ROC2,49849,measured
+23995,4.004369,CTime_ePiCoinTime_ROC2,49844,measured
+23996,4.004802,CTime_ePiCoinTime_ROC2,36387,measured
+23998,4.012445,CTime_ePiCoinTime_ROC2,17097,measured
+23999,4.006521,CTime_ePiCoinTime_ROC2,32987,measured
+24001,4.004687,CTime_ePiCoinTime_ROC2,49815,measured
+24002,4.005664,CTime_ePiCoinTime_ROC2,49855,measured
+24003,4.002521,CTime_ePiCoinTime_ROC2,49848,measured
+24004,4.007232,CTime_ePiCoinTime_ROC2,20983,measured
+24005,4.002199,CTime_ePiCoinTime_ROC2,49821,measured
+24006,4.001817,CTime_ePiCoinTime_ROC2,49824,measured
+24007,4.00429,CTime_ePiCoinTime_ROC2,49851,measured
+24008,4.006359,CTime_ePiCoinTime_ROC2,16158,measured
+24009,4.002027,CTime_ePiCoinTime_ROC2,49817,measured
+24010,4.002557,CTime_ePiCoinTime_ROC2,49831,measured
+24011,4.002747,CTime_ePiCoinTime_ROC2,49884,measured
+24012,4.005368,CTime_ePiCoinTime_ROC2,49870,measured
+24013,4.004076,CTime_ePiCoinTime_ROC2,49862,measured
+24014,4.003118,CTime_ePiCoinTime_ROC2,49858,measured
+24015,4.0117,CTime_ePiCoinTime_ROC2,29546,measured
+24016,4.010821,CTime_ePiCoinTime_ROC2,8627,measured
+24019,4.004134,CTime_ePiCoinTime_ROC2,49836,measured
+24020,4.00582,CTime_ePiCoinTime_ROC2,49828,measured
+24021,4.002014,CTime_ePiCoinTime_ROC2,49832,measured
+24022,4.003028,CTime_ePiCoinTime_ROC2,49844,measured
+24023,3.997638,CTime_ePiCoinTime_ROC2,7075,measured
+24024,4.006003,CTime_ePiCoinTime_ROC2,33202,measured
+24026,4.008127,CTime_ePiCoinTime_ROC2,18410,measured
+24032,4.00463,CTime_ePiCoinTime_ROC2,35177,measured
+24039,4.001148,CTime_ePiCoinTime_ROC2,6728,measured
+24040,4.004291,CTime_ePiCoinTime_ROC2,40649,measured
+24041,4.00601,CTime_ePiCoinTime_ROC2,49828,measured
+24042,4.003847,CTime_ePiCoinTime_ROC2,49792,measured
+24043,4.006628,CTime_ePiCoinTime_ROC2,18225,measured
+24047,4.005389,CTime_ePiCoinTime_ROC2,49811,measured
+24048,4.001896,CTime_ePiCoinTime_ROC2,49848,measured
+24049,4.004001,CTime_ePiCoinTime_ROC2,49823,measured
+24050,4.00455,CTime_ePiCoinTime_ROC2,49809,measured
+24051,4.004908,CTime_ePiCoinTime_ROC2,49811,measured
+24054,4.003785,CTime_ePiCoinTime_ROC2,49869,measured
+24055,4.003912,CTime_ePiCoinTime_ROC2,49859,measured
+24056,4.005587,CTime_ePiCoinTime_ROC2,49849,measured
+24057,4.003609,CTime_ePiCoinTime_ROC2,49866,measured
+24058,4.009783,CTime_ePiCoinTime_ROC2,24826,measured
+24059,4.012662,CTime_ePiCoinTime_ROC2,8232,measured
+24060,4.006298,CTime_ePiCoinTime_ROC2,49813,measured
+24061,4.003851,CTime_ePiCoinTime_ROC2,49830,measured
+24062,4.005136,CTime_ePiCoinTime_ROC2,49830,measured
+24063,4.004443,CTime_ePiCoinTime_ROC2,49829,measured
+24064,4.006071,CTime_ePiCoinTime_ROC2,31599,measured
+24065,4.008157,CTime_ePiCoinTime_ROC2,16753,measured
+24066,4.006089,CTime_ePiCoinTime_ROC2,28449,measured
+24067,4.003155,CTime_ePiCoinTime_ROC2,49836,measured
+24068,4.004232,CTime_ePiCoinTime_ROC2,49847,measured
+24069,4.003538,CTime_ePiCoinTime_ROC2,49822,measured
+24070,4.013328,CTime_ePiCoinTime_ROC2,19963,measured
+24071,4.003567,CTime_ePiCoinTime_ROC2,49820,measured
+24072,4.004921,CTime_ePiCoinTime_ROC2,49812,measured
+24073,4.002091,CTime_ePiCoinTime_ROC2,49788,measured
+24074,4.003822,CTime_ePiCoinTime_ROC2,49827,measured
+24075,4.003118,CTime_ePiCoinTime_ROC2,49823,measured
+24076,4.004009,CTime_ePiCoinTime_ROC2,49827,measured
+24079,4.003278,CTime_ePiCoinTime_ROC2,49794,measured
+24080,4.003369,CTime_ePiCoinTime_ROC2,49815,measured
+24081,4.004831,CTime_ePiCoinTime_ROC2,49868,measured
+24082,4.007579,CTime_ePiCoinTime_ROC2,49855,measured
+24084,4.006884,CTime_ePiCoinTime_ROC2,31597,measured
+24085,4.006457,CTime_ePiCoinTime_ROC2,32781,measured
+24086,4.003434,CTime_ePiCoinTime_ROC2,33541,measured
+24087,4.005551,CTime_ePiCoinTime_ROC2,49825,measured
+24089,4.000781,CTime_ePiCoinTime_ROC2,41297,measured
+24091,4.006361,CTime_ePiCoinTime_ROC2,49342,measured
+24092,4.0036,CTime_ePiCoinTime_ROC2,49896,measured
+24093,4.00485,CTime_ePiCoinTime_ROC2,49875,measured
+24094,4.002025,CTime_ePiCoinTime_ROC2,46984,measured
+24095,4.004926,CTime_ePiCoinTime_ROC2,21253,measured
+24096,3.995138,CTime_ePiCoinTime_ROC2,7182,measured
+24097,4.002933,CTime_ePiCoinTime_ROC2,3573,measured
+24098,4.005559,CTime_ePiCoinTime_ROC2,45841,measured
+24099,4.004379,CTime_ePiCoinTime_ROC2,48782,measured
+24100,4.005479,CTime_ePiCoinTime_ROC2,42056,measured
+24101,4.00291,CTime_ePiCoinTime_ROC2,47908,measured
+24103,4.007203,CTime_ePiCoinTime_ROC2,26348,measured
+24104,4.001113,CTime_ePiCoinTime_ROC2,49860,measured
+24110,4.004078,CTime_ePiCoinTime_ROC2,43389,measured
+24111,4.001907,CTime_ePiCoinTime_ROC2,45237,measured
+24112,4.004371,CTime_ePiCoinTime_ROC2,49841,measured
+24113,4.00652,CTime_ePiCoinTime_ROC2,22733,measured
+24116,4.004034,CTime_ePiCoinTime_ROC2,38237,measured
+24117,4.004273,CTime_ePiCoinTime_ROC2,38125,measured
+24120,4.004629,CTime_ePiCoinTime_ROC2,49864,measured
+24121,4.004874,CTime_ePiCoinTime_ROC2,49828,measured
+24122,4.002715,CTime_ePiCoinTime_ROC2,49818,measured
+24123,4.00428,CTime_ePiCoinTime_ROC2,49820,measured
+24125,4.004885,CTime_ePiCoinTime_ROC2,14940,measured
+24126,4.004512,CTime_ePiCoinTime_ROC2,49811,measured
+24127,4.005234,CTime_ePiCoinTime_ROC2,49806,measured
+24128,4.003687,CTime_ePiCoinTime_ROC2,49827,measured
+24129,4.004905,CTime_ePiCoinTime_ROC2,49830,measured
+24130,4.006771,CTime_ePiCoinTime_ROC2,49853,measured
+24131,4.005681,CTime_ePiCoinTime_ROC2,49851,measured
+24132,4.005444,CTime_ePiCoinTime_ROC2,37213,measured
+24133,4.004814,CTime_ePiCoinTime_ROC2,49874,measured
+24134,4.000755,CTime_ePiCoinTime_ROC2,25867,measured
+24135,4.012662,CTime_ePiCoinTime_ROC2,6689,measured
+24138,4.004573,CTime_ePiCoinTime_ROC2,49808,measured
+24139,4.003574,CTime_ePiCoinTime_ROC2,49806,measured
+24140,4.002409,CTime_ePiCoinTime_ROC2,49829,measured
+24141,4.003497,CTime_ePiCoinTime_ROC2,49798,measured
+24144,4.004168,CTime_ePiCoinTime_ROC2,49801,measured
+24145,4.003069,CTime_ePiCoinTime_ROC2,49803,measured
+24146,4.004083,CTime_ePiCoinTime_ROC2,49799,measured
+24147,4.002938,CTime_ePiCoinTime_ROC2,49818,measured
+24150,4.006269,CTime_ePiCoinTime_ROC2,49847,measured
+24151,4.005027,CTime_ePiCoinTime_ROC2,49848,measured
+24153,4.004632,CTime_ePiCoinTime_ROC2,49851,measured
+24155,4.006368,CTime_ePiCoinTime_ROC2,49082,measured
+24156,4.009998,CTime_ePiCoinTime_ROC2,25186,measured
+24157,4.025854,CTime_ePiCoinTime_ROC2,6501,measured
+24158,4.002941,CTime_ePiCoinTime_ROC2,49837,measured
+24159,4.004707,CTime_ePiCoinTime_ROC2,49569,measured
+24160,4.00746,CTime_ePiCoinTime_ROC2,49851,measured
+24161,4.003077,CTime_ePiCoinTime_ROC2,48587,measured
+24162,4.006012,CTime_ePiCoinTime_ROC2,49857,measured
+24163,4.004231,CTime_ePiCoinTime_ROC2,49838,measured
+24164,4.002586,CTime_ePiCoinTime_ROC2,49843,measured
+24165,4.004518,CTime_ePiCoinTime_ROC2,49858,measured
+24166,4.008709,CTime_ePiCoinTime_ROC2,16321,measured
+24167,4.005061,CTime_ePiCoinTime_ROC2,49819,measured
+24168,4.001951,CTime_ePiCoinTime_ROC2,49800,measured
+24169,4.004571,CTime_ePiCoinTime_ROC2,49849,measured
+24170,4.004008,CTime_ePiCoinTime_ROC2,49811,measured
+24171,4.000956,CTime_ePiCoinTime_ROC2,32433,measured
+24172,4.003746,CTime_ePiCoinTime_ROC2,40488,measured
+24173,4.002051,CTime_ePiCoinTime_ROC2,46481,measured
+24174,4.004435,CTime_ePiCoinTime_ROC2,49818,measured
+24175,4.002352,CTime_ePiCoinTime_ROC2,49806,measured
+24176,4.00293,CTime_ePiCoinTime_ROC2,49808,measured
+24177,4.004513,CTime_ePiCoinTime_ROC2,49794,measured
+24178,4.003588,CTime_ePiCoinTime_ROC2,42974,measured
+24179,4.005464,CTime_ePiCoinTime_ROC2,49869,measured
+24185,4.004574,CTime_ePiCoinTime_ROC2,47411,measured
+24187,4.011096,CTime_ePiCoinTime_ROC2,15982,measured
+24188,4.024798,CTime_ePiCoinTime_ROC2,19248,measured
+24189,4.043397,CTime_ePiCoinTime_ROC2,14994,measured
+24190,4.04222,CTime_ePiCoinTime_ROC2,17060,measured
+24191,3.999007,CTime_ePiCoinTime_ROC2,14306,measured
+24192,4.033835,CTime_ePiCoinTime_ROC2,16499,measured
+24193,4.041533,CTime_ePiCoinTime_ROC2,14402,measured
+24194,4.046328,CTime_ePiCoinTime_ROC2,16055,measured
+24195,4.029016,CTime_ePiCoinTime_ROC2,16802,measured
+24196,-999.0,CTime_ePiCoinTime_ROC2,7840,no reliable periodic peak
+24197,-999.0,CTime_ePiCoinTime_ROC2,3632,no reliable periodic peak
+24200,4.006238,CTime_ePiCoinTime_ROC2,8580,measured
+24201,4.019006,CTime_ePiCoinTime_ROC2,35483,measured
+24203,4.014632,CTime_ePiCoinTime_ROC2,49781,measured
+24204,4.010143,CTime_ePiCoinTime_ROC2,13981,measured
+24206,-999.0,CTime_ePiCoinTime_ROC2,5174,no reliable periodic peak
+24207,4.032751,CTime_ePiCoinTime_ROC2,18313,measured
+24208,4.032298,CTime_ePiCoinTime_ROC2,19277,measured
+24210,4.014451,CTime_ePiCoinTime_ROC2,13138,measured
+24211,4.04344,CTime_ePiCoinTime_ROC2,13722,measured
+24213,4.00368,CTime_ePiCoinTime_ROC2,49777,measured
+24214,4.004607,CTime_ePiCoinTime_ROC2,49731,measured
+24215,4.006741,CTime_ePiCoinTime_ROC2,49730,measured
+24216,4.005894,CTime_ePiCoinTime_ROC2,49713,measured
+24217,4.01031,CTime_ePiCoinTime_ROC2,49770,measured
+24218,4.008529,CTime_ePiCoinTime_ROC2,49741,measured
+24219,4.011876,CTime_ePiCoinTime_ROC2,49861,measured
+24220,4.029026,CTime_ePiCoinTime_ROC2,18344,measured
+24222,4.007587,CTime_ePiCoinTime_ROC2,49893,measured
+24223,4.010415,CTime_ePiCoinTime_ROC2,49907,measured
+24224,4.010112,CTime_ePiCoinTime_ROC2,49881,measured
+24225,4.017285,CTime_ePiCoinTime_ROC2,24081,measured
+24226,4.007913,CTime_ePiCoinTime_ROC2,49866,measured
+24227,4.013596,CTime_ePiCoinTime_ROC2,49844,measured
+24228,4.010085,CTime_ePiCoinTime_ROC2,49846,measured
+24229,4.017725,CTime_ePiCoinTime_ROC2,33130,measured
+24230,4.039933,CTime_ePiCoinTime_ROC2,11730,measured
+24232,4.020637,CTime_ePiCoinTime_ROC2,22140,measured
+24233,4.013034,CTime_ePiCoinTime_ROC2,21268,measured
+24234,4.013781,CTime_ePiCoinTime_ROC2,21950,measured
+24236,4.008312,CTime_ePiCoinTime_ROC2,49812,measured
+24237,4.010159,CTime_ePiCoinTime_ROC2,49802,measured
+24238,4.007577,CTime_ePiCoinTime_ROC2,49795,measured
+24239,4.011567,CTime_ePiCoinTime_ROC2,49817,measured
+24240,4.011078,CTime_ePiCoinTime_ROC2,49821,measured
+24241,4.019915,CTime_ePiCoinTime_ROC2,26702,measured
+24243,4.010281,CTime_ePiCoinTime_ROC2,45291,measured
+24244,4.009955,CTime_ePiCoinTime_ROC2,49823,measured
+24245,4.011141,CTime_ePiCoinTime_ROC2,49788,measured
+24246,4.003416,CTime_ePiCoinTime_ROC2,49813,measured
+24247,4.008782,CTime_ePiCoinTime_ROC2,49812,measured
+24248,4.013008,CTime_ePiCoinTime_ROC2,49818,measured
+24250,4.009498,CTime_ePiCoinTime_ROC2,49769,measured
+24251,4.009673,CTime_ePiCoinTime_ROC2,49734,measured
+24252,4.006119,CTime_ePiCoinTime_ROC2,49736,measured
+24253,4.009494,CTime_ePiCoinTime_ROC2,49757,measured
+24254,4.007169,CTime_ePiCoinTime_ROC2,49777,measured
+24255,4.009453,CTime_ePiCoinTime_ROC2,49749,measured
+24257,4.012605,CTime_ePiCoinTime_ROC2,49847,measured
+24258,4.012189,CTime_ePiCoinTime_ROC2,49852,measured
+24259,4.013372,CTime_ePiCoinTime_ROC2,49841,measured
+24260,4.014759,CTime_ePiCoinTime_ROC2,49847,measured
+24261,4.011739,CTime_ePiCoinTime_ROC2,45938,measured
+24262,4.013075,CTime_ePiCoinTime_ROC2,49842,measured
+24263,4.016843,CTime_ePiCoinTime_ROC2,33587,measured
+24264,4.0292,CTime_ePiCoinTime_ROC2,11368,measured
+24266,4.010887,CTime_ePiCoinTime_ROC2,49826,measured
+24267,4.03803,CTime_ePiCoinTime_ROC2,19126,measured
+24268,4.016917,CTime_ePiCoinTime_ROC2,21063,measured
+24269,4.015023,CTime_ePiCoinTime_ROC2,18307,measured
+24270,4.013336,CTime_ePiCoinTime_ROC2,49790,measured
+24271,4.010627,CTime_ePiCoinTime_ROC2,49811,measured
+24273,4.008656,CTime_ePiCoinTime_ROC2,49824,measured
+24274,4.006544,CTime_ePiCoinTime_ROC2,49831,measured
+24275,4.009281,CTime_ePiCoinTime_ROC2,49819,measured
+24276,4.017554,CTime_ePiCoinTime_ROC2,27296,measured
+24277,4.006125,CTime_ePiCoinTime_ROC2,49791,measured
+24278,4.008177,CTime_ePiCoinTime_ROC2,49810,measured
+24279,4.006456,CTime_ePiCoinTime_ROC2,49813,measured
+24280,4.006712,CTime_ePiCoinTime_ROC2,49762,measured
+24281,4.011179,CTime_ePiCoinTime_ROC2,49800,measured
+24282,4.008613,CTime_ePiCoinTime_ROC2,49787,measured
+24283,4.011397,CTime_ePiCoinTime_ROC2,49815,measured
+24310,4.002942,CTime_ePiCoinTime_ROC2,49848,measured
+24311,4.004013,CTime_ePiCoinTime_ROC2,49836,measured
+24312,4.002892,CTime_ePiCoinTime_ROC2,49851,measured
+24313,4.009248,CTime_ePiCoinTime_ROC2,49822,measured
+24314,4.002605,CTime_ePiCoinTime_ROC2,49849,measured
+24315,4.004864,CTime_ePiCoinTime_ROC2,45280,measured
+24316,4.008563,CTime_ePiCoinTime_ROC2,49848,measured
+24317,4.004084,CTime_ePiCoinTime_ROC2,49849,measured
+24318,4.014367,CTime_ePiCoinTime_ROC2,6074,measured
+24322,4.007083,CTime_ePiCoinTime_ROC2,49850,measured
+24323,4.00923,CTime_ePiCoinTime_ROC2,49904,measured
+24324,4.009023,CTime_ePiCoinTime_ROC2,49875,measured
+24325,4.008398,CTime_ePiCoinTime_ROC2,49862,measured
+24326,4.008932,CTime_ePiCoinTime_ROC2,49863,measured
+24327,4.007525,CTime_ePiCoinTime_ROC2,49871,measured
+24328,4.003566,CTime_ePiCoinTime_ROC2,49872,measured
+24329,4.005361,CTime_ePiCoinTime_ROC2,49877,measured
+24330,4.005947,CTime_ePiCoinTime_ROC2,44049,measured
+24331,4.015625,CTime_ePiCoinTime_ROC2,17284,measured
+24332,4.021847,CTime_ePiCoinTime_ROC2,9264,measured
+24335,4.005636,CTime_ePiCoinTime_ROC2,6176,measured
+24336,4.007451,CTime_ePiCoinTime_ROC2,47454,measured
+24337,4.003567,CTime_ePiCoinTime_ROC2,49845,measured
+24338,4.004535,CTime_ePiCoinTime_ROC2,49841,measured
+24339,4.004906,CTime_ePiCoinTime_ROC2,49839,measured
+24342,4.006033,CTime_ePiCoinTime_ROC2,49825,measured
+24343,4.00217,CTime_ePiCoinTime_ROC2,49842,measured
+24344,4.004954,CTime_ePiCoinTime_ROC2,49838,measured
+24345,4.005597,CTime_ePiCoinTime_ROC2,49838,measured
+24346,4.003887,CTime_ePiCoinTime_ROC2,49824,measured
+24347,4.006058,CTime_ePiCoinTime_ROC2,49790,measured
+24348,4.005045,CTime_ePiCoinTime_ROC2,49837,measured
+24349,4.006634,CTime_ePiCoinTime_ROC2,15698,measured
+24352,4.002341,CTime_ePiCoinTime_ROC2,49827,measured
+24353,4.005221,CTime_ePiCoinTime_ROC2,49834,measured
+24354,4.000767,CTime_ePiCoinTime_ROC2,49836,measured
+24355,4.005442,CTime_ePiCoinTime_ROC2,49827,measured
+24356,4.001618,CTime_ePiCoinTime_ROC2,49822,measured
+24357,4.006021,CTime_ePiCoinTime_ROC2,49426,measured
+24359,4.002257,CTime_ePiCoinTime_ROC2,48168,measured
+24360,4.003366,CTime_ePiCoinTime_ROC2,49829,measured
+24363,4.010703,CTime_ePiCoinTime_ROC2,15615,measured
+24364,4.010545,CTime_ePiCoinTime_ROC2,18875,measured
+24365,4.015047,CTime_ePiCoinTime_ROC2,20810,measured
+24366,4.013092,CTime_ePiCoinTime_ROC2,19972,measured
+24367,4.006651,CTime_ePiCoinTime_ROC2,18306,measured
+24368,4.007877,CTime_ePiCoinTime_ROC2,20503,measured
+24369,4.006242,CTime_ePiCoinTime_ROC2,18461,measured
+24370,4.007132,CTime_ePiCoinTime_ROC2,19451,measured
+24371,4.008897,CTime_ePiCoinTime_ROC2,21059,measured
+24372,4.010655,CTime_ePiCoinTime_ROC2,17026,measured
+24376,4.006539,CTime_ePiCoinTime_ROC2,36066,measured
+24377,4.009967,CTime_ePiCoinTime_ROC2,49844,measured
+24378,4.004657,CTime_ePiCoinTime_ROC2,45778,measured
+24379,4.005181,CTime_ePiCoinTime_ROC2,49847,measured
+24380,4.009025,CTime_ePiCoinTime_ROC2,49857,measured
+24381,4.00296,CTime_ePiCoinTime_ROC2,49836,measured
+24382,4.003184,CTime_ePiCoinTime_ROC2,49826,measured
+24383,4.004786,CTime_ePiCoinTime_ROC2,49857,measured
+24384,4.01148,CTime_ePiCoinTime_ROC2,17000,measured
+24385,4.005228,CTime_ePiCoinTime_ROC2,21128,measured
+24386,4.005822,CTime_ePiCoinTime_ROC2,49861,measured
+24387,4.004851,CTime_ePiCoinTime_ROC2,49865,measured
+24388,4.005583,CTime_ePiCoinTime_ROC2,49874,measured
+24389,4.006982,CTime_ePiCoinTime_ROC2,48324,measured
+24390,4.009539,CTime_ePiCoinTime_ROC2,49881,measured
+24396,4.007597,CTime_ePiCoinTime_ROC2,49772,measured
+24397,4.008685,CTime_ePiCoinTime_ROC2,49820,measured
+24398,4.014278,CTime_ePiCoinTime_ROC2,28655,measured
+24399,4.016643,CTime_ePiCoinTime_ROC2,8433,measured
+24400,4.006915,CTime_ePiCoinTime_ROC2,42971,measured
+24401,4.005128,CTime_ePiCoinTime_ROC2,44467,measured
+24402,4.009997,CTime_ePiCoinTime_ROC2,49755,measured
+24404,4.007974,CTime_ePiCoinTime_ROC2,49765,measured
+24405,4.005811,CTime_ePiCoinTime_ROC2,18906,measured
+24406,4.005848,CTime_ePiCoinTime_ROC2,49743,measured
+24407,4.001869,CTime_ePiCoinTime_ROC2,49751,measured
+24408,4.004833,CTime_ePiCoinTime_ROC2,49755,measured
+24409,4.006878,CTime_ePiCoinTime_ROC2,49744,measured
+24410,4.003308,CTime_ePiCoinTime_ROC2,49761,measured
+24411,4.002949,CTime_ePiCoinTime_ROC2,15928,measured
+24412,4.010832,CTime_ePiCoinTime_ROC2,19966,measured
+24413,4.010134,CTime_ePiCoinTime_ROC2,19510,measured
+24414,4.009405,CTime_ePiCoinTime_ROC2,22017,measured
+24415,4.003626,CTime_ePiCoinTime_ROC2,7809,measured
+24416,4.002942,CTime_ePiCoinTime_ROC2,49754,measured
+24417,4.00726,CTime_ePiCoinTime_ROC2,49760,measured
+24418,4.004631,CTime_ePiCoinTime_ROC2,49776,measured
+24419,4.004687,CTime_ePiCoinTime_ROC2,49769,measured
+24421,4.009515,CTime_ePiCoinTime_ROC2,8054,measured
+24422,4.008443,CTime_ePiCoinTime_ROC2,37421,measured
+24423,4.016266,CTime_ePiCoinTime_ROC2,16943,measured
+24424,4.006878,CTime_ePiCoinTime_ROC2,49782,measured
+24425,4.006817,CTime_ePiCoinTime_ROC2,49805,measured
+24426,4.005649,CTime_ePiCoinTime_ROC2,29004,measured
+24427,4.020436,CTime_ePiCoinTime_ROC2,9327,measured
+24428,3.999855,CTime_ePiCoinTime_ROC2,35220,measured
+24429,4.000966,CTime_ePiCoinTime_ROC2,38352,measured
+24430,4.005278,CTime_ePiCoinTime_ROC2,34387,measured
+24431,4.003097,CTime_ePiCoinTime_ROC2,35369,measured
+24432,4.00381,CTime_ePiCoinTime_ROC2,34574,measured
+24433,4.002047,CTime_ePiCoinTime_ROC2,39333,measured
+24434,4.007512,CTime_ePiCoinTime_ROC2,37450,measured
+24435,4.000314,CTime_ePiCoinTime_ROC2,38207,measured
+24436,3.999666,CTime_ePiCoinTime_ROC2,38023,measured
+24437,4.000929,CTime_ePiCoinTime_ROC2,37328,measured
+24442,4.002215,CTime_ePiCoinTime_ROC2,37086,measured
+24443,4.008152,CTime_ePiCoinTime_ROC2,40636,measured
+24444,4.00331,CTime_ePiCoinTime_ROC2,33434,measured
+24445,4.003342,CTime_ePiCoinTime_ROC2,6011,measured
+24446,4.002368,CTime_ePiCoinTime_ROC2,19042,measured
+24447,3.995469,CTime_ePiCoinTime_ROC2,31078,measured
+24448,4.002143,CTime_ePiCoinTime_ROC2,12561,measured
+24449,4.005793,CTime_ePiCoinTime_ROC2,35938,measured
+24450,4.002584,CTime_ePiCoinTime_ROC2,36584,measured
+24451,3.999915,CTime_ePiCoinTime_ROC2,33684,measured
+24452,4.008321,CTime_ePiCoinTime_ROC2,37248,measured
+24453,4.002912,CTime_ePiCoinTime_ROC2,35802,measured
+24454,4.014033,CTime_ePiCoinTime_ROC2,11381,measured
+24460,4.001849,CTime_ePiCoinTime_ROC2,33387,measured
+24461,4.005071,CTime_ePiCoinTime_ROC2,9458,measured
+24463,3.998379,CTime_ePiCoinTime_ROC2,23837,measured
+24464,4.002249,CTime_ePiCoinTime_ROC2,33595,measured
+24469,4.003213,CTime_ePiCoinTime_ROC2,34019,measured
+24470,4.001164,CTime_ePiCoinTime_ROC2,33929,measured
+24471,4.006392,CTime_ePiCoinTime_ROC2,37553,measured
+24472,4.002203,CTime_ePiCoinTime_ROC2,21525,measured
+24473,4.004813,CTime_ePiCoinTime_ROC2,9912,measured
+24474,4.00249,CTime_ePiCoinTime_ROC2,40748,measured
+24475,4.000094,CTime_ePiCoinTime_ROC2,36006,measured
+24476,3.99938,CTime_ePiCoinTime_ROC2,35899,measured
+24477,4.002345,CTime_ePiCoinTime_ROC2,33922,measured
+24478,4.001802,CTime_ePiCoinTime_ROC2,39317,measured
+24479,4.000396,CTime_ePiCoinTime_ROC2,31273,measured
+24480,4.010506,CTime_ePiCoinTime_ROC2,10282,measured
+24485,4.008943,CTime_ePiCoinTime_ROC2,20782,measured
+24486,4.001762,CTime_ePiCoinTime_ROC2,26915,measured
+24487,4.001203,CTime_ePiCoinTime_ROC2,25913,measured
+24488,4.000981,CTime_ePiCoinTime_ROC2,24501,measured
+24489,4.001407,CTime_ePiCoinTime_ROC2,21698,measured
+24490,3.998589,CTime_ePiCoinTime_ROC2,24803,measured
+24491,3.995614,CTime_ePiCoinTime_ROC2,25659,measured
+24492,4.003008,CTime_ePiCoinTime_ROC2,25410,measured
+24493,4.003418,CTime_ePiCoinTime_ROC2,27856,measured
+24494,3.99994,CTime_ePiCoinTime_ROC2,27061,measured
+24499,4.000003,CTime_ePiCoinTime_ROC2,34282,measured
+24500,4.00155,CTime_ePiCoinTime_ROC2,37838,measured
+24501,4.006629,CTime_ePiCoinTime_ROC2,32178,measured
+24502,4.001394,CTime_ePiCoinTime_ROC2,34932,measured
+24503,4.000892,CTime_ePiCoinTime_ROC2,37408,measured
+24504,4.006369,CTime_ePiCoinTime_ROC2,33880,measured
+24505,4.005818,CTime_ePiCoinTime_ROC2,35201,measured
+24506,4.003439,CTime_ePiCoinTime_ROC2,36583,measured
+24507,4.004408,CTime_ePiCoinTime_ROC2,34745,measured
+24508,4.007161,CTime_ePiCoinTime_ROC2,23488,measured
+24509,4.003642,CTime_ePiCoinTime_ROC2,35342,measured
+24510,4.003321,CTime_ePiCoinTime_ROC2,32068,measured
+24511,4.001756,CTime_ePiCoinTime_ROC2,36014,measured
+24512,4.006067,CTime_ePiCoinTime_ROC2,11196,measured
+24513,4.000301,CTime_ePiCoinTime_ROC2,30339,measured
+24514,4.00304,CTime_ePiCoinTime_ROC2,32466,measured
+24515,4.003543,CTime_ePiCoinTime_ROC2,31767,measured
+24516,4.002132,CTime_ePiCoinTime_ROC2,33554,measured
+24517,4.003729,CTime_ePiCoinTime_ROC2,23358,measured
+24521,4.006421,CTime_ePiCoinTime_ROC2,34045,measured
+24522,4.001031,CTime_ePiCoinTime_ROC2,36489,measured
+24523,3.998009,CTime_ePiCoinTime_ROC2,30446,measured
+24524,3.999174,CTime_ePiCoinTime_ROC2,34598,measured
+24525,4.005772,CTime_ePiCoinTime_ROC2,9668,measured
+24526,4.00547,CTime_ePiCoinTime_ROC2,36978,measured
+24527,4.002999,CTime_ePiCoinTime_ROC2,37935,measured
+24528,4.00046,CTime_ePiCoinTime_ROC2,32429,measured
+24529,3.99958,CTime_ePiCoinTime_ROC2,39683,measured
+24530,4.000688,CTime_ePiCoinTime_ROC2,36986,measured
+24531,4.003046,CTime_ePiCoinTime_ROC2,35697,measured
+24532,4.002919,CTime_ePiCoinTime_ROC2,36677,measured
+24533,4.001139,CTime_ePiCoinTime_ROC2,36605,measured
+24534,4.004086,CTime_ePiCoinTime_ROC2,38299,measured
+24535,3.999988,CTime_ePiCoinTime_ROC2,37072,measured
+24536,4.007632,CTime_ePiCoinTime_ROC2,5104,measured
+24543,3.979124,CTime_ePiCoinTime_ROC2,2566,measured
+24545,4.005618,CTime_ePiCoinTime_ROC2,746,measured
+24547,4.020818,CTime_ePiCoinTime_ROC2,2538,measured
+24550,4.015375,CTime_ePiCoinTime_ROC2,2954,measured
+24553,4.001638,CTime_ePiCoinTime_ROC2,30060,measured
+24554,4.003093,CTime_ePiCoinTime_ROC2,23635,measured
+24555,4.002822,CTime_ePiCoinTime_ROC2,5349,measured
+24556,4.00164,CTime_ePiCoinTime_ROC2,26646,measured
+24557,4.00083,CTime_ePiCoinTime_ROC2,21679,measured
+24558,4.000017,CTime_ePiCoinTime_ROC2,29517,measured
+24559,3.999833,CTime_ePiCoinTime_ROC2,29184,measured
+24560,4.001308,CTime_ePiCoinTime_ROC2,26958,measured
+24561,3.999654,CTime_ePiCoinTime_ROC2,33798,measured
+24562,3.999637,CTime_ePiCoinTime_ROC2,31776,measured
+24564,4.004215,CTime_ePiCoinTime_ROC2,20087,measured
+24566,4.000402,CTime_ePiCoinTime_ROC2,20188,measured
+24567,4.000107,CTime_ePiCoinTime_ROC2,19001,measured
+24568,3.99257,CTime_ePiCoinTime_ROC2,10725,measured
+24569,3.994776,CTime_ePiCoinTime_ROC2,6497,measured
+24570,3.999265,CTime_ePiCoinTime_ROC2,29694,measured
+24572,4.011023,CTime_ePiCoinTime_ROC2,23460,measured
+24574,4.013127,CTime_ePiCoinTime_ROC2,15035,measured
+24576,3.994376,CTime_ePiCoinTime_ROC2,8176,measured
+24578,4.008282,CTime_ePiCoinTime_ROC2,24002,measured
+24580,4.00015,CTime_ePiCoinTime_ROC2,8643,measured
+24582,4.002714,CTime_ePiCoinTime_ROC2,29921,measured
+24583,4.01124,CTime_ePiCoinTime_ROC2,16376,measured
+24584,4.007827,CTime_ePiCoinTime_ROC2,26383,measured
+24585,4.018694,CTime_ePiCoinTime_ROC2,6958,measured
+24587,4.005057,CTime_ePiCoinTime_ROC2,5240,measured
+24588,4.003682,CTime_ePiCoinTime_ROC2,30991,measured
+24589,4.0038,CTime_ePiCoinTime_ROC2,31825,measured
+24590,4.002909,CTime_ePiCoinTime_ROC2,34127,measured
+24591,4.001359,CTime_ePiCoinTime_ROC2,31761,measured
+24592,4.002757,CTime_ePiCoinTime_ROC2,29007,measured
+24593,4.002897,CTime_ePiCoinTime_ROC2,25102,measured
+24594,4.006837,CTime_ePiCoinTime_ROC2,29722,measured
+24595,4.006137,CTime_ePiCoinTime_ROC2,18747,measured
+24596,3.999466,CTime_ePiCoinTime_ROC2,41490,measured
+24597,4.003267,CTime_ePiCoinTime_ROC2,40493,measured
+24598,4.000788,CTime_ePiCoinTime_ROC2,26019,measured
+24599,4.004121,CTime_ePiCoinTime_ROC2,25911,measured
+24600,4.002317,CTime_ePiCoinTime_ROC2,25938,measured
+24601,3.997846,CTime_ePiCoinTime_ROC2,27381,measured
+24602,4.002241,CTime_ePiCoinTime_ROC2,30382,measured
+24603,4.004104,CTime_ePiCoinTime_ROC2,34502,measured
+24604,4.003319,CTime_ePiCoinTime_ROC2,33408,measured
+24605,4.004763,CTime_ePiCoinTime_ROC2,43001,measured
+24606,4.0001,CTime_ePiCoinTime_ROC2,26751,measured
+24607,3.998434,CTime_ePiCoinTime_ROC2,21059,measured
+24608,4.001149,CTime_ePiCoinTime_ROC2,18926,measured
+24609,4.000403,CTime_ePiCoinTime_ROC2,20968,measured
+24610,4.003922,CTime_ePiCoinTime_ROC2,20298,measured
+24611,4.002073,CTime_ePiCoinTime_ROC2,15848,measured
+24612,4.005597,CTime_ePiCoinTime_ROC2,49671,measured
+24613,4.008211,CTime_ePiCoinTime_ROC2,49639,measured
+24614,4.006485,CTime_ePiCoinTime_ROC2,49638,measured
+24615,4.000115,CTime_ePiCoinTime_ROC2,49655,measured
+24616,4.002761,CTime_ePiCoinTime_ROC2,49643,measured
+24617,4.005268,CTime_ePiCoinTime_ROC2,49635,measured
+24618,4.0025,CTime_ePiCoinTime_ROC2,49643,measured
+24619,-999.0,CTime_ePiCoinTime_ROC2,0,missing skim file
+24620,3.998469,CTime_ePiCoinTime_ROC2,5130,measured
+24621,4.007867,CTime_ePiCoinTime_ROC2,49771,measured
+24622,4.024025,CTime_ePiCoinTime_ROC2,21119,measured
+24627,4.009755,CTime_ePiCoinTime_ROC2,49827,measured
+24628,4.013525,CTime_ePiCoinTime_ROC2,49864,measured
+24629,4.005397,CTime_ePiCoinTime_ROC2,49836,measured
+24630,4.004576,CTime_ePiCoinTime_ROC2,48191,measured
+24631,4.01414,CTime_ePiCoinTime_ROC2,49844,measured
+24632,4.011726,CTime_ePiCoinTime_ROC2,49842,measured
+24633,4.018904,CTime_ePiCoinTime_ROC2,18251,measured
+24634,4.006585,CTime_ePiCoinTime_ROC2,49823,measured
+24635,4.00446,CTime_ePiCoinTime_ROC2,29391,measured
+24636,-999.0,CTime_ePiCoinTime_ROC2,12101,no reliable periodic peak
+24641,4.02233,CTime_ePiCoinTime_ROC2,17616,measured
+24642,4.012674,CTime_ePiCoinTime_ROC2,25046,measured
+24643,4.014338,CTime_ePiCoinTime_ROC2,19052,measured
+24646,4.010607,CTime_ePiCoinTime_ROC2,49764,measured
+24647,4.011157,CTime_ePiCoinTime_ROC2,49764,measured
+24648,4.009218,CTime_ePiCoinTime_ROC2,49803,measured
+24649,4.009701,CTime_ePiCoinTime_ROC2,49768,measured
+24650,4.009279,CTime_ePiCoinTime_ROC2,49734,measured
+24651,4.011777,CTime_ePiCoinTime_ROC2,24865,measured
+24654,4.004661,CTime_ePiCoinTime_ROC2,49767,measured
+24655,4.002062,CTime_ePiCoinTime_ROC2,49777,measured
+24656,4.0081,CTime_ePiCoinTime_ROC2,49765,measured
+24657,4.001784,CTime_ePiCoinTime_ROC2,49769,measured
+24658,4.008125,CTime_ePiCoinTime_ROC2,49773,measured
+24659,4.005083,CTime_ePiCoinTime_ROC2,49766,measured
+24660,4.007089,CTime_ePiCoinTime_ROC2,39463,measured
+24661,4.00273,CTime_ePiCoinTime_ROC2,49793,measured
+24662,4.005887,CTime_ePiCoinTime_ROC2,49796,measured
+24666,4.000904,CTime_ePiCoinTime_ROC2,49671,measured
+24667,4.003857,CTime_ePiCoinTime_ROC2,49680,measured
+24668,4.005573,CTime_ePiCoinTime_ROC2,49626,measured
+24669,4.006368,CTime_ePiCoinTime_ROC2,49658,measured
+24670,4.007688,CTime_ePiCoinTime_ROC2,49679,measured
+24671,4.003521,CTime_ePiCoinTime_ROC2,49673,measured
+24672,4.007049,CTime_ePiCoinTime_ROC2,49779,measured
+24673,4.009061,CTime_ePiCoinTime_ROC2,26363,measured
+24674,4.008485,CTime_ePiCoinTime_ROC2,49798,measured
+24675,4.006419,CTime_ePiCoinTime_ROC2,49792,measured
+24676,4.00678,CTime_ePiCoinTime_ROC2,49788,measured
+24677,4.011734,CTime_ePiCoinTime_ROC2,49778,measured
+24678,4.007483,CTime_ePiCoinTime_ROC2,49815,measured
+24679,4.006757,CTime_ePiCoinTime_ROC2,49804,measured
+24680,4.008015,CTime_ePiCoinTime_ROC2,49783,measured
+24681,4.011937,CTime_ePiCoinTime_ROC2,42984,measured
+24682,4.020454,CTime_ePiCoinTime_ROC2,12058,measured
+24683,4.012922,CTime_ePiCoinTime_ROC2,22156,measured
+24684,4.015087,CTime_ePiCoinTime_ROC2,22300,measured
+24685,4.01773,CTime_ePiCoinTime_ROC2,24914,measured
+24686,4.017447,CTime_ePiCoinTime_ROC2,23399,measured
+24687,4.003829,CTime_ePiCoinTime_ROC2,49762,measured
+24688,4.002556,CTime_ePiCoinTime_ROC2,49788,measured
+24690,4.005562,CTime_ePiCoinTime_ROC2,46080,measured
+24691,4.009159,CTime_ePiCoinTime_ROC2,49894,measured
+24692,4.008924,CTime_ePiCoinTime_ROC2,41353,measured
+24693,4.010105,CTime_ePiCoinTime_ROC2,40265,measured
+24694,4.004017,CTime_ePiCoinTime_ROC2,43509,measured
+24695,4.005461,CTime_ePiCoinTime_ROC2,49817,measured
+24696,4.009331,CTime_ePiCoinTime_ROC2,4271,measured
+24697,4.005434,CTime_ePiCoinTime_ROC2,46426,measured
+24698,4.006798,CTime_ePiCoinTime_ROC2,43235,measured
+24699,-999.0,CTime_ePiCoinTime_ROC2,0,missing skim file
+24701,4.006132,CTime_ePiCoinTime_ROC2,49832,measured
+24702,4.005654,CTime_ePiCoinTime_ROC2,26246,measured
+24703,4.007286,CTime_ePiCoinTime_ROC2,10689,measured
+24707,4.014575,CTime_ePiCoinTime_ROC2,16039,measured
+24708,4.00822,CTime_ePiCoinTime_ROC2,16357,measured
+24709,4.011556,CTime_ePiCoinTime_ROC2,17183,measured
+24710,4.006943,CTime_ePiCoinTime_ROC2,5062,measured
+24713,4.006546,CTime_ePiCoinTime_ROC2,49812,measured
+24714,4.008369,CTime_ePiCoinTime_ROC2,49808,measured
+24715,4.005646,CTime_ePiCoinTime_ROC2,49823,measured
+24716,4.007411,CTime_ePiCoinTime_ROC2,49845,measured
+24717,4.006854,CTime_ePiCoinTime_ROC2,49840,measured
+24718,4.008078,CTime_ePiCoinTime_ROC2,49816,measured
+24719,4.00604,CTime_ePiCoinTime_ROC2,49808,measured
+24720,4.006212,CTime_ePiCoinTime_ROC2,28682,measured
+24721,4.012812,CTime_ePiCoinTime_ROC2,28104,measured
+24722,4.00994,CTime_ePiCoinTime_ROC2,28127,measured
+24723,4.012011,CTime_ePiCoinTime_ROC2,26557,measured
+24724,4.01026,CTime_ePiCoinTime_ROC2,7875,measured
+24725,4.03394,CTime_ePiCoinTime_ROC2,8439,measured
+24726,4.010603,CTime_ePiCoinTime_ROC2,7033,measured
+24727,3.998879,CTime_ePiCoinTime_ROC2,5918,measured
+24728,4.019033,CTime_ePiCoinTime_ROC2,6851,measured
+24729,4.006341,CTime_ePiCoinTime_ROC2,6850,measured
+24730,4.008213,CTime_ePiCoinTime_ROC2,14910,measured
+24731,4.011458,CTime_ePiCoinTime_ROC2,16835,measured
+24732,4.014357,CTime_ePiCoinTime_ROC2,14933,measured
+24733,4.017995,CTime_ePiCoinTime_ROC2,4504,measured
+24734,4.010068,CTime_ePiCoinTime_ROC2,11465,measured
+24736,4.017092,CTime_ePiCoinTime_ROC2,16640,measured
+24737,4.009778,CTime_ePiCoinTime_ROC2,7372,measured
+24738,4.006041,CTime_ePiCoinTime_ROC2,16943,measured
+24739,4.017043,CTime_ePiCoinTime_ROC2,15297,measured
+24740,4.015026,CTime_ePiCoinTime_ROC2,15790,measured
+24741,4.013404,CTime_ePiCoinTime_ROC2,15242,measured
+24742,4.007006,CTime_ePiCoinTime_ROC2,17890,measured
+24743,4.014233,CTime_ePiCoinTime_ROC2,14896,measured
+24744,4.009164,CTime_ePiCoinTime_ROC2,2172,measured
+24745,4.018475,CTime_ePiCoinTime_ROC2,10079,measured
+24746,4.002438,CTime_ePiCoinTime_ROC2,14371,measured
+24747,4.014826,CTime_ePiCoinTime_ROC2,7736,measured
+24748,4.029259,CTime_ePiCoinTime_ROC2,2359,measured
+24753,-999.0,CTime_ePiCoinTime_ROC2,345,insufficient entries
+24755,4.024152,CTime_ePiCoinTime_ROC2,5625,measured
+24756,4.017449,CTime_ePiCoinTime_ROC2,6397,measured
+24758,4.004814,CTime_ePiCoinTime_ROC2,6931,measured
+24759,4.004354,CTime_ePiCoinTime_ROC2,1664,measured
+24766,4.015347,CTime_ePiCoinTime_ROC2,14140,measured
+24767,4.019132,CTime_ePiCoinTime_ROC2,14989,measured
+24768,4.014543,CTime_ePiCoinTime_ROC2,13439,measured
+24769,4.016173,CTime_ePiCoinTime_ROC2,5788,measured
+24770,4.014085,CTime_ePiCoinTime_ROC2,22769,measured
+24772,4.010139,CTime_ePiCoinTime_ROC2,15784,measured
+24773,4.023307,CTime_ePiCoinTime_ROC2,6944,measured
+24774,4.065268,CTime_ePiCoinTime_ROC2,2281,measured
+24775,4.026473,CTime_ePiCoinTime_ROC2,5227,measured
+24776,4.022979,CTime_ePiCoinTime_ROC2,5178,measured
+24777,4.008648,CTime_ePiCoinTime_ROC2,5058,measured
+24778,3.985885,CTime_ePiCoinTime_ROC2,1763,measured
+24779,4.02167,CTime_ePiCoinTime_ROC2,30686,measured
+24780,4.004524,CTime_ePiCoinTime_ROC2,21813,measured
+24781,4.019705,CTime_ePiCoinTime_ROC2,29263,measured
+24782,4.020552,CTime_ePiCoinTime_ROC2,30596,measured
+24783,3.998591,CTime_ePiCoinTime_ROC2,24336,measured
+24784,4.01018,CTime_ePiCoinTime_ROC2,29274,measured
+24785,4.018489,CTime_ePiCoinTime_ROC2,24315,measured
+24786,4.024971,CTime_ePiCoinTime_ROC2,21420,measured
+24787,4.02279,CTime_ePiCoinTime_ROC2,28418,measured
+24788,4.020693,CTime_ePiCoinTime_ROC2,22913,measured
+24789,4.019752,CTime_ePiCoinTime_ROC2,24446,measured
+24790,4.023775,CTime_ePiCoinTime_ROC2,15216,measured
+24791,-999.0,CTime_ePiCoinTime_ROC2,4909,no reliable periodic peak
+24794,4.024841,CTime_ePiCoinTime_ROC2,4926,measured
+24795,2.324847,CTime_ePiCoinTime_ROC2,7478,measured
+24796,2.594132,CTime_ePiCoinTime_ROC2,674,measured
+24797,4.02723,CTime_ePiCoinTime_ROC2,9255,measured
+24798,-999.0,CTime_ePiCoinTime_ROC2,7761,no reliable periodic peak
+24803,4.029467,CTime_ePiCoinTime_ROC2,23297,measured
+24804,4.01693,CTime_ePiCoinTime_ROC2,26890,measured
+24805,4.015794,CTime_ePiCoinTime_ROC2,33085,measured
+24806,4.008392,CTime_ePiCoinTime_ROC2,27998,measured
+24807,4.016386,CTime_ePiCoinTime_ROC2,29689,measured
+24808,4.021093,CTime_ePiCoinTime_ROC2,31025,measured
+24809,4.019429,CTime_ePiCoinTime_ROC2,27847,measured
+24810,4.015108,CTime_ePiCoinTime_ROC2,26777,measured
+24811,4.010069,CTime_ePiCoinTime_ROC2,22630,measured
+24812,4.015718,CTime_ePiCoinTime_ROC2,17294,measured
+24813,-999.0,CTime_ePiCoinTime_ROC2,3059,no reliable periodic peak
+24814,4.02067,CTime_ePiCoinTime_ROC2,9556,measured
+24815,-999.0,CTime_ePiCoinTime_ROC2,9705,no reliable periodic peak
+24816,-999.0,CTime_ePiCoinTime_ROC2,9553,no reliable periodic peak
+24817,-999.0,CTime_ePiCoinTime_ROC2,9650,no reliable periodic peak
+24818,4.002047,CTime_ePiCoinTime_ROC2,41716,measured
+24819,3.999358,CTime_ePiCoinTime_ROC2,43252,measured
+24820,3.998729,CTime_ePiCoinTime_ROC2,42686,measured
+24821,4.000215,CTime_ePiCoinTime_ROC2,10288,measured
+24822,4.002697,CTime_ePiCoinTime_ROC2,10298,measured
+24823,4.002616,CTime_ePiCoinTime_ROC2,11310,measured
+24824,4.003093,CTime_ePiCoinTime_ROC2,12304,measured
+24825,4.00691,CTime_ePiCoinTime_ROC2,13619,measured
+24826,4.003344,CTime_ePiCoinTime_ROC2,13793,measured
+24827,4.00486,CTime_ePiCoinTime_ROC2,12434,measured
+24828,3.990251,CTime_ePiCoinTime_ROC2,12457,measured
+24829,4.010604,CTime_ePiCoinTime_ROC2,6158,measured
+24830,3.998481,CTime_ePiCoinTime_ROC2,5013,measured
+24831,4.008337,CTime_ePiCoinTime_ROC2,5993,measured
+24832,4.021114,CTime_ePiCoinTime_ROC2,5150,measured
+24861,4.00687,CTime_ePiCoinTime_ROC2,16930,measured
+24862,3.999987,CTime_ePiCoinTime_ROC2,16132,measured
+24863,4.009955,CTime_ePiCoinTime_ROC2,14958,measured
+24864,4.005474,CTime_ePiCoinTime_ROC2,21826,measured
+24865,4.00082,CTime_ePiCoinTime_ROC2,35198,measured
+24866,4.000359,CTime_ePiCoinTime_ROC2,30928,measured
+24867,3.999396,CTime_ePiCoinTime_ROC2,34714,measured
+24868,3.999451,CTime_ePiCoinTime_ROC2,19964,measured
+24870,3.99722,CTime_ePiCoinTime_ROC2,38466,measured
+24871,3.998134,CTime_ePiCoinTime_ROC2,34470,measured
+24872,3.997884,CTime_ePiCoinTime_ROC2,33105,measured
+24873,4.000604,CTime_ePiCoinTime_ROC2,34605,measured
+24874,3.999353,CTime_ePiCoinTime_ROC2,7349,measured
+24877,4.016283,CTime_ePiCoinTime_ROC2,49797,measured
+24878,4.012975,CTime_ePiCoinTime_ROC2,49730,measured
+24879,4.016781,CTime_ePiCoinTime_ROC2,49786,measured
+24880,4.010105,CTime_ePiCoinTime_ROC2,49790,measured
+24881,4.012664,CTime_ePiCoinTime_ROC2,49827,measured
+24882,4.019638,CTime_ePiCoinTime_ROC2,49872,measured
+24883,4.034295,CTime_ePiCoinTime_ROC2,49949,measured
+24886,4.028405,CTime_ePiCoinTime_ROC2,49854,measured
+24887,4.024291,CTime_ePiCoinTime_ROC2,49864,measured
+24888,4.016609,CTime_ePiCoinTime_ROC2,49869,measured
+24889,4.032546,CTime_ePiCoinTime_ROC2,49894,measured
+24890,-999.0,CTime_ePiCoinTime_ROC2,49967,no reliable periodic peak
+24893,4.031803,CTime_ePiCoinTime_ROC2,49924,measured
+24894,4.041963,CTime_ePiCoinTime_ROC2,49928,measured
+24897,4.015081,CTime_ePiCoinTime_ROC2,49859,measured
+24898,4.021616,CTime_ePiCoinTime_ROC2,49861,measured
+24899,4.031856,CTime_ePiCoinTime_ROC2,49933,measured
+24902,4.018996,CTime_ePiCoinTime_ROC2,49829,measured
+24903,4.018377,CTime_ePiCoinTime_ROC2,49817,measured
+24907,4.007989,CTime_ePiCoinTime_ROC2,49830,measured
+24908,4.009994,CTime_ePiCoinTime_ROC2,49818,measured
+24909,4.018578,CTime_ePiCoinTime_ROC2,49921,measured
+24910,4.020376,CTime_ePiCoinTime_ROC2,49933,measured
+24913,4.018031,CTime_ePiCoinTime_ROC2,49812,measured
+24914,4.008708,CTime_ePiCoinTime_ROC2,49792,measured
+24915,4.012179,CTime_ePiCoinTime_ROC2,49827,measured
+24916,4.016469,CTime_ePiCoinTime_ROC2,49802,measured
+24917,4.014876,CTime_ePiCoinTime_ROC2,27544,measured
+24920,4.018089,CTime_ePiCoinTime_ROC2,49875,measured
+24921,4.025209,CTime_ePiCoinTime_ROC2,49941,measured
+24924,4.012929,CTime_ePiCoinTime_ROC2,49841,measured
+24927,4.011369,CTime_ePiCoinTime_ROC2,49807,measured
+24928,4.010759,CTime_ePiCoinTime_ROC2,49797,measured
+24929,4.00794,CTime_ePiCoinTime_ROC2,49808,measured
+24930,4.022689,CTime_ePiCoinTime_ROC2,49907,measured
+24933,4.009952,CTime_ePiCoinTime_ROC2,49796,measured
+24934,4.013154,CTime_ePiCoinTime_ROC2,49794,measured
+24935,4.008277,CTime_ePiCoinTime_ROC2,49819,measured
+24938,4.011193,CTime_ePiCoinTime_ROC2,49825,measured
+24939,4.012809,CTime_ePiCoinTime_ROC2,49820,measured
+24943,4.012937,CTime_ePiCoinTime_ROC2,49829,measured
+24944,4.01097,CTime_ePiCoinTime_ROC2,49849,measured
+24945,4.007581,CTime_ePiCoinTime_ROC2,49803,measured
+24946,4.017908,CTime_ePiCoinTime_ROC2,49915,measured
+24947,4.025468,CTime_ePiCoinTime_ROC2,49933,measured
+24948,4.01679,CTime_ePiCoinTime_ROC2,49814,measured
+24949,4.015369,CTime_ePiCoinTime_ROC2,49765,measured
+24950,4.020835,CTime_ePiCoinTime_ROC2,49880,measured
+24951,4.029922,CTime_ePiCoinTime_ROC2,49943,measured
+24952,4.010646,CTime_ePiCoinTime_ROC2,49865,measured
+24953,4.012286,CTime_ePiCoinTime_ROC2,49781,measured
+24954,4.009018,CTime_ePiCoinTime_ROC2,49827,measured
+24955,4.021361,CTime_ePiCoinTime_ROC2,49916,measured
+24956,4.006854,CTime_ePiCoinTime_ROC2,49802,measured
+24957,4.008727,CTime_ePiCoinTime_ROC2,49783,measured
+24958,4.00849,CTime_ePiCoinTime_ROC2,49785,measured
+24959,4.008232,CTime_ePiCoinTime_ROC2,49787,measured
+24960,4.009198,CTime_ePiCoinTime_ROC2,32728,measured
+24961,4.004856,CTime_ePiCoinTime_ROC2,49842,measured
+24962,4.01199,CTime_ePiCoinTime_ROC2,49862,measured
+24964,4.010335,CTime_ePiCoinTime_ROC2,49857,measured
+24965,4.01769,CTime_ePiCoinTime_ROC2,49935,measured
+24966,4.020828,CTime_ePiCoinTime_ROC2,49927,measured
+24969,4.009864,CTime_ePiCoinTime_ROC2,49848,measured
+24970,4.010215,CTime_ePiCoinTime_ROC2,49835,measured
+24971,4.011507,CTime_ePiCoinTime_ROC2,49831,measured
+24972,4.01398,CTime_ePiCoinTime_ROC2,49832,measured
+24974,4.014282,CTime_ePiCoinTime_ROC2,49924,measured
+24975,4.016618,CTime_ePiCoinTime_ROC2,49927,measured
+24981,4.007,CTime_ePiCoinTime_ROC2,49869,measured
+24982,4.010961,CTime_ePiCoinTime_ROC2,49857,measured
+24985,4.006913,CTime_ePiCoinTime_ROC2,49870,measured
+24986,4.012806,CTime_ePiCoinTime_ROC2,49843,measured
+24987,4.010225,CTime_ePiCoinTime_ROC2,49823,measured
+24988,4.016109,CTime_ePiCoinTime_ROC2,49923,measured
+24991,4.006471,CTime_ePiCoinTime_ROC2,49810,measured
+24992,4.007231,CTime_ePiCoinTime_ROC2,49839,measured
+24994,4.005688,CTime_ePiCoinTime_ROC2,49820,measured
+24995,4.008134,CTime_ePiCoinTime_ROC2,49845,measured
+24998,4.011258,CTime_ePiCoinTime_ROC2,49887,measured
+24999,4.010364,CTime_ePiCoinTime_ROC2,49867,measured
+25000,4.016508,CTime_ePiCoinTime_ROC2,49930,measured
+25001,4.014999,CTime_ePiCoinTime_ROC2,49934,measured
+25002,4.018083,CTime_ePiCoinTime_ROC2,49925,measured
+25003,4.014478,CTime_ePiCoinTime_ROC2,49945,measured
+25004,4.011844,CTime_ePiCoinTime_ROC2,49868,measured
+25005,4.007704,CTime_ePiCoinTime_ROC2,49866,measured
+25006,4.008033,CTime_ePiCoinTime_ROC2,49814,measured
+25007,4.00958,CTime_ePiCoinTime_ROC2,49869,measured
+25008,4.005996,CTime_ePiCoinTime_ROC2,24875,measured
+25010,4.007222,CTime_ePiCoinTime_ROC2,49769,measured
+25011,4.007603,CTime_ePiCoinTime_ROC2,49797,measured
+25012,4.013147,CTime_ePiCoinTime_ROC2,49900,measured
+25016,4.007867,CTime_ePiCoinTime_ROC2,49780,measured
+25017,4.005318,CTime_ePiCoinTime_ROC2,49764,measured
+25018,4.006955,CTime_ePiCoinTime_ROC2,49801,measured
+25019,4.007149,CTime_ePiCoinTime_ROC2,49862,measured
+25020,4.016223,CTime_ePiCoinTime_ROC2,49927,measured
+25026,4.012117,CTime_ePiCoinTime_ROC2,49844,measured
+25027,4.008745,CTime_ePiCoinTime_ROC2,49867,measured
+25030,4.006313,CTime_ePiCoinTime_ROC2,49785,measured
+25031,4.00645,CTime_ePiCoinTime_ROC2,49797,measured
+25034,4.006893,CTime_ePiCoinTime_ROC2,49779,measured
+25035,4.013452,CTime_ePiCoinTime_ROC2,49907,measured
+25038,4.007691,CTime_ePiCoinTime_ROC2,49772,measured
+25041,4.007385,CTime_ePiCoinTime_ROC2,49772,measured
+25044,4.00854,CTime_ePiCoinTime_ROC2,49809,measured
+25045,4.007882,CTime_ePiCoinTime_ROC2,49823,measured
+25046,4.014176,CTime_ePiCoinTime_ROC2,49925,measured
+25049,4.007746,CTime_ePiCoinTime_ROC2,49805,measured
+25050,4.007639,CTime_ePiCoinTime_ROC2,49814,measured
+25051,4.010275,CTime_ePiCoinTime_ROC2,49830,measured
+25052,4.010085,CTime_ePiCoinTime_ROC2,49871,measured
+25053,4.015582,CTime_ePiCoinTime_ROC2,46225,measured
+25056,4.006017,CTime_ePiCoinTime_ROC2,49853,measured
+25059,4.00924,CTime_ePiCoinTime_ROC2,49840,measured
+25060,4.00467,CTime_ePiCoinTime_ROC2,49799,measured
+25061,4.006466,CTime_ePiCoinTime_ROC2,49816,measured
+25062,4.006389,CTime_ePiCoinTime_ROC2,49798,measured
+25063,4.008001,CTime_ePiCoinTime_ROC2,49795,measured
+25064,4.005621,CTime_ePiCoinTime_ROC2,49780,measured
+25065,4.007017,CTime_ePiCoinTime_ROC2,49791,measured
+25066,4.007308,CTime_ePiCoinTime_ROC2,49828,measured
+25067,4.00986,CTime_ePiCoinTime_ROC2,49793,measured
+25068,4.008983,CTime_ePiCoinTime_ROC2,49909,measured
+25069,4.007087,CTime_ePiCoinTime_ROC2,49810,measured
+25070,4.009163,CTime_ePiCoinTime_ROC2,49797,measured
+25071,4.006686,CTime_ePiCoinTime_ROC2,49808,measured
+25072,4.009452,CTime_ePiCoinTime_ROC2,49878,measured
+25073,4.015606,CTime_ePiCoinTime_ROC2,48919,measured
+25074,4.008367,CTime_ePiCoinTime_ROC2,49826,measured
+25076,4.007247,CTime_ePiCoinTime_ROC2,49881,measured
+25077,4.006443,CTime_ePiCoinTime_ROC2,49872,measured
+25078,4.005627,CTime_ePiCoinTime_ROC2,49869,measured
+25079,4.010136,CTime_ePiCoinTime_ROC2,49922,measured
+25080,4.012351,CTime_ePiCoinTime_ROC2,49926,measured
+25083,4.005237,CTime_ePiCoinTime_ROC2,49868,measured
+25084,4.00405,CTime_ePiCoinTime_ROC2,49868,measured
+25085,4.005669,CTime_ePiCoinTime_ROC2,49844,measured
+25086,4.010449,CTime_ePiCoinTime_ROC2,49849,measured
+25087,4.014379,CTime_ePiCoinTime_ROC2,42409,measured
+25088,4.017782,CTime_ePiCoinTime_ROC2,46108,measured
+25091,4.009144,CTime_ePiCoinTime_ROC2,21049,measured
+25092,4.008096,CTime_ePiCoinTime_ROC2,49871,measured
+25093,4.007376,CTime_ePiCoinTime_ROC2,49867,measured
+25096,4.004388,CTime_ePiCoinTime_ROC2,49844,measured
+25097,4.006093,CTime_ePiCoinTime_ROC2,49805,measured
+25098,4.006138,CTime_ePiCoinTime_ROC2,49823,measured
+25099,4.009553,CTime_ePiCoinTime_ROC2,49908,measured
+25102,4.004902,CTime_ePiCoinTime_ROC2,49813,measured
+25103,4.005606,CTime_ePiCoinTime_ROC2,49778,measured
+25104,4.005179,CTime_ePiCoinTime_ROC2,49815,measured
+25105,4.006044,CTime_ePiCoinTime_ROC2,49809,measured
+25108,4.006374,CTime_ePiCoinTime_ROC2,49845,measured
+25109,4.005488,CTime_ePiCoinTime_ROC2,49853,measured
+25110,4.008033,CTime_ePiCoinTime_ROC2,49824,measured
+25111,4.010796,CTime_ePiCoinTime_ROC2,49910,measured
+25112,4.011983,CTime_ePiCoinTime_ROC2,49907,measured
+25114,4.005187,CTime_ePiCoinTime_ROC2,49819,measured
+25115,4.004369,CTime_ePiCoinTime_ROC2,49810,measured
+25116,4.005663,CTime_ePiCoinTime_ROC2,49825,measured
+25117,4.005764,CTime_ePiCoinTime_ROC2,49877,measured
+25119,4.011389,CTime_ePiCoinTime_ROC2,49902,measured
+25120,4.006674,CTime_ePiCoinTime_ROC2,49882,measured
+25121,4.007349,CTime_ePiCoinTime_ROC2,49886,measured
+25122,4.012708,CTime_ePiCoinTime_ROC2,49894,measured
+25123,-999.0,CTime_ePiCoinTime_ROC2,0,missing skim file
+25124,4.027863,CTime_ePiCoinTime_ROC2,49958,measured
+25126,4.012858,CTime_ePiCoinTime_ROC2,4575,measured
+25127,4.023319,CTime_ePiCoinTime_ROC2,49932,measured
+25128,4.018778,CTime_ePiCoinTime_ROC2,49926,measured
+25129,4.026518,CTime_ePiCoinTime_ROC2,49948,measured
+25130,4.039791,CTime_ePiCoinTime_ROC2,1824,measured
+25131,4.0293,CTime_ePiCoinTime_ROC2,29202,measured
+25134,4.026444,CTime_ePiCoinTime_ROC2,34755,measured
+25135,4.023739,CTime_ePiCoinTime_ROC2,36612,measured
+25138,4.013628,CTime_ePiCoinTime_ROC2,49915,measured
+25139,4.011507,CTime_ePiCoinTime_ROC2,49854,measured
+25140,4.011555,CTime_ePiCoinTime_ROC2,49822,measured
+25141,4.011884,CTime_ePiCoinTime_ROC2,49918,measured
+25146,4.020112,CTime_ePiCoinTime_ROC2,49901,measured
+25147,4.017137,CTime_ePiCoinTime_ROC2,37278,measured
+25148,4.018496,CTime_ePiCoinTime_ROC2,49917,measured
+25149,4.017918,CTime_ePiCoinTime_ROC2,49903,measured
+25150,4.019188,CTime_ePiCoinTime_ROC2,49925,measured
+25151,4.030724,CTime_ePiCoinTime_ROC2,49970,measured
+25154,4.021457,CTime_ePiCoinTime_ROC2,49932,measured
+25157,4.013607,CTime_ePiCoinTime_ROC2,49912,measured
+25158,-999.0,CTime_ePiCoinTime_ROC2,0,missing skim file
+25162,4.016684,CTime_ePiCoinTime_ROC2,49905,measured
+25163,4.014926,CTime_ePiCoinTime_ROC2,49892,measured
+25164,4.012181,CTime_ePiCoinTime_ROC2,49918,measured
+25165,4.014102,CTime_ePiCoinTime_ROC2,49920,measured
+25166,4.015197,CTime_ePiCoinTime_ROC2,49903,measured
+25167,4.015289,CTime_ePiCoinTime_ROC2,49929,measured
+25168,4.019566,CTime_ePiCoinTime_ROC2,49911,measured
+25169,4.019576,CTime_ePiCoinTime_ROC2,49910,measured
+25170,4.025602,CTime_ePiCoinTime_ROC2,49971,measured
+25171,4.026144,CTime_ePiCoinTime_ROC2,49941,measured
+25181,4.008252,CTime_ePiCoinTime_ROC2,49853,measured
+25182,4.009134,CTime_ePiCoinTime_ROC2,49859,measured
+25183,4.009808,CTime_ePiCoinTime_ROC2,49882,measured
+25184,4.014535,CTime_ePiCoinTime_ROC2,49941,measured
+25185,4.010466,CTime_ePiCoinTime_ROC2,49931,measured
+25187,4.011396,CTime_ePiCoinTime_ROC2,49930,measured
+25189,4.011754,CTime_ePiCoinTime_ROC2,49897,measured
+25190,4.008169,CTime_ePiCoinTime_ROC2,49894,measured
+25192,4.004186,CTime_ePiCoinTime_ROC2,49835,measured
+25193,4.007033,CTime_ePiCoinTime_ROC2,49868,measured
+25194,4.008427,CTime_ePiCoinTime_ROC2,49834,measured
+25195,4.004113,CTime_ePiCoinTime_ROC2,49829,measured
+25196,4.005872,CTime_ePiCoinTime_ROC2,49804,measured
+25197,4.006249,CTime_ePiCoinTime_ROC2,49811,measured
+25198,4.008478,CTime_ePiCoinTime_ROC2,49835,measured
+25200,4.007565,CTime_ePiCoinTime_ROC2,49804,measured
+25201,4.006269,CTime_ePiCoinTime_ROC2,49823,measured
+25202,4.00906,CTime_ePiCoinTime_ROC2,49908,measured
+25203,4.009072,CTime_ePiCoinTime_ROC2,49874,measured
+25204,4.012313,CTime_ePiCoinTime_ROC2,49940,measured
+25205,4.004752,CTime_ePiCoinTime_ROC2,49832,measured
+25206,4.005156,CTime_ePiCoinTime_ROC2,49819,measured
+25207,4.004231,CTime_ePiCoinTime_ROC2,49841,measured
+25208,4.007644,CTime_ePiCoinTime_ROC2,49852,measured
+25210,4.005226,CTime_ePiCoinTime_ROC2,49905,measured
+25211,4.005386,CTime_ePiCoinTime_ROC2,49929,measured
+25214,4.005937,CTime_ePiCoinTime_ROC2,49838,measured
+25217,4.005564,CTime_ePiCoinTime_ROC2,49843,measured
+25218,4.00527,CTime_ePiCoinTime_ROC2,49842,measured
+25219,4.004505,CTime_ePiCoinTime_ROC2,49840,measured
+25220,4.006195,CTime_ePiCoinTime_ROC2,49937,measured
+25221,4.00491,CTime_ePiCoinTime_ROC2,49943,measured
+25222,4.005975,CTime_ePiCoinTime_ROC2,49843,measured
+25227,-999.0,CTime_ePiCoinTime_ROC2,49927,no reliable periodic peak
+25228,-999.0,CTime_ePiCoinTime_ROC2,49920,no reliable periodic peak
+25229,-999.0,CTime_ePiCoinTime_ROC2,49975,no reliable periodic peak
+25230,-999.0,CTime_ePiCoinTime_ROC2,49964,no reliable periodic peak
+25233,-999.0,CTime_ePiCoinTime_ROC2,49973,no reliable periodic peak
+25234,-999.0,CTime_ePiCoinTime_ROC2,49961,no reliable periodic peak
+25235,-999.0,CTime_ePiCoinTime_ROC2,49967,no reliable periodic peak
+25236,-999.0,CTime_ePiCoinTime_ROC2,32370,no reliable periodic peak
+25237,-999.0,CTime_ePiCoinTime_ROC2,33259,no reliable periodic peak
+25240,-999.0,CTime_ePiCoinTime_ROC2,29232,no reliable periodic peak
+25241,-999.0,CTime_ePiCoinTime_ROC2,28506,no reliable periodic peak
+25247,-999.0,CTime_ePiCoinTime_ROC2,49958,no reliable periodic peak
+25248,-999.0,CTime_ePiCoinTime_ROC2,49955,no reliable periodic peak
+25249,-999.0,CTime_ePiCoinTime_ROC2,36111,no reliable periodic peak
+25251,-999.0,CTime_ePiCoinTime_ROC2,49953,no reliable periodic peak
+25252,-999.0,CTime_ePiCoinTime_ROC2,49948,no reliable periodic peak
+25255,4.015161,CTime_ePiCoinTime_ROC2,49814,measured
+25256,4.018912,CTime_ePiCoinTime_ROC2,49800,measured
+25257,4.01459,CTime_ePiCoinTime_ROC2,49820,measured
+25258,4.024393,CTime_ePiCoinTime_ROC2,49914,measured
+25259,4.012265,CTime_ePiCoinTime_ROC2,49925,measured
+25262,4.017773,CTime_ePiCoinTime_ROC2,49893,measured
+25263,4.027457,CTime_ePiCoinTime_ROC2,49903,measured
+25264,4.033104,CTime_ePiCoinTime_ROC2,49931,measured
+25265,-999.0,CTime_ePiCoinTime_ROC2,49963,no reliable periodic peak
+25266,-999.0,CTime_ePiCoinTime_ROC2,49969,no reliable periodic peak
+25269,-999.0,CTime_ePiCoinTime_ROC2,49954,no reliable periodic peak
+25272,4.019526,CTime_ePiCoinTime_ROC2,49857,measured
+25273,4.016875,CTime_ePiCoinTime_ROC2,49878,measured
+25275,4.021039,CTime_ePiCoinTime_ROC2,49875,measured
+25276,4.018576,CTime_ePiCoinTime_ROC2,49865,measured
+25277,4.019703,CTime_ePiCoinTime_ROC2,49902,measured
+25279,-999.0,CTime_ePiCoinTime_ROC2,49957,no reliable periodic peak
+25280,4.011946,CTime_ePiCoinTime_ROC2,49852,measured
+25281,4.00784,CTime_ePiCoinTime_ROC2,49849,measured
+25282,4.021629,CTime_ePiCoinTime_ROC2,49927,measured
+25283,4.01906,CTime_ePiCoinTime_ROC2,49928,measured
+25286,4.009746,CTime_ePiCoinTime_ROC2,49860,measured
+25287,4.016546,CTime_ePiCoinTime_ROC2,49826,measured
+25288,4.01186,CTime_ePiCoinTime_ROC2,49854,measured
+25289,4.014598,CTime_ePiCoinTime_ROC2,49928,measured
+25290,4.016161,CTime_ePiCoinTime_ROC2,49922,measured
+25293,4.009951,CTime_ePiCoinTime_ROC2,49885,measured
+25295,4.005938,CTime_ePiCoinTime_ROC2,49850,measured
+25296,4.012375,CTime_ePiCoinTime_ROC2,49856,measured
+25298,4.004757,CTime_ePiCoinTime_ROC2,49815,measured
+25299,4.011585,CTime_ePiCoinTime_ROC2,49798,measured
+25300,4.010951,CTime_ePiCoinTime_ROC2,49803,measured
+25301,4.010736,CTime_ePiCoinTime_ROC2,49808,measured
+25303,4.026194,CTime_ePiCoinTime_ROC2,49954,measured
+25305,4.028287,CTime_ePiCoinTime_ROC2,49947,measured
+25306,4.016609,CTime_ePiCoinTime_ROC2,49961,measured
+25309,4.013442,CTime_ePiCoinTime_ROC2,49870,measured
+25310,4.01484,CTime_ePiCoinTime_ROC2,49838,measured
+25311,4.01397,CTime_ePiCoinTime_ROC2,49850,measured
+25312,4.008323,CTime_ePiCoinTime_ROC2,49939,measured
+25313,4.018984,CTime_ePiCoinTime_ROC2,49924,measured
+25314,4.010202,CTime_ePiCoinTime_ROC2,49833,measured
+25315,4.019828,CTime_ePiCoinTime_ROC2,49814,measured
+25316,4.022519,CTime_ePiCoinTime_ROC2,49919,measured
+25317,4.014592,CTime_ePiCoinTime_ROC2,49892,measured
+25318,4.006866,CTime_ePiCoinTime_ROC2,49848,measured
+25319,4.008669,CTime_ePiCoinTime_ROC2,49863,measured
+25320,4.006861,CTime_ePiCoinTime_ROC2,49863,measured
+25321,4.00298,CTime_ePiCoinTime_ROC2,49857,measured
+25322,4.005767,CTime_ePiCoinTime_ROC2,49921,measured
+25323,4.001211,CTime_ePiCoinTime_ROC2,49924,measured
+25328,4.009791,CTime_ePiCoinTime_ROC2,49830,measured
+25329,4.005269,CTime_ePiCoinTime_ROC2,49820,measured
+25330,4.006931,CTime_ePiCoinTime_ROC2,49858,measured
+25331,4.009738,CTime_ePiCoinTime_ROC2,49858,measured
+25333,4.002419,CTime_ePiCoinTime_ROC2,49910,measured
+25334,4.005638,CTime_ePiCoinTime_ROC2,49912,measured
+25336,4.007058,CTime_ePiCoinTime_ROC2,49877,measured
+25337,4.003262,CTime_ePiCoinTime_ROC2,49918,measured
+25338,4.006421,CTime_ePiCoinTime_ROC2,49891,measured
+25340,4.003941,CTime_ePiCoinTime_ROC2,49894,measured
+25341,4.007405,CTime_ePiCoinTime_ROC2,49870,measured
+25342,4.004073,CTime_ePiCoinTime_ROC2,49862,measured
+25343,4.004678,CTime_ePiCoinTime_ROC2,49864,measured
+25344,4.006165,CTime_ePiCoinTime_ROC2,49844,measured
+25345,3.999937,CTime_ePiCoinTime_ROC2,49840,measured
+25356,4.021242,CTime_ePiCoinTime_ROC2,49914,measured
+25357,4.025787,CTime_ePiCoinTime_ROC2,49918,measured
+25358,4.020473,CTime_ePiCoinTime_ROC2,49925,measured
+25359,-999.0,CTime_ePiCoinTime_ROC2,49952,no reliable periodic peak
+25360,-999.0,CTime_ePiCoinTime_ROC2,49951,no reliable periodic peak
+25363,4.010195,CTime_ePiCoinTime_ROC2,49847,measured
+25364,4.015987,CTime_ePiCoinTime_ROC2,49860,measured
+25365,4.018511,CTime_ePiCoinTime_ROC2,49939,measured
+25366,4.029723,CTime_ePiCoinTime_ROC2,49947,measured
+25368,-999.0,CTime_ePiCoinTime_ROC2,49944,no reliable periodic peak
+25370,4.016773,CTime_ePiCoinTime_ROC2,14174,measured
+25371,4.013643,CTime_ePiCoinTime_ROC2,49903,measured
+25372,4.012483,CTime_ePiCoinTime_ROC2,49895,measured
+25374,4.010515,CTime_ePiCoinTime_ROC2,49876,measured
+25375,4.017125,CTime_ePiCoinTime_ROC2,49888,measured
+25376,4.00935,CTime_ePiCoinTime_ROC2,49887,measured
+25379,4.010363,CTime_ePiCoinTime_ROC2,49797,measured
+25380,4.018469,CTime_ePiCoinTime_ROC2,49934,measured
+25381,4.014094,CTime_ePiCoinTime_ROC2,49914,measured
+25382,-999.0,CTime_ePiCoinTime_ROC2,49956,no reliable periodic peak
+25383,-999.0,CTime_ePiCoinTime_ROC2,49939,no reliable periodic peak
+25384,-999.0,CTime_ePiCoinTime_ROC2,49956,no reliable periodic peak
+25385,-999.0,CTime_ePiCoinTime_ROC2,49963,no reliable periodic peak
+25386,-999.0,CTime_ePiCoinTime_ROC2,49958,no reliable periodic peak
+25387,-999.0,CTime_ePiCoinTime_ROC2,49965,no reliable periodic peak
+25388,-999.0,CTime_ePiCoinTime_ROC2,49989,no reliable periodic peak
+25389,-999.0,CTime_ePiCoinTime_ROC2,49979,no reliable periodic peak
+25394,-999.0,CTime_ePiCoinTime_ROC2,49557,no reliable periodic peak
+25395,-999.0,CTime_ePiCoinTime_ROC2,42924,no reliable periodic peak
+25423,4.024682,CTime_ePiCoinTime_ROC2,49964,measured
+25424,4.028395,CTime_ePiCoinTime_ROC2,49972,measured
+25425,4.019698,CTime_ePiCoinTime_ROC2,49973,measured
+25426,4.022197,CTime_ePiCoinTime_ROC2,49961,measured
+25427,4.025709,CTime_ePiCoinTime_ROC2,49966,measured
+25428,4.023838,CTime_ePiCoinTime_ROC2,49975,measured
+25429,-999.0,CTime_ePiCoinTime_ROC2,20011,no reliable periodic peak
+25430,-999.0,CTime_ePiCoinTime_ROC2,18663,no reliable periodic peak
+25432,-999.0,CTime_ePiCoinTime_ROC2,21547,no reliable periodic peak
+25433,4.014605,CTime_ePiCoinTime_ROC2,15766,measured
+25434,4.018197,CTime_ePiCoinTime_ROC2,49941,measured
+25435,4.013897,CTime_ePiCoinTime_ROC2,49939,measured
+25436,4.016282,CTime_ePiCoinTime_ROC2,49931,measured
+25437,4.012359,CTime_ePiCoinTime_ROC2,49960,measured
+25438,4.027347,CTime_ePiCoinTime_ROC2,49968,measured
+25439,4.021,CTime_ePiCoinTime_ROC2,46576,measured
+25440,4.027126,CTime_ePiCoinTime_ROC2,35997,measured
+25441,4.018457,CTime_ePiCoinTime_ROC2,49974,measured
+25442,4.02052,CTime_ePiCoinTime_ROC2,49925,measured
+25443,4.007432,CTime_ePiCoinTime_ROC2,49847,measured
+25444,4.008891,CTime_ePiCoinTime_ROC2,49824,measured
+25445,4.006084,CTime_ePiCoinTime_ROC2,49824,measured
+25446,4.009715,CTime_ePiCoinTime_ROC2,49921,measured
+25447,4.008038,CTime_ePiCoinTime_ROC2,49912,measured
+25448,4.0086,CTime_ePiCoinTime_ROC2,49852,measured
+25449,4.009034,CTime_ePiCoinTime_ROC2,49845,measured
+25450,4.00873,CTime_ePiCoinTime_ROC2,49866,measured
+25451,4.01318,CTime_ePiCoinTime_ROC2,49920,measured
+25452,4.013332,CTime_ePiCoinTime_ROC2,49916,measured
+25453,4.010825,CTime_ePiCoinTime_ROC2,49922,measured
+25455,4.008621,CTime_ePiCoinTime_ROC2,16310,measured
+25457,4.008441,CTime_ePiCoinTime_ROC2,30075,measured
+25459,4.002703,CTime_ePiCoinTime_ROC2,22901,measured
+25462,4.01848,CTime_ePiCoinTime_ROC2,13655,measured
+25463,4.004954,CTime_ePiCoinTime_ROC2,4582,measured
+25464,3.990665,CTime_ePiCoinTime_ROC2,8556,measured
+25465,4.005313,CTime_ePiCoinTime_ROC2,23483,measured
+25466,4.006595,CTime_ePiCoinTime_ROC2,23965,measured
+25467,4.004157,CTime_ePiCoinTime_ROC2,44034,measured
+25468,4.001283,CTime_ePiCoinTime_ROC2,41515,measured
+25469,4.005623,CTime_ePiCoinTime_ROC2,14170,measured
+25474,4.009991,CTime_ePiCoinTime_ROC2,17093,measured
+25475,-999.0,CTime_epCoinTime_ROC2,955,no reliable periodic peak
+25476,-999.0,CTime_epCoinTime_ROC2,9696,no reliable periodic peak
+25477,-999.0,CTime_epCoinTime_ROC2,11389,no reliable periodic peak
+25478,-999.0,CTime_epCoinTime_ROC2,10999,no reliable periodic peak
+25479,-999.0,CTime_epCoinTime_ROC2,10949,no reliable periodic peak
+25480,-999.0,CTime_epCoinTime_ROC2,8551,no reliable periodic peak
+25481,-999.0,CTime_epCoinTime_ROC2,2924,no reliable periodic peak
+25482,-999.0,CTime_epCoinTime_ROC2,1132,no reliable periodic peak
+25483,-999.0,CTime_epCoinTime_ROC2,2268,no reliable periodic peak
+25484,4.006247,CTime_ePiCoinTime_ROC2,49833,measured
+25485,4.0078,CTime_ePiCoinTime_ROC2,49836,measured
+25486,4.007047,CTime_ePiCoinTime_ROC2,49812,measured
+25487,4.007583,CTime_ePiCoinTime_ROC2,49810,measured
+25488,4.007433,CTime_ePiCoinTime_ROC2,49826,measured
+25489,4.010602,CTime_ePiCoinTime_ROC2,49926,measured
+25490,4.008381,CTime_ePiCoinTime_ROC2,49914,measured
+25491,4.007552,CTime_ePiCoinTime_ROC2,49854,measured
+25492,4.008633,CTime_ePiCoinTime_ROC2,49850,measured
+25493,4.009091,CTime_ePiCoinTime_ROC2,49855,measured
+25494,4.007521,CTime_ePiCoinTime_ROC2,49847,measured
+25495,4.00959,CTime_ePiCoinTime_ROC2,49844,measured
+25496,4.011856,CTime_ePiCoinTime_ROC2,49927,measured
+25497,4.012536,CTime_ePiCoinTime_ROC2,49914,measured
+25498,4.007865,CTime_ePiCoinTime_ROC2,49909,measured
+25499,4.005727,CTime_ePiCoinTime_ROC2,49831,measured
+25500,4.007915,CTime_ePiCoinTime_ROC2,49820,measured
+25501,4.007782,CTime_ePiCoinTime_ROC2,49838,measured
+25502,4.008861,CTime_ePiCoinTime_ROC2,49799,measured
+25503,4.005018,CTime_ePiCoinTime_ROC2,49825,measured
+25504,4.01588,CTime_ePiCoinTime_ROC2,49902,measured
+25505,4.011993,CTime_ePiCoinTime_ROC2,49927,measured
+25506,4.004204,CTime_ePiCoinTime_ROC2,49815,measured
+25507,4.006781,CTime_ePiCoinTime_ROC2,49799,measured
+25508,4.007183,CTime_ePiCoinTime_ROC2,49809,measured
+25509,4.003054,CTime_ePiCoinTime_ROC2,49814,measured
+25510,4.008037,CTime_ePiCoinTime_ROC2,49829,measured
+25511,4.006458,CTime_ePiCoinTime_ROC2,49817,measured
+25512,4.010414,CTime_ePiCoinTime_ROC2,49907,measured
+25513,4.010755,CTime_ePiCoinTime_ROC2,49907,measured
+25514,4.011985,CTime_ePiCoinTime_ROC2,49885,measured
+25515,4.007477,CTime_ePiCoinTime_ROC2,33530,measured
+25516,-999.0,CTime_ePiCoinTime_ROC2,0,missing skim file
+25517,4.007591,CTime_ePiCoinTime_ROC2,49828,measured
+25518,4.008314,CTime_ePiCoinTime_ROC2,49833,measured
+25519,4.00654,CTime_ePiCoinTime_ROC2,49830,measured
+25520,4.005531,CTime_ePiCoinTime_ROC2,49840,measured
+25532,4.007138,CTime_ePiCoinTime_ROC2,49793,measured
+25533,4.007553,CTime_ePiCoinTime_ROC2,49817,measured
+25534,4.007738,CTime_ePiCoinTime_ROC2,49802,measured
+25536,4.007465,CTime_ePiCoinTime_ROC2,49815,measured
+25538,4.006624,CTime_ePiCoinTime_ROC2,49814,measured
+25539,4.006907,CTime_ePiCoinTime_ROC2,49840,measured
+25540,4.011354,CTime_ePiCoinTime_ROC2,49845,measured
+25541,4.010932,CTime_ePiCoinTime_ROC2,49849,measured
+25542,4.006347,CTime_ePiCoinTime_ROC2,49829,measured
+25543,4.007663,CTime_ePiCoinTime_ROC2,49838,measured
+25544,4.00843,CTime_ePiCoinTime_ROC2,49844,measured
+25545,4.006719,CTime_ePiCoinTime_ROC2,49818,measured
+25546,4.00849,CTime_ePiCoinTime_ROC2,49832,measured
+25547,4.005723,CTime_ePiCoinTime_ROC2,49810,measured
+25548,4.006008,CTime_ePiCoinTime_ROC2,49832,measured
+27106,-999.0,CTime_epCoinTime_ROC2,49936,no reliable periodic peak
+27107,-999.0,CTime_epCoinTime_ROC2,49863,no reliable periodic peak
+27122,2.001388,CTime_ePiCoinTime_ROC2,49947,measured
+27123,2.002161,CTime_ePiCoinTime_ROC2,49955,measured
+27124,1.999552,CTime_ePiCoinTime_ROC2,49953,measured
+27125,2.000863,CTime_ePiCoinTime_ROC2,49955,measured
+27126,2.004532,CTime_ePiCoinTime_ROC2,31115,measured
+27127,1.998195,CTime_ePiCoinTime_ROC2,49942,measured
+27128,2.002904,CTime_ePiCoinTime_ROC2,25294,measured
+27129,1.996885,CTime_ePiCoinTime_ROC2,49950,measured
+27130,1.99824,CTime_ePiCoinTime_ROC2,49957,measured
+27131,2.001025,CTime_ePiCoinTime_ROC2,49938,measured
+27132,1.995022,CTime_ePiCoinTime_ROC2,14882,measured
+27133,2.000161,CTime_ePiCoinTime_ROC2,49927,measured
+27135,1.999286,CTime_ePiCoinTime_ROC2,26115,measured
+27136,2.002314,CTime_ePiCoinTime_ROC2,25880,measured
+27137,1.995315,CTime_ePiCoinTime_ROC2,25759,measured
+27139,1.998298,CTime_ePiCoinTime_ROC2,49947,measured
+27140,2.002665,CTime_ePiCoinTime_ROC2,49954,measured
+27141,2.001719,CTime_ePiCoinTime_ROC2,49955,measured
+27142,1.997617,CTime_ePiCoinTime_ROC2,49952,measured
+27143,1.998028,CTime_ePiCoinTime_ROC2,49949,measured
+27144,1.999462,CTime_ePiCoinTime_ROC2,49949,measured
+27145,2.001545,CTime_ePiCoinTime_ROC2,49944,measured
+27146,2.00051,CTime_ePiCoinTime_ROC2,49959,measured
+27147,1.996579,CTime_ePiCoinTime_ROC2,49957,measured
+27148,2.004875,CTime_ePiCoinTime_ROC2,17288,measured
+27149,2.001146,CTime_ePiCoinTime_ROC2,48420,measured
+27150,2.008306,CTime_ePiCoinTime_ROC2,23614,measured
+27151,2.002604,CTime_ePiCoinTime_ROC2,23414,measured
+27152,1.997094,CTime_ePiCoinTime_ROC2,19754,measured
+27153,1.999769,CTime_ePiCoinTime_ROC2,24619,measured
+27154,2.001177,CTime_ePiCoinTime_ROC2,49934,measured
+27155,2.000017,CTime_ePiCoinTime_ROC2,49949,measured
+27156,-999.0,CTime_ePiCoinTime_ROC2,28223,no reliable periodic peak
+27157,-999.0,CTime_ePiCoinTime_ROC2,8491,no reliable periodic peak
+27158,-999.0,CTime_ePiCoinTime_ROC2,26078,no reliable periodic peak
+27160,-999.0,CTime_ePiCoinTime_ROC2,2955,no reliable periodic peak
+27162,1.99236,CTime_ePiCoinTime_ROC2,16276,measured
+27163,1.992995,CTime_ePiCoinTime_ROC2,49951,measured
+27164,2.002938,CTime_ePiCoinTime_ROC2,49947,measured
+27165,1.997542,CTime_ePiCoinTime_ROC2,49953,measured
+27166,2.005709,CTime_ePiCoinTime_ROC2,49951,measured
+27167,1.999482,CTime_ePiCoinTime_ROC2,49948,measured
+27168,1.995646,CTime_ePiCoinTime_ROC2,49934,measured
+27169,1.998404,CTime_ePiCoinTime_ROC2,49950,measured
+27170,2.000689,CTime_ePiCoinTime_ROC2,49959,measured
+27171,1.999771,CTime_ePiCoinTime_ROC2,49905,measured
+27172,1.996874,CTime_ePiCoinTime_ROC2,49955,measured
+27173,2.001095,CTime_ePiCoinTime_ROC2,49944,measured
+27176,1.999486,CTime_ePiCoinTime_ROC2,21875,measured
+27177,1.998391,CTime_ePiCoinTime_ROC2,20925,measured
+27178,2.000714,CTime_ePiCoinTime_ROC2,21788,measured
+27180,2.001766,CTime_ePiCoinTime_ROC2,49932,measured
+27181,1.996736,CTime_ePiCoinTime_ROC2,49951,measured
+27182,2.002416,CTime_ePiCoinTime_ROC2,49940,measured
+27183,1.999341,CTime_ePiCoinTime_ROC2,49957,measured
+27184,2.000199,CTime_ePiCoinTime_ROC2,49947,measured
+27185,1.998687,CTime_ePiCoinTime_ROC2,49954,measured
+27186,1.996356,CTime_ePiCoinTime_ROC2,23149,measured
+27187,1.995054,CTime_ePiCoinTime_ROC2,16033,measured
+27188,3.992785,CTime_ePiCoinTime_ROC2,28809,measured
+27189,-999.0,CTime_ePiCoinTime_ROC2,953,no reliable periodic peak
+27190,-999.0,CTime_ePiCoinTime_ROC2,2032,no reliable periodic peak
+27191,-999.0,CTime_ePiCoinTime_ROC2,2579,no reliable periodic peak
+27195,-999.0,CTime_ePiCoinTime_ROC2,185,insufficient entries
+27196,-999.0,CTime_ePiCoinTime_ROC2,229,insufficient entries
+27198,-999.0,CTime_ePiCoinTime_ROC2,2181,no reliable periodic peak
+27199,-999.0,CTime_ePiCoinTime_ROC2,2521,no reliable periodic peak
+27200,-999.0,CTime_ePiCoinTime_ROC2,223,insufficient entries
+27201,1.920011,CTime_ePiCoinTime_ROC2,11721,measured
+27202,1.96677,CTime_ePiCoinTime_ROC2,11911,measured
+27203,1.996988,CTime_ePiCoinTime_ROC2,13517,measured
+27204,-999.0,CTime_ePiCoinTime_ROC2,14826,no reliable periodic peak
+27206,-999.0,CTime_ePiCoinTime_ROC2,14067,no reliable periodic peak
+27208,1.974094,CTime_ePiCoinTime_ROC2,12141,measured
+27209,1.973391,CTime_ePiCoinTime_ROC2,14323,measured
+27210,2.02296,CTime_ePiCoinTime_ROC2,13523,measured
+27211,2.003577,CTime_ePiCoinTime_ROC2,12793,measured
+27212,2.006603,CTime_ePiCoinTime_ROC2,12438,measured
+27213,1.956748,CTime_ePiCoinTime_ROC2,16481,measured
+27216,1.873908,CTime_ePiCoinTime_ROC2,695,measured
+27217,2.137744,CTime_ePiCoinTime_ROC2,676,measured
+27218,1.78193,CTime_ePiCoinTime_ROC2,649,measured
+27219,1.874205,CTime_ePiCoinTime_ROC2,576,measured
+27221,2.070221,CTime_ePiCoinTime_ROC2,8410,measured
+27222,2.016129,CTime_ePiCoinTime_ROC2,13021,measured
+27223,2.000552,CTime_ePiCoinTime_ROC2,12708,measured
+27224,1.97942,CTime_ePiCoinTime_ROC2,13978,measured
+27225,2.002993,CTime_ePiCoinTime_ROC2,13744,measured
+27226,2.030048,CTime_ePiCoinTime_ROC2,14043,measured
+27227,-999.0,CTime_ePiCoinTime_ROC2,15366,no reliable periodic peak
+27228,1.964139,CTime_ePiCoinTime_ROC2,13509,measured
+27229,2.008494,CTime_ePiCoinTime_ROC2,13196,measured
+27230,1.871039,CTime_ePiCoinTime_ROC2,14259,measured
+27231,1.82968,CTime_ePiCoinTime_ROC2,13610,measured
+27232,1.73623,CTime_ePiCoinTime_ROC2,710,measured
+27233,1.797578,CTime_ePiCoinTime_ROC2,572,measured
+27234,2.152116,CTime_ePiCoinTime_ROC2,599,measured
+27235,2.001122,CTime_ePiCoinTime_ROC2,617,measured
+27236,2.038138,CTime_ePiCoinTime_ROC2,9319,measured
+27237,2.033705,CTime_ePiCoinTime_ROC2,21943,measured
+27238,2.024615,CTime_ePiCoinTime_ROC2,22534,measured
+27239,2.035291,CTime_ePiCoinTime_ROC2,21218,measured
+27240,2.028648,CTime_ePiCoinTime_ROC2,24836,measured
+27241,2.026011,CTime_ePiCoinTime_ROC2,23908,measured
+27242,2.023768,CTime_ePiCoinTime_ROC2,23281,measured
+27243,2.011381,CTime_ePiCoinTime_ROC2,23306,measured
+27244,2.007275,CTime_ePiCoinTime_ROC2,24213,measured
+27245,2.018541,CTime_ePiCoinTime_ROC2,22467,measured
+27246,2.019748,CTime_ePiCoinTime_ROC2,22648,measured
+27249,2.021628,CTime_ePiCoinTime_ROC2,24975,measured
+27250,2.025922,CTime_ePiCoinTime_ROC2,24506,measured
+27251,2.03296,CTime_ePiCoinTime_ROC2,24729,measured
+27252,2.02105,CTime_ePiCoinTime_ROC2,26751,measured
+27253,2.022916,CTime_ePiCoinTime_ROC2,27431,measured
+27254,2.032409,CTime_ePiCoinTime_ROC2,26023,measured
+27255,2.039359,CTime_ePiCoinTime_ROC2,26866,measured
+27257,2.044782,CTime_ePiCoinTime_ROC2,26224,measured
+27258,2.024914,CTime_ePiCoinTime_ROC2,24534,measured
+27259,2.030195,CTime_ePiCoinTime_ROC2,26200,measured
+27261,2.030933,CTime_ePiCoinTime_ROC2,30948,measured
+27265,2.952016,CTime_ePiCoinTime_ROC2,1222,measured
+27266,2.573599,CTime_ePiCoinTime_ROC2,1391,measured
+27267,3.193172,CTime_ePiCoinTime_ROC2,1161,measured
+27269,2.467617,CTime_ePiCoinTime_ROC2,1328,measured
+27271,2.008597,CTime_ePiCoinTime_ROC2,2594,measured
+27272,2.022926,CTime_ePiCoinTime_ROC2,21483,measured
+27273,2.020265,CTime_ePiCoinTime_ROC2,24249,measured
+27274,2.021634,CTime_ePiCoinTime_ROC2,21702,measured
+27275,2.018999,CTime_ePiCoinTime_ROC2,19065,measured
+27276,2.01495,CTime_ePiCoinTime_ROC2,22578,measured
+27277,2.023103,CTime_ePiCoinTime_ROC2,23187,measured
+27278,2.012834,CTime_ePiCoinTime_ROC2,22366,measured
+27279,2.019728,CTime_ePiCoinTime_ROC2,24274,measured
+27280,2.023526,CTime_ePiCoinTime_ROC2,10048,measured
+27281,2.020838,CTime_ePiCoinTime_ROC2,34565,measured
+27285,2.008462,CTime_ePiCoinTime_ROC2,20970,measured
+27286,2.00829,CTime_ePiCoinTime_ROC2,20243,measured
+27287,2.004725,CTime_ePiCoinTime_ROC2,19979,measured
+27288,2.024215,CTime_ePiCoinTime_ROC2,9185,measured
+27289,2.015223,CTime_ePiCoinTime_ROC2,35672,measured
+27290,1.999677,CTime_ePiCoinTime_ROC2,21568,measured
+27291,2.008511,CTime_ePiCoinTime_ROC2,22088,measured
+27292,2.013735,CTime_ePiCoinTime_ROC2,17500,measured
+27293,2.024544,CTime_ePiCoinTime_ROC2,20719,measured
+27294,2.001108,CTime_ePiCoinTime_ROC2,21322,measured
+27300,2.021647,CTime_ePiCoinTime_ROC2,23353,measured
+27301,2.01268,CTime_ePiCoinTime_ROC2,22670,measured
+27302,2.0207,CTime_ePiCoinTime_ROC2,24027,measured
+27303,2.025357,CTime_ePiCoinTime_ROC2,21601,measured
+27304,2.034065,CTime_ePiCoinTime_ROC2,21454,measured
+27305,2.054497,CTime_ePiCoinTime_ROC2,21523,measured
+27306,2.039538,CTime_ePiCoinTime_ROC2,32443,measured
+27307,2.310734,CTime_ePiCoinTime_ROC2,21769,measured
+27308,2.025162,CTime_ePiCoinTime_ROC2,22479,measured
+27309,2.024338,CTime_ePiCoinTime_ROC2,14411,measured
+27310,2.022924,CTime_ePiCoinTime_ROC2,22939,measured
+27311,2.042373,CTime_ePiCoinTime_ROC2,22173,measured
+27312,2.035516,CTime_ePiCoinTime_ROC2,22281,measured
+27313,2.071899,CTime_ePiCoinTime_ROC2,19103,measured
+27314,2.026304,CTime_ePiCoinTime_ROC2,21146,measured
+27315,2.034768,CTime_ePiCoinTime_ROC2,20803,measured
+27316,2.051594,CTime_ePiCoinTime_ROC2,20882,measured
+27317,2.027367,CTime_ePiCoinTime_ROC2,26113,measured
+27318,2.030733,CTime_ePiCoinTime_ROC2,19187,measured
+27319,2.034855,CTime_ePiCoinTime_ROC2,22020,measured
+27320,2.43055,CTime_ePiCoinTime_ROC2,1226,measured
+27321,2.71115,CTime_ePiCoinTime_ROC2,1154,measured
+27322,2.730538,CTime_ePiCoinTime_ROC2,1274,measured
+27323,3.40934,CTime_ePiCoinTime_ROC2,1133,measured
+27324,2.025425,CTime_ePiCoinTime_ROC2,22739,measured
+27326,2.021889,CTime_ePiCoinTime_ROC2,22889,measured
+27327,2.019409,CTime_ePiCoinTime_ROC2,22824,measured
+27328,2.02324,CTime_ePiCoinTime_ROC2,23217,measured
+27329,2.021712,CTime_ePiCoinTime_ROC2,19964,measured
+27330,2.016611,CTime_ePiCoinTime_ROC2,18433,measured
+27331,2.014894,CTime_ePiCoinTime_ROC2,20682,measured
+27332,2.014778,CTime_ePiCoinTime_ROC2,32541,measured
+27333,2.0086,CTime_ePiCoinTime_ROC2,23326,measured
+27334,2.025492,CTime_ePiCoinTime_ROC2,23858,measured
+27335,2.013155,CTime_ePiCoinTime_ROC2,19791,measured
+27336,2.020457,CTime_ePiCoinTime_ROC2,18823,measured
+27337,2.008482,CTime_ePiCoinTime_ROC2,18264,measured
+27338,2.01237,CTime_ePiCoinTime_ROC2,21477,measured
+27339,2.004097,CTime_ePiCoinTime_ROC2,20990,measured
+27340,2.004249,CTime_ePiCoinTime_ROC2,19360,measured
+27341,2.007428,CTime_ePiCoinTime_ROC2,20571,measured
+27342,2.050348,CTime_ePiCoinTime_ROC2,8310,measured
+27343,2.017195,CTime_ePiCoinTime_ROC2,20354,measured
+27344,2.023608,CTime_ePiCoinTime_ROC2,22991,measured
+27345,2.055688,CTime_ePiCoinTime_ROC2,20436,measured
+27347,2.006429,CTime_ePiCoinTime_ROC2,21348,measured
+27348,2.008348,CTime_ePiCoinTime_ROC2,22122,measured
+27349,2.016062,CTime_ePiCoinTime_ROC2,27739,measured
+27350,2.00711,CTime_ePiCoinTime_ROC2,29126,measured
+27357,-999.0,CTime_epCoinTime_ROC2,1718,no reliable periodic peak
+27358,2.002287,CTime_ePiCoinTime_ROC2,18607,measured
+27361,2.002194,CTime_ePiCoinTime_ROC2,19597,measured
+27362,1.999805,CTime_ePiCoinTime_ROC2,16829,measured
+27363,1.994913,CTime_ePiCoinTime_ROC2,12751,measured
+27364,2.001277,CTime_ePiCoinTime_ROC2,16146,measured
+27365,1.999987,CTime_ePiCoinTime_ROC2,19102,measured
+27366,1.99833,CTime_ePiCoinTime_ROC2,17838,measured
+27367,1.997046,CTime_ePiCoinTime_ROC2,18281,measured
+27368,1.997373,CTime_ePiCoinTime_ROC2,17809,measured
+27369,2.002913,CTime_ePiCoinTime_ROC2,18537,measured
+27370,2.002699,CTime_ePiCoinTime_ROC2,24977,measured
+27375,-999.0,CTime_ePiCoinTime_ROC2,940,no reliable periodic peak
+27376,2.081091,CTime_ePiCoinTime_ROC2,660,measured
+27377,1.971944,CTime_ePiCoinTime_ROC2,901,measured
+27378,2.007486,CTime_ePiCoinTime_ROC2,839,measured
+27381,2.001081,CTime_ePiCoinTime_ROC2,18843,measured
+27382,2.002724,CTime_ePiCoinTime_ROC2,18092,measured
+27383,2.00256,CTime_ePiCoinTime_ROC2,19199,measured
+27384,1.998389,CTime_ePiCoinTime_ROC2,18800,measured
+27385,2.005877,CTime_ePiCoinTime_ROC2,7576,measured
+27386,2.001727,CTime_ePiCoinTime_ROC2,18384,measured
+27387,2.00401,CTime_ePiCoinTime_ROC2,15936,measured
+27388,1.996227,CTime_ePiCoinTime_ROC2,16360,measured
+27389,1.998886,CTime_ePiCoinTime_ROC2,18167,measured
+27390,2.005276,CTime_ePiCoinTime_ROC2,18826,measured
+27391,2.001884,CTime_ePiCoinTime_ROC2,17842,measured
+27392,2.007571,CTime_ePiCoinTime_ROC2,1000,measured
+27393,2.009206,CTime_ePiCoinTime_ROC2,939,measured
+27394,4.067142,CTime_ePiCoinTime_ROC2,749,measured
+27395,1.99231,CTime_ePiCoinTime_ROC2,1219,measured
+27396,3.956092,CTime_ePiCoinTime_ROC2,958,measured
+27397,1.974023,CTime_ePiCoinTime_ROC2,1005,measured
+27399,2.001831,CTime_ePiCoinTime_ROC2,19572,measured
+27400,1.997006,CTime_ePiCoinTime_ROC2,18883,measured
+27401,1.999475,CTime_ePiCoinTime_ROC2,17892,measured
+27402,1.999468,CTime_ePiCoinTime_ROC2,23295,measured
+27403,2.003524,CTime_ePiCoinTime_ROC2,1155,measured
+27406,1.997133,CTime_ePiCoinTime_ROC2,18666,measured
+27407,2.002461,CTime_ePiCoinTime_ROC2,17480,measured
+27408,1.998529,CTime_ePiCoinTime_ROC2,17614,measured
+27409,2.000038,CTime_ePiCoinTime_ROC2,17194,measured
+27410,1.999237,CTime_ePiCoinTime_ROC2,10257,measured
+27411,2.003765,CTime_ePiCoinTime_ROC2,17423,measured
+27412,1.99998,CTime_ePiCoinTime_ROC2,16963,measured
+27413,2.000097,CTime_ePiCoinTime_ROC2,17902,measured
+27414,1.999445,CTime_ePiCoinTime_ROC2,15475,measured
+27418,2.001674,CTime_ePiCoinTime_ROC2,15572,measured
+27419,2.010028,CTime_ePiCoinTime_ROC2,10971,measured
+27420,1.999419,CTime_ePiCoinTime_ROC2,12437,measured
+27421,2.000978,CTime_ePiCoinTime_ROC2,16875,measured
+27423,2.00399,CTime_ePiCoinTime_ROC2,17324,measured
+27424,2.001734,CTime_ePiCoinTime_ROC2,18435,measured
+27425,2.000085,CTime_ePiCoinTime_ROC2,14297,measured
+27426,1.99982,CTime_ePiCoinTime_ROC2,17687,measured
+27427,1.998809,CTime_ePiCoinTime_ROC2,15785,measured
+27428,2.005418,CTime_ePiCoinTime_ROC2,18459,measured
+27429,1.998907,CTime_ePiCoinTime_ROC2,22315,measured
+27432,1.996434,CTime_ePiCoinTime_ROC2,1076,measured
+27433,2.0976,CTime_ePiCoinTime_ROC2,961,measured
+27435,2.04661,CTime_ePiCoinTime_ROC2,659,measured
+27436,2.065365,CTime_ePiCoinTime_ROC2,857,measured
+27437,1.998233,CTime_ePiCoinTime_ROC2,1459,measured
+27439,2.003132,CTime_ePiCoinTime_ROC2,17678,measured
+27440,1.997695,CTime_ePiCoinTime_ROC2,14829,measured
+27442,2.001263,CTime_ePiCoinTime_ROC2,49947,measured
+27443,2.000241,CTime_ePiCoinTime_ROC2,49951,measured
+27444,1.998887,CTime_ePiCoinTime_ROC2,49966,measured
+27445,2.00094,CTime_ePiCoinTime_ROC2,49967,measured
+27446,2.000901,CTime_ePiCoinTime_ROC2,49939,measured
+27447,2.001321,CTime_ePiCoinTime_ROC2,49949,measured
+27448,1.998698,CTime_ePiCoinTime_ROC2,49947,measured
+27449,2.00024,CTime_ePiCoinTime_ROC2,49963,measured
+27451,1.999973,CTime_ePiCoinTime_ROC2,49921,measured
+27454,2.001857,CTime_ePiCoinTime_ROC2,49956,measured
+27455,1.999553,CTime_ePiCoinTime_ROC2,49960,measured
+27456,2.000905,CTime_ePiCoinTime_ROC2,49948,measured
+27458,1.996666,CTime_ePiCoinTime_ROC2,49947,measured
+27459,1.99969,CTime_ePiCoinTime_ROC2,23315,measured
+27460,2.002085,CTime_ePiCoinTime_ROC2,49956,measured
+27461,2.000295,CTime_ePiCoinTime_ROC2,49950,measured
+27462,2.001553,CTime_ePiCoinTime_ROC2,49956,measured
+27463,1.99916,CTime_ePiCoinTime_ROC2,49957,measured
+27464,2.002975,CTime_ePiCoinTime_ROC2,49952,measured
+27465,2.000407,CTime_ePiCoinTime_ROC2,49938,measured
+27466,2.000221,CTime_ePiCoinTime_ROC2,49951,measured
+27467,1.995987,CTime_ePiCoinTime_ROC2,49963,measured
+27468,1.996838,CTime_ePiCoinTime_ROC2,49973,measured
+27471,-999.0,CTime_ePiCoinTime_ROC2,10114,no reliable periodic peak
+27473,1.997359,CTime_ePiCoinTime_ROC2,49947,measured
+27474,1.998879,CTime_ePiCoinTime_ROC2,49944,measured
+27475,1.999199,CTime_ePiCoinTime_ROC2,49952,measured
+27476,2.000348,CTime_ePiCoinTime_ROC2,49961,measured
+27477,1.997706,CTime_ePiCoinTime_ROC2,49945,measured
+27478,2.002402,CTime_ePiCoinTime_ROC2,49941,measured
+27479,1.99927,CTime_ePiCoinTime_ROC2,49943,measured
+27480,1.999976,CTime_ePiCoinTime_ROC2,49941,measured
+27481,2.00485,CTime_ePiCoinTime_ROC2,49924,measured
+27482,2.001359,CTime_ePiCoinTime_ROC2,49937,measured
+27483,2.002952,CTime_ePiCoinTime_ROC2,49951,measured
+27486,2.000591,CTime_ePiCoinTime_ROC2,49968,measured
+27487,2.002402,CTime_ePiCoinTime_ROC2,49965,measured
+27490,2.005196,CTime_ePiCoinTime_ROC2,26415,measured
+27492,1.997843,CTime_ePiCoinTime_ROC2,40100,measured
+27493,2.050672,CTime_ePiCoinTime_ROC2,911,measured
+27495,1.993369,CTime_ePiCoinTime_ROC2,16434,measured
+27496,2.001989,CTime_ePiCoinTime_ROC2,49841,measured
+27497,1.990289,CTime_ePiCoinTime_ROC2,49835,measured
+27500,1.995787,CTime_ePiCoinTime_ROC2,49847,measured
+27501,1.995442,CTime_ePiCoinTime_ROC2,49857,measured
+27502,1.99195,CTime_ePiCoinTime_ROC2,18556,measured
+27504,1.99426,CTime_ePiCoinTime_ROC2,9331,measured
+27505,1.996661,CTime_ePiCoinTime_ROC2,33708,measured
+27506,1.995355,CTime_ePiCoinTime_ROC2,33826,measured
+27507,2.003448,CTime_ePiCoinTime_ROC2,9871,measured
+27510,-999.0,CTime_ePiCoinTime_ROC2,309,insufficient entries
+27513,2.01301,CTime_ePiCoinTime_ROC2,8761,measured
+27514,1.996107,CTime_ePiCoinTime_ROC2,39451,measured
+27515,1.995459,CTime_ePiCoinTime_ROC2,37850,measured
+27516,2.023918,CTime_ePiCoinTime_ROC2,2786,measured
+27519,-999.0,CTime_ePiCoinTime_ROC2,99,insufficient entries
+27530,2.002607,CTime_ePiCoinTime_ROC2,11575,measured
+27536,2.011147,CTime_ePiCoinTime_ROC2,15062,measured
+27537,2.009422,CTime_ePiCoinTime_ROC2,19532,measured
+27538,1.998057,CTime_ePiCoinTime_ROC2,18360,measured
+27539,1.9904,CTime_ePiCoinTime_ROC2,18074,measured
+27540,1.923766,CTime_ePiCoinTime_ROC2,2885,measured
+27541,1.962207,CTime_ePiCoinTime_ROC2,3340,measured
+27542,1.998511,CTime_ePiCoinTime_ROC2,15675,measured
+27543,2.007125,CTime_ePiCoinTime_ROC2,17111,measured
+27544,2.001661,CTime_ePiCoinTime_ROC2,7916,measured
+27545,1.990019,CTime_ePiCoinTime_ROC2,9032,measured
+27546,1.99072,CTime_ePiCoinTime_ROC2,10750,measured
+27547,2.034573,CTime_ePiCoinTime_ROC2,731,measured
+27548,-999.0,CTime_ePiCoinTime_ROC2,773,no reliable periodic peak
+27550,1.992037,CTime_ePiCoinTime_ROC2,885,measured
+27551,2.160423,CTime_ePiCoinTime_ROC2,813,measured
+27552,1.999119,CTime_ePiCoinTime_ROC2,8729,measured
+27553,1.992332,CTime_ePiCoinTime_ROC2,8751,measured
+27554,2.007067,CTime_ePiCoinTime_ROC2,7739,measured
+27555,1.989527,CTime_ePiCoinTime_ROC2,6509,measured
+27556,1.999867,CTime_ePiCoinTime_ROC2,6543,measured
+27557,2.003235,CTime_ePiCoinTime_ROC2,10026,measured
+27558,1.99314,CTime_ePiCoinTime_ROC2,565,measured
+27559,-999.0,CTime_ePiCoinTime_ROC2,436,insufficient entries
+27562,-999.0,CTime_ePiCoinTime_ROC2,19,insufficient entries
+27563,-999.0,CTime_ePiCoinTime_ROC2,21,insufficient entries
+27583,1.964715,CTime_ePiCoinTime_ROC2,3675,measured
+27584,1.988874,CTime_ePiCoinTime_ROC2,3800,measured
+27585,2.046842,CTime_ePiCoinTime_ROC2,1762,measured
+27586,-999.0,CTime_ePiCoinTime_ROC2,109,insufficient entries
+27590,-999.0,CTime_ePiCoinTime_ROC2,451,insufficient entries
+27591,-999.0,CTime_ePiCoinTime_ROC2,454,insufficient entries
+27592,-999.0,CTime_ePiCoinTime_ROC2,495,insufficient entries
+27593,1.941397,CTime_ePiCoinTime_ROC2,8545,measured
+27594,2.026863,CTime_ePiCoinTime_ROC2,9462,measured
+27595,2.032703,CTime_ePiCoinTime_ROC2,9720,measured
+27596,2.013608,CTime_ePiCoinTime_ROC2,9164,measured
+27597,2.072522,CTime_ePiCoinTime_ROC2,8767,measured
+27598,1.982528,CTime_ePiCoinTime_ROC2,14422,measured
+27599,1.973268,CTime_ePiCoinTime_ROC2,13312,measured
+27600,1.964875,CTime_ePiCoinTime_ROC2,12883,measured
+27601,2.001497,CTime_ePiCoinTime_ROC2,19352,measured
+27602,1.98371,CTime_ePiCoinTime_ROC2,13147,measured
+27603,2.001131,CTime_ePiCoinTime_ROC2,13112,measured
+27604,2.017643,CTime_ePiCoinTime_ROC2,6124,measured
+27605,1.987788,CTime_ePiCoinTime_ROC2,5988,measured
+27606,2.027801,CTime_ePiCoinTime_ROC2,6130,measured
+27607,2.037388,CTime_ePiCoinTime_ROC2,6289,measured
+27608,1.967133,CTime_ePiCoinTime_ROC2,6339,measured
+27609,2.007163,CTime_ePiCoinTime_ROC2,3559,measured
+27610,2.002729,CTime_ePiCoinTime_ROC2,6603,measured
+27612,2.035659,CTime_ePiCoinTime_ROC2,8267,measured
+27614,1.990042,CTime_ePiCoinTime_ROC2,1284,measured
+27615,2.005761,CTime_ePiCoinTime_ROC2,1541,measured
+27616,2.022559,CTime_ePiCoinTime_ROC2,1482,measured
+27617,2.030791,CTime_ePiCoinTime_ROC2,1630,measured
+27618,1.995302,CTime_ePiCoinTime_ROC2,1497,measured
+27619,1.995807,CTime_ePiCoinTime_ROC2,1325,measured
+27620,2.021141,CTime_ePiCoinTime_ROC2,1592,measured
+27621,1.986497,CTime_ePiCoinTime_ROC2,1463,measured
+27622,2.009825,CTime_ePiCoinTime_ROC2,1298,measured
+27623,1.977218,CTime_ePiCoinTime_ROC2,2428,measured
+27624,2.005705,CTime_ePiCoinTime_ROC2,11060,measured
+27625,2.00329,CTime_ePiCoinTime_ROC2,21970,measured
+27626,2.0024,CTime_ePiCoinTime_ROC2,21683,measured
+27627,2.005287,CTime_ePiCoinTime_ROC2,17836,measured
+27628,1.999503,CTime_ePiCoinTime_ROC2,17184,measured
+27629,1.999445,CTime_ePiCoinTime_ROC2,19134,measured
+27630,1.998123,CTime_ePiCoinTime_ROC2,20112,measured
+27631,1.998329,CTime_ePiCoinTime_ROC2,20210,measured
+27632,2.000255,CTime_ePiCoinTime_ROC2,15675,measured
+27633,1.998324,CTime_ePiCoinTime_ROC2,19247,measured
+27634,1.996875,CTime_ePiCoinTime_ROC2,19115,measured
+27635,2.000553,CTime_ePiCoinTime_ROC2,14676,measured
+27636,1.996512,CTime_ePiCoinTime_ROC2,19190,measured
+27637,2.000591,CTime_ePiCoinTime_ROC2,18011,measured
+27638,2.000499,CTime_ePiCoinTime_ROC2,19880,measured
+27639,1.999345,CTime_ePiCoinTime_ROC2,18192,measured
+27640,1.996341,CTime_ePiCoinTime_ROC2,17126,measured
+27641,1.999525,CTime_ePiCoinTime_ROC2,20257,measured
+27642,-999.0,CTime_ePiCoinTime_ROC2,22299,no reliable periodic peak
+27643,-999.0,CTime_ePiCoinTime_ROC2,390,insufficient entries
+27644,-999.0,CTime_ePiCoinTime_ROC2,183,insufficient entries
+27650,1.994766,CTime_ePiCoinTime_ROC2,48774,measured
+27651,1.997073,CTime_ePiCoinTime_ROC2,46846,measured
+27652,2.005109,CTime_ePiCoinTime_ROC2,46882,measured
+27653,2.005224,CTime_ePiCoinTime_ROC2,45782,measured
+27654,1.999553,CTime_ePiCoinTime_ROC2,46688,measured
+27655,1.997849,CTime_ePiCoinTime_ROC2,47205,measured
+27656,2.006327,CTime_ePiCoinTime_ROC2,46046,measured
+27657,1.998897,CTime_ePiCoinTime_ROC2,47056,measured
+27658,1.999944,CTime_ePiCoinTime_ROC2,44217,measured
+27659,2.002231,CTime_ePiCoinTime_ROC2,47552,measured
+27664,2.001058,CTime_ePiCoinTime_ROC2,43614,measured
+27665,2.000863,CTime_ePiCoinTime_ROC2,43289,measured
+27666,2.00268,CTime_ePiCoinTime_ROC2,47086,measured
+27667,2.003049,CTime_ePiCoinTime_ROC2,49955,measured
+27668,2.003971,CTime_ePiCoinTime_ROC2,47223,measured
+27669,2.00185,CTime_ePiCoinTime_ROC2,17234,measured
+27670,1.999646,CTime_ePiCoinTime_ROC2,49959,measured
+27671,2.004652,CTime_ePiCoinTime_ROC2,45753,measured
+27672,1.999192,CTime_ePiCoinTime_ROC2,48356,measured
+27673,2.002681,CTime_ePiCoinTime_ROC2,39727,measured
+27674,2.006801,CTime_ePiCoinTime_ROC2,44552,measured
+27675,2.002136,CTime_ePiCoinTime_ROC2,14638,measured
+27678,3.968495,CTime_ePiCoinTime_ROC2,9255,measured
+27679,2.001246,CTime_ePiCoinTime_ROC2,9009,measured
+27681,2.006748,CTime_ePiCoinTime_ROC2,45811,measured
+27682,1.997085,CTime_ePiCoinTime_ROC2,41199,measured
+27683,2.002807,CTime_ePiCoinTime_ROC2,45395,measured
+27684,2.003052,CTime_ePiCoinTime_ROC2,46074,measured
+27685,1.995983,CTime_ePiCoinTime_ROC2,24692,measured
+27686,2.000054,CTime_ePiCoinTime_ROC2,49954,measured
+27687,2.005077,CTime_ePiCoinTime_ROC2,42336,measured
+27688,1.999775,CTime_ePiCoinTime_ROC2,45468,measured
+27689,2.003464,CTime_ePiCoinTime_ROC2,43898,measured
+27690,1.999751,CTime_ePiCoinTime_ROC2,44391,measured
+27691,2.004717,CTime_ePiCoinTime_ROC2,42251,measured
+27692,2.002196,CTime_ePiCoinTime_ROC2,41448,measured
+27693,1.999714,CTime_ePiCoinTime_ROC2,45638,measured
+27694,1.997797,CTime_ePiCoinTime_ROC2,48016,measured
+27695,2.003636,CTime_ePiCoinTime_ROC2,47540,measured
+27696,2.000708,CTime_ePiCoinTime_ROC2,48299,measured
+27697,2.000404,CTime_ePiCoinTime_ROC2,49958,measured
+27698,2.00228,CTime_ePiCoinTime_ROC2,47898,measured
+27699,3.962918,CTime_ePiCoinTime_ROC2,9572,measured
+27700,3.956584,CTime_ePiCoinTime_ROC2,8883,measured
+27701,3.936428,CTime_ePiCoinTime_ROC2,9414,measured
+27702,3.94294,CTime_ePiCoinTime_ROC2,9528,measured
+27703,2.000834,CTime_ePiCoinTime_ROC2,41117,measured
+27704,2.002075,CTime_ePiCoinTime_ROC2,40488,measured
+27705,1.999967,CTime_ePiCoinTime_ROC2,37468,measured
+27706,1.999903,CTime_ePiCoinTime_ROC2,39704,measured
+27707,2.002101,CTime_ePiCoinTime_ROC2,41733,measured
+27708,2.000537,CTime_ePiCoinTime_ROC2,43519,measured
+27709,2.000915,CTime_ePiCoinTime_ROC2,44771,measured
+27710,2.000753,CTime_ePiCoinTime_ROC2,44446,measured
+27711,2.002283,CTime_ePiCoinTime_ROC2,42980,measured
+27712,2.000437,CTime_ePiCoinTime_ROC2,40326,measured
+27713,2.000941,CTime_ePiCoinTime_ROC2,49898,measured
+27714,1.99259,CTime_ePiCoinTime_ROC2,7994,measured
+27715,1.999179,CTime_ePiCoinTime_ROC2,5246,measured
+27716,2.00214,CTime_ePiCoinTime_ROC2,8254,measured
+27717,2.000011,CTime_ePiCoinTime_ROC2,11923,measured
+27718,1.999115,CTime_ePiCoinTime_ROC2,44968,measured
+27719,2.000636,CTime_ePiCoinTime_ROC2,43524,measured
+27720,2.000662,CTime_ePiCoinTime_ROC2,38959,measured
+27721,1.999497,CTime_ePiCoinTime_ROC2,42831,measured
+27722,1.997573,CTime_ePiCoinTime_ROC2,43109,measured
+27723,2.000101,CTime_ePiCoinTime_ROC2,44869,measured
+27724,2.000914,CTime_ePiCoinTime_ROC2,34824,measured
+27725,1.998374,CTime_ePiCoinTime_ROC2,42099,measured
+27726,2.000023,CTime_ePiCoinTime_ROC2,39935,measured
+27727,2.000664,CTime_ePiCoinTime_ROC2,22287,measured
+27728,2.000681,CTime_ePiCoinTime_ROC2,44055,measured
+27730,2.008115,CTime_ePiCoinTime_ROC2,8422,measured
+27731,1.997714,CTime_ePiCoinTime_ROC2,9497,measured
+27732,1.99746,CTime_ePiCoinTime_ROC2,8226,measured
+27733,-999.0,CTime_epCoinTime_ROC2,28417,no reliable periodic peak
+27734,-999.0,CTime_epCoinTime_ROC2,31660,no reliable periodic peak
+27736,-999.0,CTime_epCoinTime_ROC2,795,no reliable periodic peak
+27739,-999.0,CTime_epCoinTime_ROC2,15975,no reliable periodic peak
+27740,-999.0,CTime_epCoinTime_ROC2,14434,no reliable periodic peak
+27742,-999.0,CTime_epCoinTime_ROC2,402,insufficient entries
+27745,2.001644,CTime_ePiCoinTime_ROC2,7361,measured
+27746,2.000012,CTime_ePiCoinTime_ROC2,6738,measured
+27747,1.983688,CTime_ePiCoinTime_ROC2,13046,measured
+27748,2.00905,CTime_ePiCoinTime_ROC2,12691,measured
+27749,1.992916,CTime_ePiCoinTime_ROC2,19810,measured
+27750,2.001094,CTime_ePiCoinTime_ROC2,13379,measured
+27751,1.995137,CTime_ePiCoinTime_ROC2,19132,measured
+27752,1.998681,CTime_ePiCoinTime_ROC2,17883,measured
+27753,2.001958,CTime_ePiCoinTime_ROC2,13794,measured
+27754,1.998777,CTime_ePiCoinTime_ROC2,5745,measured
+27756,2.000748,CTime_ePiCoinTime_ROC2,49956,measured
+27757,2.001648,CTime_ePiCoinTime_ROC2,49946,measured
+27758,2.000033,CTime_ePiCoinTime_ROC2,49968,measured
+27759,2.003048,CTime_ePiCoinTime_ROC2,49967,measured
+27760,2.001234,CTime_ePiCoinTime_ROC2,49939,measured
+27762,2.000623,CTime_ePiCoinTime_ROC2,49963,measured
+27763,2.003542,CTime_ePiCoinTime_ROC2,49986,measured
+27765,2.001703,CTime_ePiCoinTime_ROC2,49973,measured
+27766,2.002265,CTime_ePiCoinTime_ROC2,49972,measured
+27767,2.002758,CTime_ePiCoinTime_ROC2,49942,measured
+27768,2.000385,CTime_ePiCoinTime_ROC2,49957,measured
+27769,2.000262,CTime_ePiCoinTime_ROC2,49963,measured
+27770,1.999037,CTime_ePiCoinTime_ROC2,49948,measured
+27771,2.004221,CTime_ePiCoinTime_ROC2,49977,measured
+27772,-999.0,CTime_ePiCoinTime_ROC2,49995,no reliable periodic peak
+27773,-999.0,CTime_ePiCoinTime_ROC2,22377,no reliable periodic peak
+27774,3.992129,CTime_ePiCoinTime_ROC2,49976,measured
+27775,2.002854,CTime_ePiCoinTime_ROC2,49981,measured
+27776,1.998674,CTime_ePiCoinTime_ROC2,49956,measured
+27777,1.999705,CTime_ePiCoinTime_ROC2,49962,measured
+27778,2.002967,CTime_ePiCoinTime_ROC2,49933,measured
+27783,1.998524,CTime_ePiCoinTime_ROC2,49984,measured
+27787,-999.0,CTime_ePiCoinTime_ROC2,49995,no reliable periodic peak
+27788,-999.0,CTime_ePiCoinTime_ROC2,13104,no reliable periodic peak
+27789,2.001292,CTime_ePiCoinTime_ROC2,49968,measured
+27790,1.999504,CTime_ePiCoinTime_ROC2,49981,measured
+27791,2.003322,CTime_ePiCoinTime_ROC2,49956,measured
+27796,3.980062,CTime_ePiCoinTime_ROC2,49994,measured
+27799,2.000984,CTime_ePiCoinTime_ROC2,49973,measured
+27800,2.000746,CTime_ePiCoinTime_ROC2,49953,measured
+27801,2.00126,CTime_ePiCoinTime_ROC2,49969,measured
+27802,1.999777,CTime_ePiCoinTime_ROC2,49976,measured
+27803,2.001269,CTime_ePiCoinTime_ROC2,49969,measured
+27804,2.002247,CTime_ePiCoinTime_ROC2,49957,measured
+27805,2.004113,CTime_ePiCoinTime_ROC2,49949,measured
+27806,2.000489,CTime_ePiCoinTime_ROC2,49973,measured
+27807,2.001825,CTime_ePiCoinTime_ROC2,49972,measured
+27809,2.000898,CTime_ePiCoinTime_ROC2,49958,measured
+27810,2.000414,CTime_ePiCoinTime_ROC2,49980,measured
+27811,1.999111,CTime_ePiCoinTime_ROC2,49986,measured
+27812,2.002925,CTime_ePiCoinTime_ROC2,49993,measured
+27813,-999.0,CTime_ePiCoinTime_ROC2,49619,no reliable periodic peak
+27814,2.000673,CTime_ePiCoinTime_ROC2,49955,measured
+27815,2.002795,CTime_ePiCoinTime_ROC2,49973,measured
+27816,1.99716,CTime_ePiCoinTime_ROC2,49978,measured
+27817,2.000853,CTime_ePiCoinTime_ROC2,49986,measured
+27818,1.987831,CTime_ePiCoinTime_ROC2,9425,measured
+27819,1.999704,CTime_ePiCoinTime_ROC2,49994,measured
+27820,-999.0,CTime_ePiCoinTime_ROC2,49996,no reliable periodic peak
+27821,2.003728,CTime_ePiCoinTime_ROC2,49951,measured
+27822,2.002105,CTime_ePiCoinTime_ROC2,49973,measured
+27823,2.003042,CTime_ePiCoinTime_ROC2,49932,measured
+27825,1.998668,CTime_ePiCoinTime_ROC2,49993,measured
+27827,1.99461,CTime_ePiCoinTime_ROC2,49993,measured
+27828,2.001704,CTime_ePiCoinTime_ROC2,49980,measured
+27829,1.999508,CTime_ePiCoinTime_ROC2,49978,measured
+27830,2.002079,CTime_ePiCoinTime_ROC2,49977,measured
+27831,2.00425,CTime_ePiCoinTime_ROC2,49985,measured
+27832,2.003985,CTime_ePiCoinTime_ROC2,49967,measured
+27833,2.000191,CTime_ePiCoinTime_ROC2,49981,measured
+27834,2.002876,CTime_ePiCoinTime_ROC2,49971,measured
+27836,-999.0,CTime_ePiCoinTime_ROC2,29677,no reliable periodic peak
+27837,-999.0,CTime_ePiCoinTime_ROC2,26075,no reliable periodic peak
+27838,-999.0,CTime_ePiCoinTime_ROC2,8878,no reliable periodic peak
+27839,-999.0,CTime_ePiCoinTime_ROC2,31205,no reliable periodic peak
+27841,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+27842,-999.0,CTime_ePiCoinTime_ROC2,1654,no reliable periodic peak
+27843,-999.0,CTime_ePiCoinTime_ROC2,4234,no reliable periodic peak
+27844,3.940363,CTime_ePiCoinTime_ROC2,49971,measured
+27845,3.983664,CTime_ePiCoinTime_ROC2,49960,measured
+27846,3.97117,CTime_ePiCoinTime_ROC2,49962,measured
+27847,2.009792,CTime_ePiCoinTime_ROC2,49959,measured
+27848,3.977253,CTime_ePiCoinTime_ROC2,49966,measured
+27849,3.968255,CTime_ePiCoinTime_ROC2,49965,measured
+27852,3.728536,CTime_ePiCoinTime_ROC2,41941,measured
+27853,3.752388,CTime_ePiCoinTime_ROC2,49992,measured
+27855,3.992765,CTime_ePiCoinTime_ROC2,49934,measured
+27858,-999.0,CTime_ePiCoinTime_ROC2,24430,no reliable periodic peak
+27859,-999.0,CTime_ePiCoinTime_ROC2,1013,no reliable periodic peak
+27860,1.983298,CTime_ePiCoinTime_ROC2,49999,measured
+27861,-999.0,CTime_ePiCoinTime_ROC2,50000,no reliable periodic peak
+27862,2.039314,CTime_ePiCoinTime_ROC2,50000,measured
+27863,1.998315,CTime_ePiCoinTime_ROC2,49999,measured
+27864,2.05364,CTime_ePiCoinTime_ROC2,49998,measured
+27867,1.952945,CTime_ePiCoinTime_ROC2,8718,measured
+27868,1.954279,CTime_ePiCoinTime_ROC2,4493,measured
+27871,2.010533,CTime_ePiCoinTime_ROC2,49997,measured
+27872,-999.0,CTime_ePiCoinTime_ROC2,49877,no reliable periodic peak
+27873,2.033283,CTime_ePiCoinTime_ROC2,46144,measured
+27874,1.879058,CTime_ePiCoinTime_ROC2,9557,measured
+27875,2.165905,CTime_ePiCoinTime_ROC2,49957,measured
+27876,2.1439,CTime_ePiCoinTime_ROC2,49954,measured
+27877,2.136446,CTime_ePiCoinTime_ROC2,49954,measured
+27878,2.139644,CTime_ePiCoinTime_ROC2,49955,measured
+27881,2.945316,CTime_ePiCoinTime_ROC2,11377,measured
+27883,3.255984,CTime_ePiCoinTime_ROC2,1344,measured
+27884,3.019901,CTime_ePiCoinTime_ROC2,12487,measured
+27886,3.006104,CTime_ePiCoinTime_ROC2,49986,measured
+27887,2.981848,CTime_ePiCoinTime_ROC2,49986,measured
+27888,2.947509,CTime_ePiCoinTime_ROC2,49990,measured
+27891,2.985548,CTime_ePiCoinTime_ROC2,49986,measured
+27892,3.652155,CTime_ePiCoinTime_ROC2,49983,measured
+27893,3.082789,CTime_ePiCoinTime_ROC2,49967,measured
+27898,2.160223,CTime_ePiCoinTime_ROC2,49975,measured
+27899,2.211099,CTime_ePiCoinTime_ROC2,49973,measured
+27900,2.180874,CTime_ePiCoinTime_ROC2,49970,measured
+27901,2.214845,CTime_ePiCoinTime_ROC2,49970,measured
+27902,2.25381,CTime_ePiCoinTime_ROC2,49975,measured
+27905,2.845398,CTime_ePiCoinTime_ROC2,49981,measured
+27906,2.799216,CTime_ePiCoinTime_ROC2,49982,measured
+27907,3.733242,CTime_ePiCoinTime_ROC2,49982,measured
+27908,3.007398,CTime_ePiCoinTime_ROC2,49989,measured
+27909,2.985094,CTime_ePiCoinTime_ROC2,49982,measured
+27912,2.138384,CTime_ePiCoinTime_ROC2,49972,measured
+27913,2.186356,CTime_ePiCoinTime_ROC2,49948,measured
+27914,2.975563,CTime_ePiCoinTime_ROC2,13205,measured
+27915,3.037383,CTime_ePiCoinTime_ROC2,49978,measured
+27916,3.135031,CTime_ePiCoinTime_ROC2,49980,measured
+27918,3.367476,CTime_ePiCoinTime_ROC2,47302,measured
+27925,3.049957,CTime_ePiCoinTime_ROC2,49983,measured
+27926,3.041195,CTime_ePiCoinTime_ROC2,49988,measured
+27927,3.878512,CTime_ePiCoinTime_ROC2,49982,measured
+27928,2.315777,CTime_ePiCoinTime_ROC2,49989,measured
+27929,2.663991,CTime_ePiCoinTime_ROC2,49976,measured
+27931,3.049588,CTime_ePiCoinTime_ROC2,49981,measured
+27932,-999.0,CTime_ePiCoinTime_ROC2,19802,no reliable periodic peak
+27933,-999.0,CTime_ePiCoinTime_ROC2,20455,no reliable periodic peak
+27934,-999.0,CTime_ePiCoinTime_ROC2,15688,no reliable periodic peak
+27935,-999.0,CTime_ePiCoinTime_ROC2,18789,no reliable periodic peak
+27936,-999.0,CTime_ePiCoinTime_ROC2,18410,no reliable periodic peak
+27937,-999.0,CTime_ePiCoinTime_ROC2,19759,no reliable periodic peak
+27938,-999.0,CTime_ePiCoinTime_ROC2,19210,no reliable periodic peak
+27940,-999.0,CTime_ePiCoinTime_ROC2,3164,no reliable periodic peak
+27941,-999.0,CTime_ePiCoinTime_ROC2,1733,no reliable periodic peak
+27942,-999.0,CTime_ePiCoinTime_ROC2,2913,no reliable periodic peak
+27944,-999.0,CTime_ePiCoinTime_ROC2,2999,no reliable periodic peak
+27945,-999.0,CTime_ePiCoinTime_ROC2,1480,no reliable periodic peak
+27946,-999.0,CTime_ePiCoinTime_ROC2,3126,no reliable periodic peak
+27947,-999.0,CTime_ePiCoinTime_ROC2,21105,no reliable periodic peak
+27948,-999.0,CTime_ePiCoinTime_ROC2,33354,no reliable periodic peak
+27949,-999.0,CTime_ePiCoinTime_ROC2,17867,no reliable periodic peak
+27951,-999.0,CTime_ePiCoinTime_ROC2,12743,no reliable periodic peak
+27952,-999.0,CTime_ePiCoinTime_ROC2,21758,no reliable periodic peak
+27953,-999.0,CTime_ePiCoinTime_ROC2,44189,no reliable periodic peak
+27954,-999.0,CTime_ePiCoinTime_ROC2,20727,no reliable periodic peak
+27956,1.998737,CTime_ePiCoinTime_ROC2,49982,measured
+27957,2.001278,CTime_ePiCoinTime_ROC2,49980,measured
+27958,1.999611,CTime_ePiCoinTime_ROC2,49969,measured
+27962,1.996198,CTime_ePiCoinTime_ROC2,49990,measured
+27963,1.999305,CTime_ePiCoinTime_ROC2,49994,measured
+27964,1.999471,CTime_ePiCoinTime_ROC2,49991,measured
+27965,1.999279,CTime_ePiCoinTime_ROC2,49993,measured
+27966,1.999876,CTime_ePiCoinTime_ROC2,49990,measured
+27967,2.001368,CTime_ePiCoinTime_ROC2,49995,measured
+27968,2.001577,CTime_ePiCoinTime_ROC2,49987,measured
+27972,-999.0,CTime_ePiCoinTime_ROC2,5096,no reliable periodic peak
+27973,-999.0,CTime_ePiCoinTime_ROC2,4668,no reliable periodic peak
+27974,-999.0,CTime_ePiCoinTime_ROC2,4757,no reliable periodic peak
+27976,2.000142,CTime_ePiCoinTime_ROC2,49992,measured
+27977,1.995377,CTime_ePiCoinTime_ROC2,49995,measured
+27978,1.998716,CTime_ePiCoinTime_ROC2,49994,measured
+27979,1.99758,CTime_ePiCoinTime_ROC2,49991,measured
+27980,2.000232,CTime_ePiCoinTime_ROC2,49993,measured
+27981,1.997322,CTime_ePiCoinTime_ROC2,49989,measured
+27982,1.997825,CTime_ePiCoinTime_ROC2,49996,measured
+27983,-999.0,CTime_ePiCoinTime_ROC2,5477,no reliable periodic peak
+27984,-999.0,CTime_ePiCoinTime_ROC2,4856,no reliable periodic peak
+27985,-999.0,CTime_ePiCoinTime_ROC2,5270,no reliable periodic peak
+27986,-999.0,CTime_ePiCoinTime_ROC2,4519,no reliable periodic peak
+27987,2.003449,CTime_ePiCoinTime_ROC2,49980,measured
+27988,2.007033,CTime_ePiCoinTime_ROC2,49984,measured
+27989,2.004113,CTime_ePiCoinTime_ROC2,49973,measured
+27990,2.001232,CTime_ePiCoinTime_ROC2,49980,measured
+27992,2.003688,CTime_ePiCoinTime_ROC2,49982,measured
+27993,2.000782,CTime_ePiCoinTime_ROC2,49974,measured
+27994,2.004058,CTime_ePiCoinTime_ROC2,49965,measured
+28021,3.970721,CTime_ePiCoinTime_ROC2,8264,measured
+28022,-999.0,CTime_ePiCoinTime_ROC2,207,insufficient entries
+28023,-999.0,CTime_ePiCoinTime_ROC2,1483,no reliable periodic peak
+28024,4.11388,CTime_ePiCoinTime_ROC2,1355,measured
+28025,-999.0,CTime_ePiCoinTime_ROC2,1003,no reliable periodic peak
+28026,-999.0,CTime_ePiCoinTime_ROC2,837,no reliable periodic peak
+28027,2.149788,CTime_ePiCoinTime_ROC2,1426,measured
+28028,2.197307,CTime_ePiCoinTime_ROC2,4386,measured
+28030,-999.0,CTime_ePiCoinTime_ROC2,228,insufficient entries
+28032,2.023407,CTime_ePiCoinTime_ROC2,5457,measured
+28034,1.899332,CTime_ePiCoinTime_ROC2,7186,measured
+28035,1.913798,CTime_ePiCoinTime_ROC2,2694,measured
+28036,2.08373,CTime_ePiCoinTime_ROC2,4896,measured
+28039,2.027147,CTime_ePiCoinTime_ROC2,7607,measured
+28042,1.994539,CTime_ePiCoinTime_ROC2,4557,measured
+28043,1.995328,CTime_ePiCoinTime_ROC2,10789,measured
+28048,2.091913,CTime_ePiCoinTime_ROC2,1582,measured
+28050,1.981424,CTime_ePiCoinTime_ROC2,7180,measured
+28051,2.016467,CTime_ePiCoinTime_ROC2,18116,measured
+28053,1.99803,CTime_ePiCoinTime_ROC2,17765,measured
+28054,-999.0,CTime_ePiCoinTime_ROC2,319,insufficient entries
+28055,4.118623,CTime_ePiCoinTime_ROC2,894,measured
+28056,2.002833,CTime_ePiCoinTime_ROC2,14257,measured
+28057,2.0053,CTime_ePiCoinTime_ROC2,30400,measured
+28058,2.004187,CTime_ePiCoinTime_ROC2,49922,measured
+28059,2.032131,CTime_ePiCoinTime_ROC2,3841,measured
+28060,2.033848,CTime_ePiCoinTime_ROC2,4035,measured
+28062,2.007315,CTime_ePiCoinTime_ROC2,28335,measured
+28065,2.002861,CTime_ePiCoinTime_ROC2,30239,measured
+28066,1.996601,CTime_ePiCoinTime_ROC2,6444,measured
+28067,2.004227,CTime_ePiCoinTime_ROC2,7214,measured
+28069,2.006318,CTime_ePiCoinTime_ROC2,49910,measured
+28076,2.001025,CTime_ePiCoinTime_ROC2,49915,measured
+28077,1.996055,CTime_ePiCoinTime_ROC2,23271,measured
+28078,2.006226,CTime_ePiCoinTime_ROC2,36519,measured
+28080,2.006761,CTime_ePiCoinTime_ROC2,49920,measured
+28081,2.001972,CTime_ePiCoinTime_ROC2,49864,measured
+28082,2.003263,CTime_ePiCoinTime_ROC2,10005,measured
+28083,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+28084,-999.0,CTime_epCoinTime_ROC2,50000,no reliable periodic peak
+28086,-999.0,CTime_epCoinTime_ROC2,29626,no reliable periodic peak
+28091,-999.0,CTime_epCoinTime_ROC2,22367,no reliable periodic peak
+28092,-999.0,CTime_epCoinTime_ROC2,24010,no reliable periodic peak
+28093,-999.0,CTime_epCoinTime_ROC2,22729,no reliable periodic peak
+28095,-999.0,CTime_epCoinTime_ROC2,786,no reliable periodic peak
+28098,-999.0,CTime_epCoinTime_ROC2,22638,no reliable periodic peak
+28099,-999.0,CTime_epCoinTime_ROC2,26337,no reliable periodic peak
+28100,-999.0,CTime_epCoinTime_ROC2,11871,no reliable periodic peak
+28101,-999.0,CTime_epCoinTime_ROC2,26697,no reliable periodic peak
+28102,-999.0,CTime_epCoinTime_ROC2,25684,no reliable periodic peak
+28103,-999.0,CTime_epCoinTime_ROC2,25147,no reliable periodic peak
+28104,-999.0,CTime_epCoinTime_ROC2,24947,no reliable periodic peak
+28105,-999.0,CTime_epCoinTime_ROC2,21666,no reliable periodic peak
+28106,-999.0,CTime_epCoinTime_ROC2,1766,no reliable periodic peak
+28108,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+28109,-999.0,CTime_ePiCoinTime_ROC2,17332,no reliable periodic peak
+28110,3.992849,CTime_ePiCoinTime_ROC2,49968,measured
+28111,4.000923,CTime_ePiCoinTime_ROC2,49982,measured
+28112,3.997996,CTime_ePiCoinTime_ROC2,49953,measured
+28117,3.950481,CTime_ePiCoinTime_ROC2,49997,measured
+28119,3.998558,CTime_ePiCoinTime_ROC2,49964,measured
+28120,4.000143,CTime_ePiCoinTime_ROC2,49968,measured
+28123,3.97518,CTime_ePiCoinTime_ROC2,49995,measured
+28124,4.000599,CTime_ePiCoinTime_ROC2,49952,measured
+28125,4.001237,CTime_ePiCoinTime_ROC2,49967,measured
+28126,3.999491,CTime_ePiCoinTime_ROC2,49968,measured
+28127,3.997729,CTime_ePiCoinTime_ROC2,49984,measured
+28128,3.999143,CTime_ePiCoinTime_ROC2,49985,measured
+28129,4.003207,CTime_ePiCoinTime_ROC2,49979,measured
+28130,4.001539,CTime_ePiCoinTime_ROC2,49955,measured
+28131,4.001009,CTime_ePiCoinTime_ROC2,49959,measured
+28132,3.999753,CTime_ePiCoinTime_ROC2,49956,measured
+28133,4.001457,CTime_ePiCoinTime_ROC2,49957,measured
+28134,4.001064,CTime_ePiCoinTime_ROC2,49970,measured
+28135,4.000166,CTime_ePiCoinTime_ROC2,49951,measured
+28136,4.00572,CTime_ePiCoinTime_ROC2,49965,measured
+28137,4.003677,CTime_ePiCoinTime_ROC2,49974,measured
+28138,4.002772,CTime_ePiCoinTime_ROC2,49963,measured
+28139,4.003358,CTime_ePiCoinTime_ROC2,49975,measured
+28140,4.009737,CTime_ePiCoinTime_ROC2,49993,measured
+28141,4.005595,CTime_ePiCoinTime_ROC2,49990,measured
+28142,4.004869,CTime_ePiCoinTime_ROC2,49989,measured
+28143,4.005544,CTime_ePiCoinTime_ROC2,49993,measured
+28144,4.006253,CTime_ePiCoinTime_ROC2,49995,measured
+28145,4.008202,CTime_ePiCoinTime_ROC2,49988,measured
+28149,4.020863,CTime_ePiCoinTime_ROC2,49997,measured
+28152,4.022502,CTime_ePiCoinTime_ROC2,49998,measured
+28154,4.007885,CTime_ePiCoinTime_ROC2,49993,measured
+28155,-999.0,CTime_ePiCoinTime_ROC2,31239,no reliable periodic peak
+28156,-999.0,CTime_ePiCoinTime_ROC2,18437,no reliable periodic peak
+28157,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+28158,-999.0,CTime_ePiCoinTime_ROC2,49995,no reliable periodic peak
+28159,-999.0,CTime_ePiCoinTime_ROC2,49997,no reliable periodic peak
+28160,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+28161,-999.0,CTime_ePiCoinTime_ROC2,50000,no reliable periodic peak
+28162,1.992738,CTime_ePiCoinTime_ROC2,49997,measured
+28165,1.953368,CTime_ePiCoinTime_ROC2,22613,measured
+28166,1.924136,CTime_ePiCoinTime_ROC2,24461,measured
+28167,1.946516,CTime_ePiCoinTime_ROC2,25527,measured
+28168,1.903201,CTime_ePiCoinTime_ROC2,8126,measured
+28169,1.93667,CTime_ePiCoinTime_ROC2,16198,measured
+28171,-999.0,CTime_ePiCoinTime_ROC2,6325,no reliable periodic peak
+28172,1.886747,CTime_ePiCoinTime_ROC2,29771,measured
+28173,1.925452,CTime_ePiCoinTime_ROC2,32305,measured
+28174,1.911777,CTime_ePiCoinTime_ROC2,34674,measured
+28175,1.859262,CTime_ePiCoinTime_ROC2,14335,measured
+28176,-999.0,CTime_ePiCoinTime_ROC2,49995,no reliable periodic peak
+28177,-999.0,CTime_ePiCoinTime_ROC2,49988,no reliable periodic peak
+28178,-999.0,CTime_ePiCoinTime_ROC2,49988,no reliable periodic peak
+28179,-999.0,CTime_ePiCoinTime_ROC2,49992,no reliable periodic peak
+28180,4.017203,CTime_ePiCoinTime_ROC2,49981,measured
+28181,4.021872,CTime_ePiCoinTime_ROC2,49988,measured
+28182,4.015335,CTime_ePiCoinTime_ROC2,49979,measured
+28183,4.021439,CTime_ePiCoinTime_ROC2,49980,measured
+28184,1.866837,CTime_ePiCoinTime_ROC2,33310,measured
+28185,1.894409,CTime_ePiCoinTime_ROC2,39145,measured
+28186,1.89398,CTime_ePiCoinTime_ROC2,36539,measured
+28187,3.990356,CTime_ePiCoinTime_ROC2,49963,measured
+28188,4.000039,CTime_ePiCoinTime_ROC2,49967,measured
+28189,3.994898,CTime_ePiCoinTime_ROC2,49968,measured
+28190,3.996915,CTime_ePiCoinTime_ROC2,49967,measured
+28191,3.953659,CTime_ePiCoinTime_ROC2,49993,measured
+28192,3.973045,CTime_ePiCoinTime_ROC2,49994,measured
+28193,3.99294,CTime_ePiCoinTime_ROC2,49955,measured
+28194,3.994195,CTime_ePiCoinTime_ROC2,49971,measured
+28195,3.996012,CTime_ePiCoinTime_ROC2,49973,measured
+28196,3.996066,CTime_ePiCoinTime_ROC2,49958,measured
+28197,3.996637,CTime_ePiCoinTime_ROC2,49966,measured
+28198,3.99987,CTime_ePiCoinTime_ROC2,49963,measured
+28199,3.998314,CTime_ePiCoinTime_ROC2,49960,measured
+28200,3.994288,CTime_ePiCoinTime_ROC2,49977,measured
+28201,3.999993,CTime_ePiCoinTime_ROC2,49964,measured
+28202,3.996469,CTime_ePiCoinTime_ROC2,49959,measured
+28203,3.995205,CTime_ePiCoinTime_ROC2,49957,measured
+28204,3.993737,CTime_ePiCoinTime_ROC2,49956,measured
+28205,3.995049,CTime_ePiCoinTime_ROC2,49967,measured
+28206,3.966362,CTime_ePiCoinTime_ROC2,49995,measured
+28207,3.997836,CTime_ePiCoinTime_ROC2,49968,measured
+28208,3.998363,CTime_ePiCoinTime_ROC2,49961,measured
+28209,3.99737,CTime_ePiCoinTime_ROC2,49964,measured
+28210,3.992983,CTime_ePiCoinTime_ROC2,49956,measured
+28211,3.989656,CTime_ePiCoinTime_ROC2,49977,measured
+28212,3.982651,CTime_ePiCoinTime_ROC2,49983,measured
+28213,3.976614,CTime_ePiCoinTime_ROC2,49994,measured
+28214,3.843552,CTime_ePiCoinTime_ROC2,49995,measured
+28215,3.991903,CTime_ePiCoinTime_ROC2,49949,measured
+28216,3.985334,CTime_ePiCoinTime_ROC2,49973,measured
+28217,3.986825,CTime_ePiCoinTime_ROC2,49985,measured
+28218,3.952817,CTime_ePiCoinTime_ROC2,49993,measured
+28219,3.863413,CTime_ePiCoinTime_ROC2,45398,measured
+28220,3.986071,CTime_ePiCoinTime_ROC2,49965,measured
+28221,3.986459,CTime_ePiCoinTime_ROC2,49970,measured
+28222,3.988748,CTime_ePiCoinTime_ROC2,49967,measured
+28223,3.989701,CTime_ePiCoinTime_ROC2,49946,measured
+28226,3.881061,CTime_ePiCoinTime_ROC2,49992,measured
+28227,3.914013,CTime_ePiCoinTime_ROC2,49996,measured
+28228,3.864574,CTime_ePiCoinTime_ROC2,49997,measured
+28230,3.993421,CTime_ePiCoinTime_ROC2,49980,measured
+28231,3.990132,CTime_ePiCoinTime_ROC2,49980,measured
+28233,4.005367,CTime_ePiCoinTime_ROC2,49948,measured
+28234,3.997701,CTime_ePiCoinTime_ROC2,49948,measured
+28235,3.99616,CTime_ePiCoinTime_ROC2,49957,measured
+28237,3.994203,CTime_ePiCoinTime_ROC2,49951,measured
+28240,3.996304,CTime_ePiCoinTime_ROC2,49962,measured
+28241,3.993687,CTime_ePiCoinTime_ROC2,49955,measured
+28242,3.992145,CTime_ePiCoinTime_ROC2,49963,measured
+28243,3.995079,CTime_ePiCoinTime_ROC2,49968,measured
+28245,3.975832,CTime_ePiCoinTime_ROC2,49980,measured
+28246,3.985778,CTime_ePiCoinTime_ROC2,49971,measured
+28248,3.082057,CTime_ePiCoinTime_ROC2,42721,measured
+28249,3.120288,CTime_ePiCoinTime_ROC2,44177,measured
+28250,2.99229,CTime_ePiCoinTime_ROC2,47512,measured
+28252,3.964305,CTime_ePiCoinTime_ROC2,49994,measured
+28253,3.938577,CTime_ePiCoinTime_ROC2,49986,measured
+28256,3.980838,CTime_ePiCoinTime_ROC2,49978,measured
+28257,3.982895,CTime_ePiCoinTime_ROC2,49979,measured
+28258,3.981196,CTime_ePiCoinTime_ROC2,49980,measured
+28260,3.940191,CTime_ePiCoinTime_ROC2,49991,measured
+28261,3.957238,CTime_ePiCoinTime_ROC2,49996,measured
+28262,3.945161,CTime_ePiCoinTime_ROC2,49988,measured
+28263,3.95606,CTime_ePiCoinTime_ROC2,49987,measured
+28264,3.907156,CTime_ePiCoinTime_ROC2,49990,measured
+28267,3.989577,CTime_ePiCoinTime_ROC2,49963,measured
+28268,-999.0,CTime_ePiCoinTime_ROC2,0,missing skim file
+28269,-999.0,CTime_ePiCoinTime_ROC2,2457,no reliable periodic peak
+28270,-999.0,CTime_ePiCoinTime_ROC2,49996,no reliable periodic peak
+28280,-999.0,CTime_ePiCoinTime_ROC2,4434,no reliable periodic peak
+28281,-999.0,CTime_ePiCoinTime_ROC2,8029,no reliable periodic peak
+28282,-999.0,CTime_ePiCoinTime_ROC2,9638,no reliable periodic peak
+28283,-999.0,CTime_ePiCoinTime_ROC2,3159,no reliable periodic peak
+28285,-999.0,CTime_ePiCoinTime_ROC2,9072,no reliable periodic peak
+28286,-999.0,CTime_ePiCoinTime_ROC2,6522,no reliable periodic peak
+28287,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+28288,-999.0,CTime_ePiCoinTime_ROC2,50000,no reliable periodic peak
+28289,-999.0,CTime_ePiCoinTime_ROC2,49998,no reliable periodic peak
+28290,-999.0,CTime_ePiCoinTime_ROC2,35144,no reliable periodic peak
+28291,-999.0,CTime_ePiCoinTime_ROC2,49998,no reliable periodic peak
+28292,-999.0,CTime_ePiCoinTime_ROC2,49998,no reliable periodic peak
+28293,-999.0,CTime_ePiCoinTime_ROC2,49998,no reliable periodic peak
+28294,-999.0,CTime_ePiCoinTime_ROC2,32663,no reliable periodic peak
+28295,4.020453,CTime_ePiCoinTime_ROC2,49998,measured
+28296,4.021463,CTime_ePiCoinTime_ROC2,49995,measured
+28298,4.020614,CTime_ePiCoinTime_ROC2,49997,measured
+28299,4.021103,CTime_ePiCoinTime_ROC2,49992,measured
+28300,-999.0,CTime_ePiCoinTime_ROC2,13272,no reliable periodic peak
+28301,-999.0,CTime_ePiCoinTime_ROC2,13760,no reliable periodic peak
+28302,-999.0,CTime_ePiCoinTime_ROC2,13811,no reliable periodic peak
+28303,-999.0,CTime_ePiCoinTime_ROC2,17370,no reliable periodic peak
+28304,4.02806,CTime_ePiCoinTime_ROC2,49997,measured
+28305,4.020573,CTime_ePiCoinTime_ROC2,49995,measured
+28306,4.009391,CTime_ePiCoinTime_ROC2,49992,measured
+28307,4.012679,CTime_ePiCoinTime_ROC2,49987,measured
+28308,4.017701,CTime_ePiCoinTime_ROC2,49987,measured
+28309,4.007498,CTime_ePiCoinTime_ROC2,49985,measured
+28310,4.043677,CTime_ePiCoinTime_ROC2,20243,measured
+28311,4.028845,CTime_ePiCoinTime_ROC2,20449,measured
+28312,4.048121,CTime_ePiCoinTime_ROC2,18875,measured
+28313,4.012951,CTime_ePiCoinTime_ROC2,24009,measured
+28314,4.007319,CTime_ePiCoinTime_ROC2,47169,measured
+28315,4.013327,CTime_ePiCoinTime_ROC2,49990,measured
+28317,4.011459,CTime_ePiCoinTime_ROC2,49989,measured
+28318,4.012916,CTime_ePiCoinTime_ROC2,49990,measured
+28319,4.000245,CTime_ePiCoinTime_ROC2,49972,measured
+28321,4.002047,CTime_ePiCoinTime_ROC2,49981,measured
+28322,4.002779,CTime_ePiCoinTime_ROC2,49978,measured
+28323,4.004116,CTime_ePiCoinTime_ROC2,49975,measured
+28324,4.011733,CTime_ePiCoinTime_ROC2,35411,measured
+28325,4.015357,CTime_ePiCoinTime_ROC2,40706,measured
+28326,4.016197,CTime_ePiCoinTime_ROC2,36649,measured
+28327,4.013357,CTime_ePiCoinTime_ROC2,41120,measured
+28328,4.004635,CTime_ePiCoinTime_ROC2,49947,measured
+28330,4.005711,CTime_ePiCoinTime_ROC2,49959,measured
+28331,4.003324,CTime_ePiCoinTime_ROC2,49972,measured
+28332,4.00409,CTime_ePiCoinTime_ROC2,49957,measured
+28333,4.002793,CTime_ePiCoinTime_ROC2,49957,measured
+28334,4.00428,CTime_ePiCoinTime_ROC2,49975,measured
+28335,4.00383,CTime_ePiCoinTime_ROC2,49977,measured
+28336,4.001068,CTime_ePiCoinTime_ROC2,49973,measured
+28337,4.006218,CTime_ePiCoinTime_ROC2,49990,measured
+28338,4.005831,CTime_ePiCoinTime_ROC2,49983,measured
+28339,4.00935,CTime_ePiCoinTime_ROC2,49984,measured
+28340,4.007425,CTime_ePiCoinTime_ROC2,49986,measured
+28341,4.005481,CTime_ePiCoinTime_ROC2,49985,measured
+28345,4.029776,CTime_ePiCoinTime_ROC2,22348,measured
+28346,4.019912,CTime_ePiCoinTime_ROC2,26646,measured
+28347,4.031716,CTime_ePiCoinTime_ROC2,26031,measured
+28348,4.0218,CTime_ePiCoinTime_ROC2,26543,measured
+28351,4.006671,CTime_ePiCoinTime_ROC2,49958,measured
+28352,4.003786,CTime_ePiCoinTime_ROC2,49963,measured
+28353,-999.0,CTime_ePiCoinTime_ROC2,0,missing skim file
+28356,4.005317,CTime_ePiCoinTime_ROC2,49992,measured
+28357,4.015537,CTime_ePiCoinTime_ROC2,49993,measured
+28358,4.00635,CTime_ePiCoinTime_ROC2,49995,measured
+28359,4.013145,CTime_ePiCoinTime_ROC2,49997,measured
+28360,4.012433,CTime_ePiCoinTime_ROC2,49996,measured
+28361,-999.0,CTime_ePiCoinTime_ROC2,13732,no reliable periodic peak
+28362,-999.0,CTime_ePiCoinTime_ROC2,15631,no reliable periodic peak
+28363,-999.0,CTime_ePiCoinTime_ROC2,16959,no reliable periodic peak
+28364,-999.0,CTime_ePiCoinTime_ROC2,12558,no reliable periodic peak
+28365,-999.0,CTime_ePiCoinTime_ROC2,8397,no reliable periodic peak
+28373,4.007632,CTime_ePiCoinTime_ROC2,49981,measured
+28374,4.005481,CTime_ePiCoinTime_ROC2,49987,measured
+28375,4.003938,CTime_ePiCoinTime_ROC2,49988,measured
+28376,4.006749,CTime_ePiCoinTime_ROC2,49985,measured
+28377,4.00706,CTime_ePiCoinTime_ROC2,49994,measured
+28378,4.016063,CTime_ePiCoinTime_ROC2,49996,measured
+28379,-999.0,CTime_ePiCoinTime_ROC2,49997,no reliable periodic peak
+28392,4.003691,CTime_ePiCoinTime_ROC2,48956,measured
+28393,3.971587,CTime_ePiCoinTime_ROC2,4399,measured
+28394,4.006219,CTime_ePiCoinTime_ROC2,24331,measured
+28404,4.002605,CTime_ePiCoinTime_ROC2,49959,measured
+28405,4.008383,CTime_ePiCoinTime_ROC2,18725,measured
+28406,4.004292,CTime_ePiCoinTime_ROC2,49956,measured
+28408,4.002762,CTime_ePiCoinTime_ROC2,49968,measured
+28409,4.005243,CTime_ePiCoinTime_ROC2,49966,measured
+28417,-999.0,CTime_ePiCoinTime_ROC2,49995,no reliable periodic peak
+28418,-999.0,CTime_ePiCoinTime_ROC2,49996,no reliable periodic peak
+28419,4.024846,CTime_ePiCoinTime_ROC2,49989,measured
+28420,4.023177,CTime_ePiCoinTime_ROC2,49996,measured
+28421,-999.0,CTime_ePiCoinTime_ROC2,20563,no reliable periodic peak
+28422,-999.0,CTime_ePiCoinTime_ROC2,19655,no reliable periodic peak
+28423,4.032306,CTime_ePiCoinTime_ROC2,49999,measured
+28424,4.031536,CTime_ePiCoinTime_ROC2,49996,measured
+28425,4.018136,CTime_ePiCoinTime_ROC2,49976,measured
+28426,4.019227,CTime_ePiCoinTime_ROC2,49978,measured
+28429,-999.0,CTime_ePiCoinTime_ROC2,49997,no reliable periodic peak
+28431,-999.0,CTime_ePiCoinTime_ROC2,50000,no reliable periodic peak
+28432,-999.0,CTime_ePiCoinTime_ROC2,28397,no reliable periodic peak
+28440,4.00944,CTime_ePiCoinTime_ROC2,49962,measured
+28441,4.017518,CTime_ePiCoinTime_ROC2,49971,measured
+28444,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+28445,-999.0,CTime_ePiCoinTime_ROC2,49997,no reliable periodic peak
+28446,-999.0,CTime_ePiCoinTime_ROC2,49995,no reliable periodic peak
+28447,-999.0,CTime_ePiCoinTime_ROC2,49995,no reliable periodic peak
+28448,-999.0,CTime_ePiCoinTime_ROC2,49996,no reliable periodic peak
+28450,2.299846,CTime_ePiCoinTime_ROC2,10852,measured
+28451,2.320278,CTime_ePiCoinTime_ROC2,17100,measured
+28452,2.309538,CTime_ePiCoinTime_ROC2,14670,measured
+28453,-999.0,CTime_ePiCoinTime_ROC2,49998,no reliable periodic peak
+28454,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+28455,-999.0,CTime_ePiCoinTime_ROC2,49998,no reliable periodic peak
+28456,-999.0,CTime_ePiCoinTime_ROC2,49996,no reliable periodic peak
+28457,-999.0,CTime_ePiCoinTime_ROC2,49999,no reliable periodic peak
+28458,-999.0,CTime_ePiCoinTime_ROC2,49997,no reliable periodic peak
+28459,4.000391,CTime_ePiCoinTime_ROC2,49966,measured
+28460,3.992181,CTime_ePiCoinTime_ROC2,49967,measured
+28461,3.991814,CTime_ePiCoinTime_ROC2,49982,measured
+28462,3.996964,CTime_ePiCoinTime_ROC2,49981,measured
+28463,3.973348,CTime_ePiCoinTime_ROC2,49989,measured
+28464,3.968304,CTime_ePiCoinTime_ROC2,49995,measured
+28465,3.965984,CTime_ePiCoinTime_ROC2,49991,measured
+28466,3.975039,CTime_ePiCoinTime_ROC2,49992,measured
+28467,3.973103,CTime_ePiCoinTime_ROC2,49989,measured
+28468,3.992216,CTime_ePiCoinTime_ROC2,49978,measured
+28469,3.99797,CTime_ePiCoinTime_ROC2,49977,measured
+28470,3.996434,CTime_ePiCoinTime_ROC2,49958,measured
+28471,3.994607,CTime_ePiCoinTime_ROC2,49964,measured
