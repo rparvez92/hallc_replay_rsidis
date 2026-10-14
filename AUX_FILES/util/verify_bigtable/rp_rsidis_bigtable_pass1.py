@@ -47,7 +47,7 @@ SIDIS_OUTPUT_COLUMNS = [
     "h_esing_Eff", "h_hadron_Eff", "p_esing_Eff", "p_hadron_Eff", "ps5",
     "ps6", "comp_livetime", "electr_livetime", "coin", "ransubcoin",
     "ransubcoin_err", "normyield", "normyield_err", "ctmean", "ctsigma",
-    "boil_corr", "RF_signal",
+    "boil_corr", "coinblock_ratio", "RF_signal",
 ]
 
 VERIFIED_COLUMNS = [
@@ -55,12 +55,13 @@ VERIFIED_COLUMNS = [
     "run_type", "x", "Q2", "z", "thpq", "BCM1_Q", "BCM1_I", "BCM2_Q",
     "BCM2_I", "BCM4A_Q", "BCM4A_I", "BCM4B_Q", "BCM4B_I", "BCM4C_Q",
     "BCM4C_I", "h_esing_Eff", "h_hadron_Eff", "p_esing_Eff",
-    "p_hadron_Eff", "ps1", "ps2", "ps3", "ps4", "ps5", "ps6", "coin",
-    "ransubcoin", "ransubcoin_err", "normyield", "normyield_err", "ctmean",
-    "ctsigma", "h_EL_CLEAN", "p_EL_CLEAN",
+    "p_hadron_Eff", "ps1", "ps2", "ps3", "ps4", "ps5", "ps6",
+    "comp_livetime", "electr_livetime", "coin", "ransubcoin",
+    "ransubcoin_err", "normyield", "normyield_err", "ctmean", "ctsigma",
+    "IHWP", "BCM2_Q_hp", "BCM2_Q_hm", "h_EL_CLEAN", "p_EL_CLEAN",
 ]
 
-TEXT_COLUMNS = {"target", "run_type"}
+TEXT_COLUMNS = {"target", "run_type", "IHWP"}
 NOMINAL_COLUMNS = ("x", "Q2", "z", "thpq")
 HARDWARE_TOLERANCES = {
     "ebeam": 0.05, "hms_p": 0.015, "hms_th": 0.02,
@@ -286,7 +287,8 @@ def parse_report(
         "BCM1_Q", "BCM1_I", "BCM2_Q", "BCM2_I", "BCM4A_Q", "BCM4A_I",
         "BCM4B_Q", "BCM4B_I", "BCM4C_Q", "BCM4C_I", "h_esing_Eff",
         "h_hadron_Eff", "p_esing_Eff", "p_hadron_Eff", "ps1", "ps2",
-        "ps3", "ps4", "ps5", "ps6", "h_EL_CLEAN", "p_EL_CLEAN",
+        "ps3", "ps4", "ps5", "ps6", "comp_livetime", "electr_livetime",
+        "BCM2_Q_hp", "BCM2_Q_hm", "h_EL_CLEAN", "p_EL_CLEAN",
     ]
     if not path.exists():
         issue(issues, "error", run, run_type, "report", path, "missing report file")
@@ -310,6 +312,60 @@ def parse_report(
             lines, f"Ps{number}_factor =", run, run_type,
             f"ps{number}", path, issues,
         )
+
+    electronic_labels = {
+        "HMS": "OG 6 GeV Electronic Live Time (100, 150) :",
+        "SHMS": "OG 6 GeV Electronic Live Time (100, 150) :",
+        "COIN": "ROC2 OG 6 GeV Electronic Live Time (100, 150) (no BCM cut) :",
+    }
+    electronic_percent = unique_label_value(
+        lines, electronic_labels[report_type], run, run_type,
+        "electr_livetime", path, issues,
+    )
+    result["electr_livetime"] = (
+        round(electronic_percent / 100.0, 8)
+        if electronic_percent != SENTINEL else SENTINEL
+    )
+
+    livetime_triggers = {
+        "HMS": (
+            ("ps3", "Pre-Scaled Ps3 HMS Computer Live Time :"),
+            ("ps4", "Pre-Scaled Ps4 HMS Computer Live Time :"),
+        ),
+        "SHMS": (
+            ("ps1", "Pre-Scaled Ps1 SHMS Computer Live Time :"),
+            ("ps2", "Pre-Scaled Ps2 SHMS Computer Live Time :"),
+        ),
+        "COIN": (
+            ("ps5", "ROC2 Pre-Scaled Ps5 ROC2 Computer Live Time (no BCM cut) :"),
+            ("ps6", "ROC2 Pre-Scaled Ps6 ROC2 Computer Live Time (no BCM cut) :"),
+        ),
+    }
+    result["comp_livetime"] = SENTINEL
+    for prescale, label in livetime_triggers[report_type]:
+        if result[prescale] <= 0:
+            continue
+        percent = unique_label_value(
+            lines, label, run, run_type, "comp_livetime", path, issues,
+        )
+        if percent != SENTINEL:
+            result["comp_livetime"] = min(round(percent / 100.0, 5), 1.0)
+        break
+
+    result["BCM2_Q_hp"] = SENTINEL
+    result["BCM2_Q_hm"] = SENTINEL
+    if report_type == "COIN":
+        charge = unique_label_value(
+            lines, "BCM2 Helicity Gated Charge:", run, run_type,
+            "BCM2_Q_hp", path, issues,
+        )
+        asymmetry = unique_label_value(
+            lines, "BCM2 Helicity Gated Charge Asymmetry:", run, run_type,
+            "BCM2_Q_hm", path, issues,
+        )
+        if charge != SENTINEL and asymmetry != SENTINEL:
+            result["BCM2_Q_hp"] = round((charge / 2.0) * (1.0 + asymmetry), 5)
+            result["BCM2_Q_hm"] = round((charge / 2.0) * (1.0 - asymmetry), 5)
 
     clean_labels = (
         ("HMS_hEL_CLEAN :", "SHMS_pEL_CLEAN :")
@@ -335,6 +391,32 @@ def parse_report(
             result[column] = int(value)
     result.update(efficiency_values(lines, report_type, run, run_type, path, issues))
     return result
+
+
+def load_ihwp_values(paths: list[Path]) -> tuple[dict[int, object], dict[int, Path]]:
+    values: dict[int, object] = {}
+    sources: dict[int, Path] = {}
+    for path in paths:
+        _, rows = read_csv_rows(path)
+        for row in rows:
+            raw_run = str(row.get("run_number", "")).strip()
+            if not raw_run:
+                continue
+            run = int(raw_run)
+            if run in values:
+                raise ValueError(f"duplicate IHWP run {run} across source tables")
+            raw_value = str(row.get("IHWP", "")).strip().upper()
+            if raw_value in {"0", "0.0"}:
+                value: object = "OUT"
+            elif raw_value in {"1", "1.0"}:
+                value = "IN"
+            elif raw_value in {"IN", "OUT"}:
+                value = raw_value
+            else:
+                value = SENTINEL
+            values[run] = value
+            sources[run] = path
+    return values, sources
 
 
 def monitor_csv_path(report_root: Path, report_type: str, run: int) -> Path:
@@ -603,10 +685,14 @@ def build(args: argparse.Namespace) -> int:
     for runlist in args.runlists:
         if not runlist.is_file():
             raise FileNotFoundError(f"runlist is unavailable: {runlist}")
+    for ihwp_csv in args.ihwp_csvs:
+        if not ihwp_csv.is_file():
+            raise FileNotFoundError(f"IHWP source CSV is unavailable: {ihwp_csv}")
 
     issues: list[dict[str, object]] = []
     _, nominal_rows = read_csv_rows(args.nominal_map)
     _, sidis_settings = read_csv_rows(args.sidis_settings)
+    ihwp_values, ihwp_sources = load_ihwp_values(args.ihwp_csvs)
     group_header, group_rows = read_csv_rows(args.group_csv)
     if group_header != GROUP_OUTPUT_COLUMNS:
         issue(
@@ -648,6 +734,8 @@ def build(args: argparse.Namespace) -> int:
             base.update({
                 "run": run,
                 "run_type": group_row.get("run_type", SENTINEL),
+                "boil_corr": group_row.get("boil_corr", SENTINEL),
+                "coinblock_ratio": group_row.get("coinblock_ratio", SENTINEL),
                 "RF_signal": rf_signal_spacing(run),
             })
             rp_rows.append(base)
@@ -663,6 +751,10 @@ def build(args: argparse.Namespace) -> int:
             runlist_row, nominal_rows, args.nominal_map, issues,
         )
         result.update(nominal)
+        # Temporarily retain the group value until the independent boiling inputs
+        # become available. This column is deliberately excluded from verification.
+        result["boil_corr"] = group_row.get("boil_corr", SENTINEL)
+        result["coinblock_ratio"] = group_row.get("coinblock_ratio", SENTINEL)
         result["RF_signal"] = rf_signal_spacing(run)
         calculated = calculate_continuous_kinematics(runlist_row)
         coherence: dict[str, object] = {
@@ -704,6 +796,7 @@ def build(args: argparse.Namespace) -> int:
         report_type, report_path = choose_report(args.report_root, run, run_type)
         report_values = parse_report(report_path, report_type, run, run_type, issues)
         result.update(report_values)
+        result["IHWP"] = ihwp_values.get(run, SENTINEL)
 
         csv_path = monitor_csv_path(args.report_root, report_type, run)
         result.update(parse_monitor_csv(csv_path, report_type, run, run_type, issues))
@@ -716,6 +809,7 @@ def build(args: argparse.Namespace) -> int:
                 issue(
                     issues, severity, run, run_type, column,
                     args.nominal_map if column in NOMINAL_COLUMNS else (
+                        ihwp_sources.get(run, "IHWP source tables") if column == "IHWP" else
                         report_path if column not in {
                             "run", "ebeam", "target", "hms_p", "hms_th", "shms_p", "shms_th", "run_type",
                             "coin", "ransubcoin", "ransubcoin_err", "normyield", "normyield_err", "ctmean", "ctsigma",
@@ -734,9 +828,10 @@ def build(args: argparse.Namespace) -> int:
         note="COIN values are mC; HMS/SHMS single-arm values are uC",
     )
     issue(
-        issues, "info", "ALL", "", "unsupported_columns", "project scope",
-        "columns outside the first verification stage use -999",
-        note="comp_livetime,electr_livetime,boil_corr,IHWP,BCM2_Q_hp,BCM2_Q_hm,coinblock_ratio",
+        issues, "info", "ALL", "", "copied_unverified_columns", args.group_csv,
+        "group values copied without independent verification",
+        note=("boil_corr,coinblock_ratio; reverify when the required independent "
+              "input tables become available"),
     )
     issue(
         issues, "info", "ALL", "", "run_selection", args.group_csv,
@@ -791,6 +886,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--sidis-settings", type=Path,
         default=script_dir / "nominal_kinematics_sidis_settings.csv",
+    )
+    parser.add_argument(
+        "--ihwp-csvs", type=Path, nargs="+",
+        default=[
+            repo_root / "AUX_FILES/util/runlist_validation/rsidis_phaseI/updated_merged_run_start_stop_log_100625.csv",
+            repo_root / "AUX_FILES/util/runlist_validation/rsidis_phaseII/output/rsidis_phaseII_run_start_stop_table.csv",
+        ],
     )
     parser.add_argument(
         "--sidis-output-csv", type=Path,
